@@ -9,8 +9,8 @@
 import Foundation
 
 public class ViewControllerClassInfo: NSObject {
-    let customClass : String?
-    static let defaultClass = "UIViewController"
+    public let customClass : String?
+    public static let defaultClass = "UIViewController"
 
     var instanceInfos = Array< StoryboardInfo_WeakWrapper<ViewControllerInstanceInfo> >()
     

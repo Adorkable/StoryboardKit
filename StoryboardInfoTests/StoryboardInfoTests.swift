@@ -9,28 +9,27 @@
 import Cocoa
 import XCTest
 
-class StoryboardInfoTests: XCTestCase {
+import StoryboardInfo
+
+func storyboardPathBuilder() -> String? {
+    var result : String?
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    if let pwd = NSProcessInfo.processInfo().environment["PWD"] as? String {
+        result = pwd + "/StoryboardInfoTests/StoryboardInfo.storyboard"
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+    return result
 }
+
+class StoryboardInfoTests: XCTestCase {
+    func testStoryboardPathBuilder() {
+        var storyboardPath = storyboardPathBuilder()
+        XCTAssertNotNil(storyboardPath, "Storyboard Path is nil")
+        
+        if storyboardPath != nil
+        {
+            var fileExists = NSFileManager.defaultManager().fileExistsAtPath(storyboardPath!)
+            XCTAssertTrue(fileExists, "Storyboard file does not exist at path \(storyboardPath!)")
+        }
+    }    
+ }
