@@ -12,6 +12,7 @@
 		3C3DF3901B1B0AE500F1BBC0 /* StoryboardInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C3DF38F1B1B0AE500F1BBC0 /* StoryboardInfo.storyboard */; };
 		3C3DF3921B1B11B300F1BBC0 /* ApplicationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */; };
 		3C3DF3941B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */; };
+		3C3DF39B1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39A1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift */; };
 		3CF85BB41AF6E2F80043AA48 /* StoryboardInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CF85BB31AF6E2F80043AA48 /* StoryboardInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3CF85BBA1AF6E2F90043AA48 /* StoryboardInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF85BAE1AF6E2F80043AA48 /* StoryboardInfo.framework */; };
 		3CF85BC11AF6E2F90043AA48 /* StoryboardInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BC01AF6E2F90043AA48 /* StoryboardInfoTests.swift */; };
@@ -40,6 +41,7 @@
 		3C3DF38F1B1B0AE500F1BBC0 /* StoryboardInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardInfo.storyboard; sourceTree = "<group>"; };
 		3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInfoTests.swift; sourceTree = "<group>"; };
 		3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFileParserTests.swift; sourceTree = "<group>"; };
+		3C3DF39A1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFile3_0Parser.swift; sourceTree = "<group>"; };
 		3CF85BAE1AF6E2F80043AA48 /* StoryboardInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StoryboardInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF85BB21AF6E2F80043AA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CF85BB31AF6E2F80043AA48 /* StoryboardInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoryboardInfo.h; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C3DF3971B1B189900F1BBC0 /* StoryboardFileVersionedParsers */ = {
+			isa = PBXGroup;
+			children = (
+				3C3DF39A1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift */,
+			);
+			path = StoryboardFileVersionedParsers;
+			sourceTree = "<group>";
+		};
 		3CF85BA41AF6E2F80043AA48 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +117,7 @@
 				3CF85BB11AF6E2F80043AA48 /* Supporting Files */,
 				3CF85BCA1AF6E3880043AA48 /* ApplicationInfo.swift */,
 				3CF85BCC1AF6E3880043AA48 /* StoryboardFileParser.swift */,
+				3C3DF3971B1B189900F1BBC0 /* StoryboardFileVersionedParsers */,
 				3CF85BCD1AF6E3880043AA48 /* StoryboardInstanceInfo.swift */,
 				3CF85BCF1AF6E3880043AA48 /* ViewControllerClassInfo.swift */,
 				3CF85BD01AF6E3880043AA48 /* ViewControllerInstanceInfo.swift */,
@@ -329,6 +340,7 @@
 				3CF85BD41AF6E3880043AA48 /* StoryboardInstanceInfo.swift in Sources */,
 				3CF85BD11AF6E3880043AA48 /* ApplicationInfo.swift in Sources */,
 				3CF85BD31AF6E3880043AA48 /* StoryboardFileParser.swift in Sources */,
+				3C3DF39B1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift in Sources */,
 				3CF85BD21AF6E3880043AA48 /* SegueInstanceInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
