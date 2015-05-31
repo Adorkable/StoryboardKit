@@ -16,8 +16,12 @@ public class ApplicationInfo: NSObject {
         self.viewControllerClasses.append(viewControllerClass)
     }
     
-    func viewControllerClassWithClassName(className : String?) -> ViewControllerClassInfo? {
-        return self.viewControllerClasses.filter( { $0.customClass == className } ).first
+    public func viewControllerClassWithClassName(className : String?) -> ViewControllerClassInfo? {
+        return self.viewControllerClasses.filter(
+            {
+                $0.customClass == className ||
+                $0.customClass == nil && className == ViewControllerClassInfo.defaultClass
+        } ).first
     }
     
     private var viewControllerInstances = Array<ViewControllerInstanceInfo>()
@@ -27,8 +31,12 @@ public class ApplicationInfo: NSObject {
         self.viewControllerInstances.append(viewControllerInstance)
     }
     
-    func viewControllerInstanceWithInstanceId(instanceId : String) -> ViewControllerInstanceInfo? {
+    public func viewControllerInstanceWithInstanceId(instanceId : String) -> ViewControllerInstanceInfo? {
         return self.viewControllerInstances.filter( { $0.instanceId == instanceId } ).first
+    }
+    
+    public func viewControllerInstanceWithStoryboardIdentifier(identifier : String) -> ViewControllerInstanceInfo? {
+        return self.viewControllerInstances.filter( { $0.storyboardIdentifier == identifier} ).first
     }
     
     private var segueClasses = Array<SegueClassInfo>()
@@ -38,7 +46,7 @@ public class ApplicationInfo: NSObject {
         self.segueClasses.append(segueClass)
     }
     
-    func segueClassWithClassName(className : String?) -> SegueClassInfo? {
+    public func segueClassWithClassName(className : String?) -> SegueClassInfo? {
         return self.segueClasses.filter( { $0.customClass == className } ).first
     }
 }
