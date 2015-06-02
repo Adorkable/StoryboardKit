@@ -54,8 +54,12 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
                     if sceneObjectElement.name == "viewController" || sceneObjectElement.name == "tableViewController"
                     {
                         self.parseViewController(object, sceneInfo: sceneInfo)
+                    } else if sceneObjectElement.name == "navigationController"
+                    {
+                        self.parseNavigationController(object, sceneInfo: sceneInfo)
                     } else
                     {
+                        // TODO: placeholder
                         NSLog("Skipping unsupported scene object \(sceneObjectElement.name)")
                     }
                 }
@@ -80,18 +84,72 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             sceneInfo.viewController = viewControllerInstanceInfo
             self.applicationInfo.add(viewControllerInstance: viewControllerInstanceInfo)
             
-            // TODO: layoutGuides
-            // TODO: view
-            // TODO: navigationItem
+            self.parseLayoutGuides(viewController["layoutGuides"], source: viewControllerInstanceInfo)
+            self.parseView(viewController["view"], source: viewControllerInstanceInfo)
             
-            for connection in viewController["connections"].children
+            var navigationItem = viewController["navigationItem"]
+            if navigationItem.element != nil
             {
-                self.parseConnection(connection, source: viewControllerInstanceInfo)
+                self.parseNavigationItem(navigationItem, source: viewControllerInstanceInfo)
             }
+            
+            self.parseConnections(viewController["connections"], source: viewControllerInstanceInfo)
         }
     }
     
-    internal func parseConnection(connection : XMLIndexer, source : ViewControllerInstanceInfo) {
+    internal func parseLayoutGuides(layoutGuides : XMLIndexer, source : ViewControllerInstanceInfo) {
+        for layoutGuide in layoutGuides.children
+        {
+            self.parseLayoutGuide(layoutGuide, source: source)
+        }
+    }
+    
+    internal func parseLayoutGuide(layoutGuide : XMLIndexer, source : ViewControllerInstanceInfo) {
+        
+        if let element = layoutGuide.element,
+            let id = element.attributes["id"],
+            let type = element.attributes["type"]
+        {
+            var layoutGuide = ViewControllerLayoutGuideInstanceInfo(id: id, type: type )
+            source.add(layoutGuide: layoutGuide)
+        } else
+        {
+            NSLog("Unable to create View Controller Layout Guide Instance Info from \(layoutGuide)")
+        }
+    }
+    
+    internal func parseView(view : XMLIndexer, source : ViewControllerInstanceInfo) {
+        // TODO: View Tree parsing
+    }
+    
+    internal func parseNavigationItem(navigationItem : XMLIndexer, source : ViewControllerInstanceInfo) {
+        
+        switch navigationItem
+        {
+        case .Element(let element):
+                if let element = navigationItem.element,
+                    let id = element.attributes["id"],
+                    let navigationItemKey = element.attributes["key"],
+                    let title = element.attributes["title"]
+                {
+                    var navigationItem = NavigationItemInstanceInfo(id: id, navigationItemKey: navigationItemKey, title: title)
+                    source.add(navigationItem: navigationItem)
+                } else
+                {
+                    NSLog("Unable to create Navigation Item Instance Info from \(navigationItem)")
+                }
+            break
+        case .Error(let error):
+                NSLog("Unable to create Navigation Item Instance Info from \(navigationItem): \(error)")
+            break
+        default:
+            NSLog("Unable to create Navigation Item Instance Info from \(navigationItem), unhandled element \(navigationItem.element)")
+        }
+    }
+    
+    internal func createConnection(connection : XMLIndexer, source : SegueConnection) -> SegueInstanceInfo? {
+        var result : SegueInstanceInfo?
+        
         if let element = connection.element,
             let instanceId = element.attributes["id"],
             let destinationId = element.attributes["destination"]
@@ -107,11 +165,72 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             let kind = element.attributes["kind"]
             let identifier = element.attributes["identifier"]
             
-            var segueInfo = SegueInstanceInfo(classInfo: segueClass!, instanceId: instanceId, source: source, destinationId: destinationId, kind: kind, identifier: identifier)
-            
+            result = SegueInstanceInfo(classInfo: segueClass!, instanceId: instanceId, source: source, destinationId: destinationId, kind: kind, identifier: identifier)
+        }
+        
+        return result
+    }
+    
+    internal func parseConnection(connection : XMLIndexer, source : ViewControllerInstanceInfo) {
+        if let segueInfo = self.createConnection(connection, source: StoryboardInfo_Either.Left( StoryboardInfo_Weak(source) ) )
+        {
             source.add(segue: segueInfo)
             
             self.pendingSegues.append(segueInfo)
+        }
+    }
+    
+    internal func parseConnections(connections : XMLIndexer, source : ViewControllerInstanceInfo) {
+        for connection in connections.children
+        {
+            self.parseConnection(connection, source: source)
+        }
+    }
+    
+    internal func parseConnection(connection : XMLIndexer, source : NavigationControllerInstanceInfo) {
+        if let segueInfo = self.createConnection(connection, source: StoryboardInfo_Either.Right( StoryboardInfo_Weak(source) ) )
+        {
+            source.root = segueInfo
+            
+            self.pendingSegues.append(segueInfo)
+        }
+    }
+    
+    internal func parseConnections(connections : XMLIndexer, source : NavigationControllerInstanceInfo) {
+        for connection in connections.children
+        {
+            self.parseConnection(connection, source: source)
+        }
+    }
+    
+    internal func parseNavigationController(navigationController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
+        if let element = navigationController.element, let id = element.attributes["id"]
+        {
+             // TODO: test
+/*            let customClass = element.attributes["customClass"]
+            var viewControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(customClass)
+            if viewControllerClassInfo == nil
+            {
+                viewControllerClassInfo = ViewControllerClassInfo(customClass: customClass)
+                self.applicationInfo.add(viewControllerClass: viewControllerClassInfo!)
+            }
+*/
+            
+            let storyboardIdentifier = element.attributes["storyboardIdentifier"]
+            let sceneMemberId = element.attributes["sceneMemberID"]
+            
+            var navigationControllerInstanceInfo = NavigationControllerInstanceInfo(id: id, storyboardIdentifier: storyboardIdentifier, sceneMemberId: sceneMemberId)
+            
+            sceneInfo.navigationController = navigationControllerInstanceInfo
+            self.applicationInfo.add(navigationControllerInstance: navigationControllerInstanceInfo)
+            
+/*            var navigationBar = viewController["navigationBar"] //TODO: can this be optional?
+            if navigationBar.element != nil
+            {
+                self.parseNavigationBar(navigationBar, source: navigationControllerInstanceInfo)
+            }
+*/
+            self.parseConnections(navigationController["connections"], source: navigationControllerInstanceInfo)
         }
     }
     
@@ -119,10 +238,17 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         while self.pendingSegues.count > 0
         {
             var segueInfo = self.pendingSegues.removeLast()
-            var destination = self.applicationInfo.viewControllerInstanceWithInstanceId(segueInfo.destinationId)
-            if destination != nil
+
+            if let destination = self.applicationInfo.viewControllerInstanceWithInstanceId(segueInfo.destinationId)
             {
-                segueInfo.destination = destination!
+                // TODO: lame to have destination optional as a side effect of parsing process, FIX
+                segueInfo.destination = StoryboardInfo_Either.Left( StoryboardInfo_Weak(destination) )
+            } else if let destination = self.applicationInfo.navigationControllerInstanceWithId(segueInfo.destinationId)
+            {
+                segueInfo.destination = StoryboardInfo_Either.Right( StoryboardInfo_Weak(destination) )
+            } else
+            {
+                NSLog("Error linking pending segues, unable to find destination with id \(segueInfo.destinationId)")
             }
         }
     }

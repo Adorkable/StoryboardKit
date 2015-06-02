@@ -39,6 +39,21 @@ public class ApplicationInfo: NSObject {
         return self.viewControllerInstances.filter( { $0.storyboardIdentifier == identifier} ).first
     }
     
+    private var navigationControllerInstances = Array<NavigationControllerInstanceInfo>()
+    
+    // TODO: validates that this isn't a dup
+    func add(#navigationControllerInstance : NavigationControllerInstanceInfo) {
+        self.navigationControllerInstances.append(navigationControllerInstance)
+    }
+    
+    public func navigationControllerInstanceWithId(id : String) -> NavigationControllerInstanceInfo? {
+        return self.navigationControllerInstances.filter( { $0.id == id } ).first
+    }
+    
+    public func navigationControllerInstanceWithStoryboardIdentifier(identifier : String) -> NavigationControllerInstanceInfo? {
+        return self.navigationControllerInstances.filter( { $0.storyboardIdentifier == identifier} ).first
+    }
+    
     private var segueClasses = Array<SegueClassInfo>()
     
     // TODO: validates that this isn't a dup

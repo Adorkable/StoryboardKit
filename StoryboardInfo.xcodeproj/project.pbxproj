@@ -13,6 +13,9 @@
 		3C3DF3921B1B11B300F1BBC0 /* ApplicationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */; };
 		3C3DF3941B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */; };
 		3C3DF39B1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39A1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift */; };
+		3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */; };
+		3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */; };
+		3C3DF3A11B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3A01B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift */; };
 		3CF85BB41AF6E2F80043AA48 /* StoryboardInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CF85BB31AF6E2F80043AA48 /* StoryboardInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3CF85BBA1AF6E2F90043AA48 /* StoryboardInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF85BAE1AF6E2F80043AA48 /* StoryboardInfo.framework */; };
 		3CF85BC11AF6E2F90043AA48 /* StoryboardInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BC01AF6E2F90043AA48 /* StoryboardInfoTests.swift */; };
@@ -42,6 +45,9 @@
 		3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInfoTests.swift; sourceTree = "<group>"; };
 		3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFileParserTests.swift; sourceTree = "<group>"; };
 		3C3DF39A1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFile3_0Parser.swift; sourceTree = "<group>"; };
+		3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLayoutGuideInstanceInfo.swift; sourceTree = "<group>"; };
+		3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemInstanceInfo.swift; sourceTree = "<group>"; };
+		3C3DF3A01B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerInstanceInfo.swift; sourceTree = "<group>"; };
 		3CF85BAE1AF6E2F80043AA48 /* StoryboardInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StoryboardInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF85BB21AF6E2F80043AA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CF85BB31AF6E2F80043AA48 /* StoryboardInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoryboardInfo.h; sourceTree = "<group>"; };
@@ -124,6 +130,9 @@
 				3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */,
 				3CF85BCB1AF6E3880043AA48 /* SegueInstanceInfo.swift */,
 				3CF85BCE1AF6E3880043AA48 /* Utility.swift */,
+				3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */,
+				3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */,
+				3C3DF3A01B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift */,
 			);
 			path = StoryboardInfo;
 			sourceTree = "<group>";
@@ -339,8 +348,11 @@
 				3CF85BD61AF6E3880043AA48 /* ViewControllerClassInfo.swift in Sources */,
 				3CF85BD41AF6E3880043AA48 /* StoryboardInstanceInfo.swift in Sources */,
 				3CF85BD11AF6E3880043AA48 /* ApplicationInfo.swift in Sources */,
+				3C3DF3A11B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift in Sources */,
 				3CF85BD31AF6E3880043AA48 /* StoryboardFileParser.swift in Sources */,
 				3C3DF39B1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift in Sources */,
+				3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */,
+				3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */,
 				3CF85BD21AF6E3880043AA48 /* SegueInstanceInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

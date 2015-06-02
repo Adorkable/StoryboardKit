@@ -15,3 +15,17 @@ class StoryboardInfo_WeakWrapper<T: AnyObject> {
         self.value = value
     }
 }
+
+enum StoryboardInfo_Either<TLeft : AnyObject, TRight : AnyObject> {
+    case Left(TLeft)
+    case Right(TRight)
+}
+
+// http://stackoverflow.com/a/24102282
+class StoryboardInfo_Weak<T : AnyObject> {
+    unowned let value: T
+    
+    init(_ value: T) {
+        self.value = value
+    }
+}

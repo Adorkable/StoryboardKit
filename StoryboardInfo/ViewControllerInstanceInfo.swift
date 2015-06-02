@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Adorkable. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 public class ViewControllerInstanceInfo: NSObject {
     let classInfo : ViewControllerClassInfo
@@ -16,6 +16,10 @@ public class ViewControllerInstanceInfo: NSObject {
     let storyboardIdentifier : String?
     
     private var segues = Array< SegueInstanceInfo >()
+    
+    private var layoutGuides = Array< ViewControllerLayoutGuideInstanceInfo >()
+    
+    private var navigationItems = Array< NavigationItemInstanceInfo >()
     
     init(classInfo : ViewControllerClassInfo, instanceId : String, storyboardIdentifier : String?) {
         self.classInfo = classInfo
@@ -30,5 +34,13 @@ public class ViewControllerInstanceInfo: NSObject {
     
     func add(#segue : SegueInstanceInfo) {
         self.segues.append(segue)
+    }
+    
+    func add(#layoutGuide : ViewControllerLayoutGuideInstanceInfo) {
+        self.layoutGuides.append(layoutGuide)
+    }
+    
+    func add(#navigationItem : NavigationItemInstanceInfo) {
+        self.navigationItems.append(navigationItem)
     }
 }
