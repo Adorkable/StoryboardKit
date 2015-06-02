@@ -12,11 +12,15 @@ public class ViewControllerClassInfo: NSObject {
     public let customClass : String?
     public static let defaultClass = "UIViewController"
 
-    var instanceInfos = Array< StoryboardInfo_WeakWrapper<ViewControllerInstanceInfo> >()
+    public private(set) var instanceInfos = Array< StoryboardInfo_WeakWrapper<ViewControllerInstanceInfo> >()
     
     init(customClass : String?) {
         self.customClass = customClass
         
         super.init()
+    }
+    
+    func add(#instanceInfo : ViewControllerInstanceInfo) {
+        self.instanceInfos.append( StoryboardInfo_WeakWrapper(instanceInfo) )
     }
 }

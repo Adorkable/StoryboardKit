@@ -9,23 +9,14 @@
 import Foundation
 
 // http://stackoverflow.com/a/24128121/96153
-class StoryboardInfo_WeakWrapper<T: AnyObject> {
+public class StoryboardInfo_WeakWrapper<T: AnyObject> {
     weak var value : T?
-    init (value: T) {
+    init (_ value: T) {
         self.value = value
     }
 }
 
-enum StoryboardInfo_Either<TLeft : AnyObject, TRight : AnyObject> {
+public enum StoryboardInfo_Either<TLeft : AnyObject, TRight : AnyObject> {
     case Left(TLeft)
     case Right(TRight)
-}
-
-// http://stackoverflow.com/a/24102282
-class StoryboardInfo_Weak<T : AnyObject> {
-    unowned let value: T
-    
-    init(_ value: T) {
-        self.value = value
-    }
 }

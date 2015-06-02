@@ -8,30 +8,30 @@
 
 import Cocoa
 
-typealias SegueConnection = StoryboardInfo_Either< StoryboardInfo_Weak<ViewControllerInstanceInfo>, StoryboardInfo_Weak<NavigationControllerInstanceInfo> >
+public typealias SegueConnection = StoryboardInfo_Either< StoryboardInfo_WeakWrapper<ViewControllerInstanceInfo>, StoryboardInfo_WeakWrapper<NavigationControllerInstanceInfo> >
 
 public class SegueInstanceInfo: NSObject, Idable {
-    var classInfo : SegueClassInfo
-    let id : String
-    var source : SegueConnection?
-    let kind : String?
-    let identifier : String?
+    public let classInfo : SegueClassInfo
+    public let id : String
+    public var source : SegueConnection?
+    public let kind : String?
+    public let identifier : String?
     
-    var destinationId : String
+    public let destinationId : String
     // TODO: lame to have destination optional as a side effect of parsing process, FIX
-    var destination : SegueConnection?
+    public var destination : SegueConnection?
     
     init(classInfo : SegueClassInfo, id : String, source : ViewControllerInstanceInfo, destinationId : String, kind : String?, identifier : String?) {
         self.classInfo = classInfo
         self.id = id
-        self.source = StoryboardInfo_Either.Left( StoryboardInfo_Weak(source) )
+        self.source = StoryboardInfo_Either.Left( StoryboardInfo_WeakWrapper(source) )
         self.destinationId = destinationId
         self.kind = kind
         self.identifier = identifier
         
         super.init()
         
-        self.classInfo.instanceInfos.append( StoryboardInfo_WeakWrapper(value: self) )
+        self.classInfo.add(instanceInfo: self)
     }
     
     init(classInfo : SegueClassInfo, id : String, source : SegueConnection, destinationId : String, kind : String?, identifier : String?) {
@@ -44,6 +44,6 @@ public class SegueInstanceInfo: NSObject, Idable {
         
         super.init()
         
-        self.classInfo.instanceInfos.append( StoryboardInfo_WeakWrapper(value: self) )
+        self.classInfo.add(instanceInfo: self)
     }
 }

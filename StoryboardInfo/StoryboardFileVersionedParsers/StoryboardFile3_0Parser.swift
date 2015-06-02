@@ -172,7 +172,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
     }
     
     internal func parseConnection(connection : XMLIndexer, source : ViewControllerInstanceInfo) {
-        if let segueInfo = self.createConnection(connection, source: StoryboardInfo_Either.Left( StoryboardInfo_Weak(source) ) )
+        if let segueInfo = self.createConnection(connection, source: StoryboardInfo_Either.Left( StoryboardInfo_WeakWrapper(source) ) )
         {
             source.add(segue: segueInfo)
             
@@ -188,7 +188,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
     }
     
     internal func parseConnection(connection : XMLIndexer, source : NavigationControllerInstanceInfo) {
-        if let segueInfo = self.createConnection(connection, source: StoryboardInfo_Either.Right( StoryboardInfo_Weak(source) ) )
+        if let segueInfo = self.createConnection(connection, source: StoryboardInfo_Either.Right( StoryboardInfo_WeakWrapper(source) ) )
         {
             source.root = segueInfo
             
@@ -242,10 +242,10 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             if let destination = self.applicationInfo.viewControllerInstanceWithId(segueInfo.destinationId)
             {
                 // TODO: lame to have destination optional as a side effect of parsing process, FIX
-                segueInfo.destination = StoryboardInfo_Either.Left( StoryboardInfo_Weak(destination) )
+                segueInfo.destination = StoryboardInfo_Either.Left( StoryboardInfo_WeakWrapper(destination) )
             } else if let destination = self.applicationInfo.navigationControllerInstanceWithId(segueInfo.destinationId)
             {
-                segueInfo.destination = StoryboardInfo_Either.Right( StoryboardInfo_Weak(destination) )
+                segueInfo.destination = StoryboardInfo_Either.Right( StoryboardInfo_WeakWrapper(destination) )
             } else
             {
                 NSLog("Error linking pending segues, unable to find destination with id \(segueInfo.destinationId)")

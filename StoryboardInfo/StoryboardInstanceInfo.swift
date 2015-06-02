@@ -11,7 +11,7 @@ import Foundation
 import SWXMLHash
 
 public class StoryboardInstanceInfo: NSObject {
-    private var scenes = Array<SceneInfo>()
+    public private(set) var scenes = Array<SceneInfo>()
     
     public class SceneInfo: NSObject {
         let sceneId : String

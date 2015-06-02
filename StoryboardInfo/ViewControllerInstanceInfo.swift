@@ -29,7 +29,7 @@ public class ViewControllerInstanceInfo: NSObject, Idable {
         
         super.init()
 
-        self.classInfo.instanceInfos.append( StoryboardInfo_WeakWrapper(value: self) )
+        self.classInfo.add(instanceInfo: self)
     }
     
     func add(#segue : SegueInstanceInfo) {

@@ -12,11 +12,15 @@ public class SegueClassInfo: NSObject {
     let customClass : String?
     static let defaultClass = "UIStoryboardSegue"
     
-    var instanceInfos = Array< StoryboardInfo_WeakWrapper< SegueInstanceInfo> >()
+    public private(set) var instanceInfos = Array< StoryboardInfo_WeakWrapper< SegueInstanceInfo> >()
     
     init(customClass : String?) {
         self.customClass = customClass
         
         super.init()
+    }
+    
+    func add(#instanceInfo : SegueInstanceInfo) {
+        self.instanceInfos.append( StoryboardInfo_WeakWrapper(instanceInfo) )
     }
 }
