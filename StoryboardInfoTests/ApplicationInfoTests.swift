@@ -29,14 +29,26 @@ class ApplicationInfoTests: XCTestCase {
     }
     
     func testViewControllerInstanceWithInstanceId() {
-        var instanceId = "yrP-vr-uHE"
-        var instanceInfo = applicationInfo?.viewControllerInstanceWithInstanceId(instanceId)
-        XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for instance id '\(instanceId)'")
+        var id = "yrP-vr-uHE"
+        var instanceInfo = applicationInfo?.viewControllerInstanceWithId(id)
+        XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for id '\(id)'")
     }
     
     func testViewControllerInstanceWithStoryboardIdentifier() {
         var storyboardIdentifier = "FirstInstance"
         var instanceInfo = applicationInfo?.viewControllerInstanceWithStoryboardIdentifier(storyboardIdentifier)
+        XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for storyboard identifier '\(storyboardIdentifier)'")
+    }
+    
+    func testNavigationControllerInstanceWithId() {
+        var id = "eGU-XO-Tph"
+        var instanceInfo = applicationInfo?.navigationControllerInstanceWithId(id)
+        XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for id '\(id)'")
+    }
+    
+    func testNavigationControllerInstanceWithStoryboardIdentifier() {
+        var storyboardIdentifier = "Navigation"
+        var instanceInfo = applicationInfo?.navigationControllerInstanceWithStoryboardIdentifier(storyboardIdentifier)
         XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for storyboard identifier '\(storyboardIdentifier)'")
     }
 }

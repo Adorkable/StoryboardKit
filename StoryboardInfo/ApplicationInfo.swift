@@ -9,7 +9,7 @@
 import Cocoa
 
 public class ApplicationInfo: NSObject {
-    private var viewControllerClasses = Array<ViewControllerClassInfo>()
+    public private(set) var viewControllerClasses = Array<ViewControllerClassInfo>()
     
     // TODO: validates that this isn't a dup
     func add(#viewControllerClass : ViewControllerClassInfo) {
@@ -24,22 +24,22 @@ public class ApplicationInfo: NSObject {
         } ).first
     }
     
-    private var viewControllerInstances = Array<ViewControllerInstanceInfo>()
+    public private(set) var viewControllerInstances = Array<ViewControllerInstanceInfo>()
     
     // TODO: validates that this isn't a dup
     func add(#viewControllerInstance : ViewControllerInstanceInfo) {
         self.viewControllerInstances.append(viewControllerInstance)
     }
     
-    public func viewControllerInstanceWithInstanceId(instanceId : String) -> ViewControllerInstanceInfo? {
-        return self.viewControllerInstances.filter( { $0.instanceId == instanceId } ).first
+    public func viewControllerInstanceWithId(id : String) -> ViewControllerInstanceInfo? {
+        return firstObjectWithId(id, self.viewControllerInstances)
     }
     
     public func viewControllerInstanceWithStoryboardIdentifier(identifier : String) -> ViewControllerInstanceInfo? {
         return self.viewControllerInstances.filter( { $0.storyboardIdentifier == identifier} ).first
     }
     
-    private var navigationControllerInstances = Array<NavigationControllerInstanceInfo>()
+    public private(set) var navigationControllerInstances = Array<NavigationControllerInstanceInfo>()
     
     // TODO: validates that this isn't a dup
     func add(#navigationControllerInstance : NavigationControllerInstanceInfo) {
@@ -47,14 +47,14 @@ public class ApplicationInfo: NSObject {
     }
     
     public func navigationControllerInstanceWithId(id : String) -> NavigationControllerInstanceInfo? {
-        return self.navigationControllerInstances.filter( { $0.id == id } ).first
+        return firstObjectWithId(id, self.navigationControllerInstances)
     }
     
     public func navigationControllerInstanceWithStoryboardIdentifier(identifier : String) -> NavigationControllerInstanceInfo? {
         return self.navigationControllerInstances.filter( { $0.storyboardIdentifier == identifier} ).first
     }
     
-    private var segueClasses = Array<SegueClassInfo>()
+    public private(set) var segueClasses = Array<SegueClassInfo>()
     
     // TODO: validates that this isn't a dup
     func add(#segueClass : SegueClassInfo) {
@@ -64,4 +64,6 @@ public class ApplicationInfo: NSObject {
     public func segueClassWithClassName(className : String?) -> SegueClassInfo? {
         return self.segueClasses.filter( { $0.customClass == className } ).first
     }
+    
+    // TODO: store SegueInstances
 }

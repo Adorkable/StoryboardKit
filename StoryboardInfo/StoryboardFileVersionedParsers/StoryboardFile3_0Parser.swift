@@ -68,7 +68,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
     }
     
     internal func parseViewController(viewController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
-        if let element = viewController.element, let instanceId = element.attributes["id"]
+        if let element = viewController.element, let id = element.attributes["id"]
         {
             let customClass = element.attributes["customClass"]
             var viewControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(customClass)
@@ -79,7 +79,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             }
             
             let storyboardIdentifier = element.attributes["storyboardIdentifier"]
-            var viewControllerInstanceInfo = ViewControllerInstanceInfo(classInfo: viewControllerClassInfo!, instanceId: instanceId, storyboardIdentifier: storyboardIdentifier)
+            var viewControllerInstanceInfo = ViewControllerInstanceInfo(classInfo: viewControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier)
             
             sceneInfo.viewController = viewControllerInstanceInfo
             self.applicationInfo.add(viewControllerInstance: viewControllerInstanceInfo)
@@ -151,7 +151,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         var result : SegueInstanceInfo?
         
         if let element = connection.element,
-            let instanceId = element.attributes["id"],
+            let id = element.attributes["id"],
             let destinationId = element.attributes["destination"]
         {
             let customClass = element.attributes["customClass"]
@@ -165,7 +165,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             let kind = element.attributes["kind"]
             let identifier = element.attributes["identifier"]
             
-            result = SegueInstanceInfo(classInfo: segueClass!, instanceId: instanceId, source: source, destinationId: destinationId, kind: kind, identifier: identifier)
+            result = SegueInstanceInfo(classInfo: segueClass!, id: id, source: source, destinationId: destinationId, kind: kind, identifier: identifier)
         }
         
         return result
@@ -239,7 +239,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         {
             var segueInfo = self.pendingSegues.removeLast()
 
-            if let destination = self.applicationInfo.viewControllerInstanceWithInstanceId(segueInfo.destinationId)
+            if let destination = self.applicationInfo.viewControllerInstanceWithId(segueInfo.destinationId)
             {
                 // TODO: lame to have destination optional as a side effect of parsing process, FIX
                 segueInfo.destination = StoryboardInfo_Either.Left( StoryboardInfo_Weak(destination) )

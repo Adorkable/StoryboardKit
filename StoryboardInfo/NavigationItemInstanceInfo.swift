@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class NavigationItemInstanceInfo: NSObject {
+public class NavigationItemInstanceInfo: NSObject, Idable {
     public let id : String
     public let navigationItemKey : String
     public let title : String

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class NavigationControllerInstanceInfo: NSObject {
+public class NavigationControllerInstanceInfo: NSObject, Idable {
     public let id : String
     
     public let storyboardIdentifier : String?

@@ -8,22 +8,22 @@
 
 import Foundation
 
-public class ViewControllerInstanceInfo: NSObject {
-    let classInfo : ViewControllerClassInfo
+public class ViewControllerInstanceInfo: NSObject, Idable {
+    public let classInfo : ViewControllerClassInfo
     
-    let instanceId : String
+    public let id : String
     
-    let storyboardIdentifier : String?
+    public let storyboardIdentifier : String?
     
-    private var segues = Array< SegueInstanceInfo >()
+    public private(set) var segues = Array< SegueInstanceInfo >()
     
-    private var layoutGuides = Array< ViewControllerLayoutGuideInstanceInfo >()
+    public private(set) var layoutGuides = Array< ViewControllerLayoutGuideInstanceInfo >()
     
-    private var navigationItems = Array< NavigationItemInstanceInfo >()
+    public private(set) var navigationItems = Array< NavigationItemInstanceInfo >()
     
-    init(classInfo : ViewControllerClassInfo, instanceId : String, storyboardIdentifier : String?) {
+    init(classInfo : ViewControllerClassInfo, id : String, storyboardIdentifier : String?) {
         self.classInfo = classInfo
-        self.instanceId = instanceId
+        self.id = id
         
         self.storyboardIdentifier = storyboardIdentifier
         

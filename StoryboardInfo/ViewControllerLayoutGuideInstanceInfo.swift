@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ViewControllerLayoutGuideInstanceInfo: NSObject {
+public class ViewControllerLayoutGuideInstanceInfo: NSObject, Idable {
     public let id : String
     public let type : String
     

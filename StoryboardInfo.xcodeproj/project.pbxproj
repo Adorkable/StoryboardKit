@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08B1C8911AE8F27C164DD47C /* Pods_StoryboardInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63D27DFCBC69D64CB78A68DE /* Pods_StoryboardInfo.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3C0597DF1B1D8DB1001D7C15 /* StoryboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0597DE1B1D8DB1001D7C15 /* StoryboardInfo.swift */; };
 		3C1380511AF7BEBA00E417B2 /* SegueClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */; };
 		3C3DF3901B1B0AE500F1BBC0 /* StoryboardInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C3DF38F1B1B0AE500F1BBC0 /* StoryboardInfo.storyboard */; };
 		3C3DF3921B1B11B300F1BBC0 /* ApplicationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C0597DE1B1D8DB1001D7C15 /* StoryboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInfo.swift; sourceTree = "<group>"; };
 		3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueClassInfo.swift; sourceTree = "<group>"; };
 		3C3DF38F1B1B0AE500F1BBC0 /* StoryboardInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardInfo.storyboard; sourceTree = "<group>"; };
 		3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInfoTests.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */,
 				3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */,
 				3C3DF3A01B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift */,
+				3C0597DE1B1D8DB1001D7C15 /* StoryboardInfo.swift */,
 			);
 			path = StoryboardInfo;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				3C3DF3A11B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift in Sources */,
 				3CF85BD31AF6E3880043AA48 /* StoryboardFileParser.swift in Sources */,
 				3C3DF39B1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift in Sources */,
+				3C0597DF1B1D8DB1001D7C15 /* StoryboardInfo.swift in Sources */,
 				3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */,
 				3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */,
 				3CF85BD21AF6E3880043AA48 /* SegueInstanceInfo.swift in Sources */,

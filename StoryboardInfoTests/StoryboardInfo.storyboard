@@ -28,7 +28,6 @@
         <!--Root View Controller-->
         <scene sceneID="AEP-CE-s0Q">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k7b-iO-DEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="dPQ-nl-ySe" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eAK-OP-a0x">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -53,6 +52,7 @@
                         <segue destination="tPW-ON-UsC" kind="showDetail" identifier="ShowDetail" id="Kju-Eg-jqi"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k7b-iO-DEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1776" y="400"/>
         </scene>

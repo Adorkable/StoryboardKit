@@ -10,9 +10,9 @@ import Cocoa
 
 typealias SegueConnection = StoryboardInfo_Either< StoryboardInfo_Weak<ViewControllerInstanceInfo>, StoryboardInfo_Weak<NavigationControllerInstanceInfo> >
 
-public class SegueInstanceInfo: NSObject {
+public class SegueInstanceInfo: NSObject, Idable {
     var classInfo : SegueClassInfo
-    let instanceId : String
+    let id : String
     var source : SegueConnection?
     let kind : String?
     let identifier : String?
@@ -21,9 +21,9 @@ public class SegueInstanceInfo: NSObject {
     // TODO: lame to have destination optional as a side effect of parsing process, FIX
     var destination : SegueConnection?
     
-    init(classInfo : SegueClassInfo, instanceId : String, source : ViewControllerInstanceInfo, destinationId : String, kind : String?, identifier : String?) {
+    init(classInfo : SegueClassInfo, id : String, source : ViewControllerInstanceInfo, destinationId : String, kind : String?, identifier : String?) {
         self.classInfo = classInfo
-        self.instanceId = instanceId
+        self.id = id
         self.source = StoryboardInfo_Either.Left( StoryboardInfo_Weak(source) )
         self.destinationId = destinationId
         self.kind = kind
@@ -34,9 +34,9 @@ public class SegueInstanceInfo: NSObject {
         self.classInfo.instanceInfos.append( StoryboardInfo_WeakWrapper(value: self) )
     }
     
-    init(classInfo : SegueClassInfo, instanceId : String, source : SegueConnection, destinationId : String, kind : String?, identifier : String?) {
+    init(classInfo : SegueClassInfo, id : String, source : SegueConnection, destinationId : String, kind : String?, identifier : String?) {
         self.classInfo = classInfo
-        self.instanceId = instanceId
+        self.id = id
         self.source = source
         self.destinationId = destinationId
         self.kind = kind
