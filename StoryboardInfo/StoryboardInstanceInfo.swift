@@ -17,10 +17,9 @@ public class StoryboardInstanceInfo: NSObject {
         let sceneId : String
         
         // TODO: can only have one or the other
-        var viewController : ViewControllerInstanceInfo?
-        var navigationController : NavigationControllerInstanceInfo?
+        public var controller : StoryboardInfo_Either< ViewControllerInstanceInfo, NavigationControllerInstanceInfo>?
         
-        var placeHolder : AnyObject?
+        public var placeHolder : AnyObject?
         
         init(sceneId : String) {
             self.sceneId = sceneId

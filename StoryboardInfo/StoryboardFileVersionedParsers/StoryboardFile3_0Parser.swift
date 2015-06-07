@@ -81,7 +81,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             let storyboardIdentifier = element.attributes["storyboardIdentifier"]
             var viewControllerInstanceInfo = ViewControllerInstanceInfo(classInfo: viewControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier)
             
-            sceneInfo.viewController = viewControllerInstanceInfo
+            sceneInfo.controller = StoryboardInfo_Either.Left(viewControllerInstanceInfo)
             self.applicationInfo.add(viewControllerInstance: viewControllerInstanceInfo)
             
             self.parseLayoutGuides(viewController["layoutGuides"], source: viewControllerInstanceInfo)
@@ -221,7 +221,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             
             var navigationControllerInstanceInfo = NavigationControllerInstanceInfo(id: id, storyboardIdentifier: storyboardIdentifier, sceneMemberId: sceneMemberId)
             
-            sceneInfo.navigationController = navigationControllerInstanceInfo
+            sceneInfo.controller = StoryboardInfo_Either.Right(navigationControllerInstanceInfo)
             self.applicationInfo.add(navigationControllerInstance: navigationControllerInstanceInfo)
             
 /*            var navigationBar = viewController["navigationBar"] //TODO: can this be optional?
