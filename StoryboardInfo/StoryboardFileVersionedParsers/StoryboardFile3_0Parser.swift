@@ -158,7 +158,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             var segueClass = self.applicationInfo.segueClassWithClassName(customClass)
             if segueClass == nil
             {
-                segueClass = SegueClassInfo(customClass: customClass)
+                segueClass = SegueClassInfo(className: customClass)
                 self.applicationInfo.add(segueClass: segueClass!)
             }
             

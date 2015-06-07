@@ -61,7 +61,7 @@ public class ApplicationInfo: NSObject {
     }
     
     public func segueClassWithClassName(className : String?) -> SegueClassInfo? {
-        return self.segueClasses.filter( { $0.customClass == className } ).first
+        return self.segueClasses.filter( { $0.className == className } ).first
     }
     
     // TODO: store SegueInstances

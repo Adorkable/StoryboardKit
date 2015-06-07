@@ -9,13 +9,17 @@
 import Foundation
 
 public class SegueClassInfo: NSObject {
-    let customClass : String?
-    static let defaultClass = "UIStoryboardSegue"
+    public let segueClassName : String
+    public class var defaultClass : String { return "UIStoryboardSegue" }
     
     public private(set) var instanceInfos = Array< StoryboardInfo_WeakWrapper< SegueInstanceInfo> >()
     
-    init(customClass : String?) {
-        self.customClass = customClass
+    init(className : String?) {
+        if className != nil {
+            self.segueClassName = className!
+        } else {
+            self.segueClassName = SegueClassInfo.defaultClass
+        }
         
         super.init()
     }
