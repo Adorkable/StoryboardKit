@@ -74,7 +74,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             var viewControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(customClass)
             if viewControllerClassInfo == nil
             {
-                viewControllerClassInfo = ViewControllerClassInfo(customClass: customClass)
+                viewControllerClassInfo = ViewControllerClassInfo(className: customClass)
                 self.applicationInfo.add(viewControllerClass: viewControllerClassInfo!)
             }
             
@@ -187,39 +187,51 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         }
     }
     
-    internal func parseConnection(connection : XMLIndexer, source : NavigationControllerInstanceInfo) {
+    internal func parseConnection(connection : XMLIndexer, source : NavigationControllerInstanceInfo) -> SegueInstanceInfo? {
+        var result : SegueInstanceInfo?
+        
         if let segueInfo = self.createConnection(connection, source: StoryboardInfo_Either.Right( StoryboardInfo_WeakWrapper(source) ) )
         {
-            source.root = segueInfo
+            result = segueInfo
+            source.add(segue: segueInfo)
             
             self.pendingSegues.append(segueInfo)
         }
+        
+        return result
     }
     
-    internal func parseConnections(connections : XMLIndexer, source : NavigationControllerInstanceInfo) {
+    internal func parseConnections(connections : XMLIndexer, source : NavigationControllerInstanceInfo) -> SegueInstanceInfo? {
+        var result : SegueInstanceInfo?
         for connection in connections.children
         {
-            self.parseConnection(connection, source: source)
+            if let segueInstanceInfo = self.parseConnection(connection, source: source) {
+                if segueInstanceInfo.kind == "root" {
+                    result = segueInstanceInfo
+                }
+            }
+        
         }
+        return result
     }
     
     internal func parseNavigationController(navigationController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
         if let element = navigationController.element, let id = element.attributes["id"]
         {
              // TODO: test
-/*            let customClass = element.attributes["customClass"]
-            var viewControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(customClass)
-            if viewControllerClassInfo == nil
+            let customClass = element.attributes["customClass"]
+            // TODO: restrict to NavControllerClasses
+            var navigationControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(customClass) as? NavigationControllerClassInfo
+            if navigationControllerClassInfo == nil
             {
-                viewControllerClassInfo = ViewControllerClassInfo(customClass: customClass)
-                self.applicationInfo.add(viewControllerClass: viewControllerClassInfo!)
+                navigationControllerClassInfo = NavigationControllerClassInfo(className: customClass)
+                self.applicationInfo.add(viewControllerClass: navigationControllerClassInfo!)
             }
-*/
             
             let storyboardIdentifier = element.attributes["storyboardIdentifier"]
             let sceneMemberId = element.attributes["sceneMemberID"]
             
-            var navigationControllerInstanceInfo = NavigationControllerInstanceInfo(id: id, storyboardIdentifier: storyboardIdentifier, sceneMemberId: sceneMemberId)
+            var navigationControllerInstanceInfo = NavigationControllerInstanceInfo(classInfo: navigationControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, sceneMemberId: sceneMemberId)
             
             sceneInfo.controller = StoryboardInfo_Either.Right(navigationControllerInstanceInfo)
             self.applicationInfo.add(navigationControllerInstance: navigationControllerInstanceInfo)
@@ -230,7 +242,8 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
                 self.parseNavigationBar(navigationBar, source: navigationControllerInstanceInfo)
             }
 */
-            self.parseConnections(navigationController["connections"], source: navigationControllerInstanceInfo)
+            var root = self.parseConnections(navigationController["connections"], source: navigationControllerInstanceInfo)
+            navigationControllerInstanceInfo.root = root
         }
     }
     

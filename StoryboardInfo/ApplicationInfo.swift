@@ -19,8 +19,7 @@ public class ApplicationInfo: NSObject {
     public func viewControllerClassWithClassName(className : String?) -> ViewControllerClassInfo? {
         return self.viewControllerClasses.filter(
             {
-                $0.customClass == className ||
-                $0.customClass == nil && className == ViewControllerClassInfo.defaultClass
+                $0.viewControllerClassName == className
         } ).first
     }
     

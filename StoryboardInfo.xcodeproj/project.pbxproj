@@ -17,6 +17,7 @@
 		3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */; };
 		3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */; };
 		3C3DF3A11B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3A01B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift */; };
+		3CE3421F1B25036B00D46AE2 /* NavigationControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3421E1B25036B00D46AE2 /* NavigationControllerClassInfo.swift */; };
 		3CF85BB41AF6E2F80043AA48 /* StoryboardInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CF85BB31AF6E2F80043AA48 /* StoryboardInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3CF85BBA1AF6E2F90043AA48 /* StoryboardInfo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF85BAE1AF6E2F80043AA48 /* StoryboardInfo.framework */; };
 		3CF85BC11AF6E2F90043AA48 /* StoryboardInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BC01AF6E2F90043AA48 /* StoryboardInfoTests.swift */; };
@@ -50,6 +51,7 @@
 		3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLayoutGuideInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3DF3A01B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerInstanceInfo.swift; sourceTree = "<group>"; };
+		3CE3421E1B25036B00D46AE2 /* NavigationControllerClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerClassInfo.swift; sourceTree = "<group>"; };
 		3CF85BAE1AF6E2F80043AA48 /* StoryboardInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StoryboardInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF85BB21AF6E2F80043AA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CF85BB31AF6E2F80043AA48 /* StoryboardInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoryboardInfo.h; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				3CF85BCE1AF6E3880043AA48 /* Utility.swift */,
 				3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */,
 				3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */,
+				3CE3421E1B25036B00D46AE2 /* NavigationControllerClassInfo.swift */,
 				3C3DF3A01B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift */,
 				3C0597DE1B1D8DB1001D7C15 /* StoryboardInfo.swift */,
 			);
@@ -357,6 +360,7 @@
 				3C0597DF1B1D8DB1001D7C15 /* StoryboardInfo.swift in Sources */,
 				3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */,
 				3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */,
+				3CE3421F1B25036B00D46AE2 /* NavigationControllerClassInfo.swift in Sources */,
 				3CF85BD21AF6E3880043AA48 /* SegueInstanceInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

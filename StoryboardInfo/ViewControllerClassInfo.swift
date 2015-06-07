@@ -9,13 +9,19 @@
 import Foundation
 
 public class ViewControllerClassInfo: NSObject {
-    public let customClass : String?
-    public static let defaultClass = "UIViewController"
+    public let viewControllerClassName : String
+    public class var defaultClass : String { return "UIViewController" }
 
     public private(set) var instanceInfos = Array< StoryboardInfo_WeakWrapper<ViewControllerInstanceInfo> >()
     
-    init(customClass : String?) {
-        self.customClass = customClass
+    init(className : String?) {
+        if className != nil
+        {
+            self.viewControllerClassName = className!
+        } else
+        {
+            self.viewControllerClassName = ViewControllerClassInfo.defaultClass
+        }
         
         super.init()
     }

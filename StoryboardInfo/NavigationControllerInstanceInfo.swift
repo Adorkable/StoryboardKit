@@ -8,17 +8,16 @@
 
 import Foundation
 
-public class NavigationControllerInstanceInfo: NSObject, Idable {
-    public let id : String
-    
-    public let storyboardIdentifier : String?
+public class NavigationControllerInstanceInfo: ViewControllerInstanceInfo {
     public let sceneMemberId : String?
     
     public var root : SegueInstanceInfo?
     
-    init(id : String, storyboardIdentifier : String?, sceneMemberId : String?) {
-        self.id = id
-        self.storyboardIdentifier = storyboardIdentifier
+    init(classInfo : NavigationControllerClassInfo, id : String, storyboardIdentifier : String?, sceneMemberId : String?/*, root : SegueInstanceInfo?*/) {
+        
         self.sceneMemberId = sceneMemberId
+//        self.root = root
+        
+        super.init(classInfo: classInfo, id: id, storyboardIdentifier: storyboardIdentifier)
     }
 }
