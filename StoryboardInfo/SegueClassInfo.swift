@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class SegueClassInfo: NSObject {
+public class SegueClassInfo: NSObject, DebugPrintable {
     public let segueClassName : String
     public class var defaultClass : String { return "UIStoryboardSegue" }
     
@@ -26,5 +26,15 @@ public class SegueClassInfo: NSObject {
     
     func add(#instanceInfo : SegueInstanceInfo) {
         self.instanceInfos.append( StoryboardInfo_WeakWrapper(instanceInfo) )
+    }
+    
+    override public var debugDescription : String {
+        get {
+            var result = super.debugDescription
+            
+            result += "\nClass: \(self.segueClassName)"
+            
+            return result
+        }
     }
 }

@@ -13,7 +13,6 @@ import SWXMLHash
 class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
     let applicationInfo : ApplicationInfo
     let storyboardInfo : StoryboardInstanceInfo
-    var pendingSegues = Array<SegueInstanceInfo>()
     
     required init(applicationInfo : ApplicationInfo, storyboardInfo : StoryboardInstanceInfo)
     {
@@ -28,7 +27,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         
         self.parseScenes(indexer["document"]["scenes"])
         
-        self.linkPendingSegues()
+        self.createSegueInstanceInfosFromParsed()
         
         return result
     }
@@ -81,7 +80,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             let storyboardIdentifier = element.attributes["storyboardIdentifier"]
             var viewControllerInstanceInfo = ViewControllerInstanceInfo(classInfo: viewControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier)
             
-            sceneInfo.controller = StoryboardInfo_Either.Left(viewControllerInstanceInfo)
+            sceneInfo.controller = viewControllerInstanceInfo
             self.applicationInfo.add(viewControllerInstance: viewControllerInstanceInfo)
             
             self.parseLayoutGuides(viewController["layoutGuides"], source: viewControllerInstanceInfo)
@@ -147,8 +146,29 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         }
     }
     
-    internal func createConnection(connection : XMLIndexer, source : SegueConnection) -> SegueInstanceInfo? {
-        var result : SegueInstanceInfo?
+    internal class SegueInstanceParseInfo : NSObject {
+        internal let classInfo : SegueClassInfo
+        internal let id : String
+        internal var source : SegueConnection
+        internal let kind : String?
+        internal let identifier : String?
+        internal let destinationId : String
+        internal var destination : SegueConnection?
+        
+        init(classInfo : SegueClassInfo, id : String, source : SegueConnection, destinationId : String, kind : String?, identifier : String?) {
+            self.classInfo = classInfo
+            self.id = id
+            self.source = source
+            self.destinationId = destinationId
+            self.kind = kind
+            self.identifier = identifier
+            
+            super.init()
+        }
+    }
+    
+    internal func createConnectionParseInfo(connection : XMLIndexer, source : ViewControllerInstanceInfo) -> SegueInstanceParseInfo? {
+        var result : SegueInstanceParseInfo?
         
         if let element = connection.element,
             let id = element.attributes["id"],
@@ -165,18 +185,18 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             let kind = element.attributes["kind"]
             let identifier = element.attributes["identifier"]
             
-            result = SegueInstanceInfo(classInfo: segueClass!, id: id, source: source, destinationId: destinationId, kind: kind, identifier: identifier)
+            result = SegueInstanceParseInfo(classInfo: segueClass!, id: id, source: StoryboardInfo_WeakWrapper(source), destinationId: destinationId, kind: kind, identifier: identifier)
         }
         
         return result
     }
     
+    var parsedSegues = Array<SegueInstanceParseInfo>()
+    
     internal func parseConnection(connection : XMLIndexer, source : ViewControllerInstanceInfo) {
-        if let segueInfo = self.createConnection(connection, source: StoryboardInfo_Either.Left( StoryboardInfo_WeakWrapper(source) ) )
+        if let segueParseInfo = self.createConnectionParseInfo(connection, source: source )
         {
-            source.add(segue: segueInfo)
-            
-            self.pendingSegues.append(segueInfo)
+            self.parsedSegues.append(segueParseInfo)
         }
     }
     
@@ -185,34 +205,6 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         {
             self.parseConnection(connection, source: source)
         }
-    }
-    
-    internal func parseConnection(connection : XMLIndexer, source : NavigationControllerInstanceInfo) -> SegueInstanceInfo? {
-        var result : SegueInstanceInfo?
-        
-        if let segueInfo = self.createConnection(connection, source: StoryboardInfo_Either.Right( StoryboardInfo_WeakWrapper(source) ) )
-        {
-            result = segueInfo
-            source.add(segue: segueInfo)
-            
-            self.pendingSegues.append(segueInfo)
-        }
-        
-        return result
-    }
-    
-    internal func parseConnections(connections : XMLIndexer, source : NavigationControllerInstanceInfo) -> SegueInstanceInfo? {
-        var result : SegueInstanceInfo?
-        for connection in connections.children
-        {
-            if let segueInstanceInfo = self.parseConnection(connection, source: source) {
-                if segueInstanceInfo.kind == "root" {
-                    result = segueInstanceInfo
-                }
-            }
-        
-        }
-        return result
     }
     
     internal func parseNavigationController(navigationController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
@@ -233,7 +225,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             
             var navigationControllerInstanceInfo = NavigationControllerInstanceInfo(classInfo: navigationControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, sceneMemberId: sceneMemberId)
             
-            sceneInfo.controller = StoryboardInfo_Either.Right(navigationControllerInstanceInfo)
+            sceneInfo.controller = navigationControllerInstanceInfo
             self.applicationInfo.add(navigationControllerInstance: navigationControllerInstanceInfo)
             
 /*            var navigationBar = viewController["navigationBar"] //TODO: can this be optional?
@@ -242,26 +234,34 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
                 self.parseNavigationBar(navigationBar, source: navigationControllerInstanceInfo)
             }
 */
-            var root = self.parseConnections(navigationController["connections"], source: navigationControllerInstanceInfo)
-            navigationControllerInstanceInfo.root = root
+            self.parseConnections(navigationController["connections"], source: navigationControllerInstanceInfo)
         }
     }
     
-    internal func linkPendingSegues() {
-        while self.pendingSegues.count > 0
+    internal func createSegueInstanceInfosFromParsed() {
+        while self.parsedSegues.count > 0
         {
-            var segueInfo = self.pendingSegues.removeLast()
+            var segueParsedInfo = self.parsedSegues.removeLast()
 
-            if let destination = self.applicationInfo.viewControllerInstanceWithId(segueInfo.destinationId)
+            var segueInfo : SegueInstanceInfo?
+
+            if let destination = self.applicationInfo.viewControllerInstanceWithId(segueParsedInfo.destinationId)
             {
-                // TODO: lame to have destination optional as a side effect of parsing process, FIX
-                segueInfo.destination = StoryboardInfo_Either.Left( StoryboardInfo_WeakWrapper(destination) )
-            } else if let destination = self.applicationInfo.navigationControllerInstanceWithId(segueInfo.destinationId)
+                segueInfo = SegueInstanceInfo(classInfo: segueParsedInfo.classInfo, id: segueParsedInfo.id, source: segueParsedInfo.source, destination: destination, kind: segueParsedInfo.kind, identifier: segueParsedInfo.identifier)
+            } else if let destination = self.applicationInfo.navigationControllerInstanceWithId(segueParsedInfo.destinationId)
             {
-                segueInfo.destination = StoryboardInfo_Either.Right( StoryboardInfo_WeakWrapper(destination) )
+                segueInfo = SegueInstanceInfo(classInfo: segueParsedInfo.classInfo, id: segueParsedInfo.id, source: segueParsedInfo.source, destination: destination, kind: segueParsedInfo.kind, identifier: segueParsedInfo.identifier)
             } else
             {
-                NSLog("Error linking pending segues, unable to find destination with id \(segueInfo.destinationId)")
+                NSLog("Error linking pending segues, unable to find destination with id \(segueParsedInfo.destinationId)")
+            }
+            
+            if segueInfo != nil {
+                if segueInfo!.kind == "relationship" && segueInfo!.source.value is NavigationControllerInstanceInfo {
+                    (segueInfo!.source.value as! NavigationControllerInstanceInfo).root = segueInfo
+                } else {
+                    segueInfo!.source.value!.add(segue: segueInfo!)
+                }
             }
         }
     }
