@@ -18,6 +18,6 @@ public class NavigationControllerClassInfo: ViewControllerClassInfo {
         } else {
             useClassName = NavigationControllerClassInfo.defaultClass
         }
-        super.init(className: className)
+        super.init(className: useClassName)
     }
 }
