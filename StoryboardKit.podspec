@@ -9,9 +9,11 @@ Pod::Spec.new do |s|
   s.author       = { "Ian G" => "yo.ian.g@gmail.com" }
   s.platform     = :osx, "10.10"
 
-  s.source       = { :git => "https://github.com/Adorkable/StoryboardKit", :tag => "0.1.0" }
+  s.license      = "MIT"
 
-  s.source_files = "StoryboardKit/*.swift"
+  s.source       = { :git => "https://github.com/Adorkable/StoryboardKit.git", :tag => s.version.to_s }
+
+  s.source_files = "StoryboardKit/*.swift", "StoryboardKit/StoryboardFileVersionedParsers/*.swift"
 
   s.requires_arc = true
 
