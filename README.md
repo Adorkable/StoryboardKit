@@ -1,10 +1,10 @@
 StoryboardKit
 ===
 
-[![Pod Version](http://img.shields.io/cocoapods/v/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/BingAPI/)
-[![Pod Platform](http://img.shields.io/cocoapods/p/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/BingAPI/)
-[![Pod License](http://img.shields.io/cocoapods/l/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/BingAPI/)
-[![Build Status](http://img.shields.io/travis/Adorkable/StoryboardKit.svg?branch=master&style=flat)](https://travis-ci.org/Adorkable/BingAPIiOS)
+[![Pod Version](http://img.shields.io/cocoapods/v/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/StoryboardKit/)
+[![Pod Platform](http://img.shields.io/cocoapods/p/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/StoryboardKit/)
+[![Pod License](http://img.shields.io/cocoapods/l/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/StoryboardKit/)
+[![Build Status](http://img.shields.io/travis/Adorkable/StoryboardKit.svg?branch=master&style=flat)](https://travis-ci.org/Adorkable/StoryboardKit)
 
 **StoryboardKit** a simple OSX library that tells you all you would want to know about storyboard files.
 
@@ -41,6 +41,6 @@ To parse a Storyboard file:
 
 Contributing
 ---
-If you have any ideas, suggestions or bugs to report please [create an issue](https://github.com/Adorkable/BingAPIiOS/issues/new) labeled *feature* or *bug* (check to see if the issue exists first please!). 
+If you have any ideas, suggestions or bugs to report please [create an issue](https://github.com/Adorkable/StoryboardKit/issues/new) labeled *feature* or *bug* (check to see if the issue exists first please!). 
 
 Or submit a pull request, there is a lot more work to be done!

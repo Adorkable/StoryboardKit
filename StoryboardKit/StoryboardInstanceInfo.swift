@@ -10,9 +10,16 @@ import Foundation
 
 import SWXMLHash
 
+/**
+*  Represents a Storyboard file instance
+*/
 public class StoryboardInstanceInfo: NSObject {
+    /// All scenes in the storyboard
     public private(set) var scenes = Array<SceneInfo>()
     
+    /**
+    *  Represents a Scene in the storyboard
+    */
     public class SceneInfo: NSObject {
         let sceneId : String
         
@@ -26,9 +33,14 @@ public class StoryboardInstanceInfo: NSObject {
             super.init()
         }
     }
+
+    /**
+    Add a Scene to the storyboard
     
-    // TODO: validate that it isn't a dup
+    :param: scene Scene to add
+    */
     func add(#scene : SceneInfo) {
+        // TODO: validate that it isn't a dup
         self.scenes.append(scene)
     }
 }

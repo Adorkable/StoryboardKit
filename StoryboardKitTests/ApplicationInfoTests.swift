@@ -24,8 +24,9 @@ class ApplicationInfoTests: XCTestCase {
     }
     
     func testViewControllerClassWithClassName() {
-        var classInfo = applicationInfo!.viewControllerClassWithClassName(ViewControllerClassInfo.defaultClass)
-        XCTAssertNotNil(classInfo, "Expected a classInfo for '\(ViewControllerClassInfo.defaultClass)' class")
+        var className = "UIViewController"
+        var classInfo = applicationInfo!.viewControllerClassWithClassName(className)
+        XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
     }
     
     func testViewControllerInstanceWithInstanceId() {

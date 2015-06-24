@@ -10,13 +10,27 @@ import Foundation
 
 import SWXMLHash
 
+/**
+*  Interface for implementing a Version Specific Storyboard File Parser
+*/
 protocol StoryboardFileVersionedParser {
     init(applicationInfo : ApplicationInfo, storyboardInfo : StoryboardInstanceInfo)
     func parse(indexer : XMLIndexer) -> NSError?
 }
 
+/**
+*  Parses storyboard files
+*/
 public class StoryboardFileParser: NSObject {
+    /**
+    Main parsing function
+    
+    :param: applicationInfo The applicationInfo instance you wish to fill
+    :param: storyboardInfo  The storyboardInfo instance you wish to fill
+    :param: pathFileName    The path to the Storyboard file
+    */
     public class func parse(applicationInfo : ApplicationInfo, storyboardInfo : StoryboardInstanceInfo, pathFileName : String) {
+        // TODO: shouldn't this return a StoryboardInstanceInfo?
         StoryboardFileParser(applicationInfo: applicationInfo, storyboardInfo: storyboardInfo, pathFileName: pathFileName)
     }
     
@@ -42,7 +56,7 @@ public class StoryboardFileParser: NSObject {
         }
     }
     
-    var versionedParsers = [
+    internal var versionedParsers = [
         "3.0" : StoryboardFile3_0Parser.className()
     ]
     
