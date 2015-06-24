@@ -12,12 +12,6 @@ public class NavigationControllerClassInfo: ViewControllerClassInfo {
     override public class var defaultClass : String { return "UINavigationViewController" }
     
     override init(className: String?) {
-        var useClassName : String
-        if className != nil {
-            useClassName = className!
-        } else {
-            useClassName = NavigationControllerClassInfo.defaultClass
-        }
-        super.init(className: useClassName)
+        super.init(className: className)
     }
 }

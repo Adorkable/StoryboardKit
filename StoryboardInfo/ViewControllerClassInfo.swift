@@ -20,9 +20,9 @@ public class ViewControllerClassInfo: NSObject {
             self.viewControllerClassName = className!
         } else
         {
-            self.viewControllerClassName = ViewControllerClassInfo.defaultClass
+            self.viewControllerClassName = self.dynamicType.defaultClass
         }
-        
+    
         super.init()
     }
     
