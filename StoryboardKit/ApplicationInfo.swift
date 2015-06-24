@@ -1,6 +1,6 @@
 //
 //  ApplicationInfo.swift
-//  StoryboardInfo
+//  StoryboardKit
 //
 //  Created by Ian on 5/3/15.
 //  Copyright (c) 2015 Adorkable. All rights reserved.

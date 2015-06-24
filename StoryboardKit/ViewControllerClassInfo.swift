@@ -1,6 +1,6 @@
 //
 //  ViewControllerClassInfo.swift
-//  StoryboardInfo
+//  StoryboardKit
 //
 //  Created by Ian on 5/3/15.
 //  Copyright (c) 2015 Adorkable. All rights reserved.
@@ -12,7 +12,7 @@ public class ViewControllerClassInfo: NSObject {
     public let viewControllerClassName : String
     public class var defaultClass : String { return "UIViewController" }
 
-    public private(set) var instanceInfos = Array< StoryboardInfo_WeakWrapper<ViewControllerInstanceInfo> >()
+    public private(set) var instanceInfos = Array< StoryboardKit_WeakWrapper<ViewControllerInstanceInfo> >()
     
     init(className : String?) {
         if className != nil
@@ -27,6 +27,6 @@ public class ViewControllerClassInfo: NSObject {
     }
     
     func add(#instanceInfo : ViewControllerInstanceInfo) {
-        self.instanceInfos.append( StoryboardInfo_WeakWrapper(instanceInfo) )
+        self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
     }
 }

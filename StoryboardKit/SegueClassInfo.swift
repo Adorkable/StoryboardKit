@@ -1,6 +1,6 @@
 //
 //  SegueClassInfo.swift
-//  StoryboardInfo
+//  StoryboardKit
 //
 //  Created by Ian on 5/4/15.
 //  Copyright (c) 2015 Adorkable. All rights reserved.
@@ -12,7 +12,7 @@ public class SegueClassInfo: NSObject, DebugPrintable {
     public let segueClassName : String
     public class var defaultClass : String { return "UIStoryboardSegue" }
     
-    public private(set) var instanceInfos = Array< StoryboardInfo_WeakWrapper< SegueInstanceInfo> >()
+    public private(set) var instanceInfos = Array< StoryboardKit_WeakWrapper< SegueInstanceInfo> >()
     
     init(className : String?) {
         if className != nil {
@@ -25,7 +25,7 @@ public class SegueClassInfo: NSObject, DebugPrintable {
     }
     
     func add(#instanceInfo : SegueInstanceInfo) {
-        self.instanceInfos.append( StoryboardInfo_WeakWrapper(instanceInfo) )
+        self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
     }
     
     override public var debugDescription : String {

@@ -1,6 +1,6 @@
 //
 //  StoryboardFile3_0Parser.swift
-//  StoryboardInfo
+//  StoryboardKit
 //
 //  Created by Ian on 5/31/15.
 //  Copyright (c) 2015 Adorkable. All rights reserved.
@@ -185,7 +185,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             let kind = element.attributes["kind"]
             let identifier = element.attributes["identifier"]
             
-            result = SegueInstanceParseInfo(classInfo: segueClass!, id: id, source: StoryboardInfo_WeakWrapper(source), destinationId: destinationId, kind: kind, identifier: identifier)
+            result = SegueInstanceParseInfo(classInfo: segueClass!, id: id, source: StoryboardKit_WeakWrapper(source), destinationId: destinationId, kind: kind, identifier: identifier)
         }
         
         return result

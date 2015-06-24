@@ -1,6 +1,6 @@
 //
 //  StoryboardInfoTests.swift
-//  StoryboardInfoTests
+//  StoryboardKitTests
 //
 //  Created by Ian on 5/3/15.
 //  Copyright (c) 2015 Adorkable. All rights reserved.
@@ -9,13 +9,13 @@
 import Cocoa
 import XCTest
 
-import StoryboardInfo
+import StoryboardKit
 
 func storyboardPathBuilder() -> String? {
     var result : String?
     
     if let pwd = NSProcessInfo.processInfo().environment["PWD"] as? String {
-        result = pwd + "/StoryboardInfoTests/StoryboardInfo.storyboard"
+        result = pwd + "/StoryboardKitTests/StoryboardKit.storyboard"
     }
     
     return result

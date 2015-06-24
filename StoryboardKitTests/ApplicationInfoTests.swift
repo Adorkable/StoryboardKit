@@ -1,6 +1,6 @@
 //
-//  ApplicationInfo.swift
-//  StoryboardInfo
+//  ApplicationInfoTests.swift
+//  StoryboardKitTests
 //
 //  Created by Ian on 5/31/15.
 //  Copyright (c) 2015 Adorkable. All rights reserved.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-import StoryboardInfo
+import StoryboardKit
 
 class ApplicationInfoTests: XCTestCase {
     var storyboardInfo : StoryboardInstanceInfo?

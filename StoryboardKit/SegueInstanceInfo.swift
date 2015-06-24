@@ -1,6 +1,6 @@
 //
 //  SegueInstanceInfo.swift
-//  StoryboardInfo
+//  StoryboardKit
 //
 //  Created by Ian on 5/3/15.
 //  Copyright (c) 2015 Adorkable. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-public typealias SegueConnection = StoryboardInfo_WeakWrapper<ViewControllerInstanceInfo>
+public typealias SegueConnection = StoryboardKit_WeakWrapper<ViewControllerInstanceInfo>
 
 public class SegueInstanceInfo: NSObject, Idable, DebugPrintable {
     public let classInfo : SegueClassInfo
@@ -32,15 +32,15 @@ public class SegueInstanceInfo: NSObject, Idable, DebugPrintable {
     }
     
     public convenience init(classInfo : SegueClassInfo, id : String, source : ViewControllerInstanceInfo, destination : ViewControllerInstanceInfo, kind : String?, identifier : String?) {
-        self.init(classInfo: classInfo, id: id, source: StoryboardInfo_WeakWrapper(source), destination: StoryboardInfo_WeakWrapper(destination), kind: kind, identifier: identifier)
+        self.init(classInfo: classInfo, id: id, source: StoryboardKit_WeakWrapper(source), destination: StoryboardKit_WeakWrapper(destination), kind: kind, identifier: identifier)
     }
  
     public convenience init(classInfo : SegueClassInfo, id : String, source : ViewControllerInstanceInfo, destination : SegueConnection, kind : String?, identifier : String?) {
-        self.init(classInfo: classInfo, id: id, source: StoryboardInfo_WeakWrapper(source), destination: destination, kind: kind, identifier: identifier)
+        self.init(classInfo: classInfo, id: id, source: StoryboardKit_WeakWrapper(source), destination: destination, kind: kind, identifier: identifier)
     }
 
     public convenience init(classInfo : SegueClassInfo, id : String, source : SegueConnection, destination : ViewControllerInstanceInfo, kind : String?, identifier : String?) {
-        self.init(classInfo: classInfo, id: id, source: source, destination: StoryboardInfo_WeakWrapper(destination), kind: kind, identifier: identifier)
+        self.init(classInfo: classInfo, id: id, source: source, destination: StoryboardKit_WeakWrapper(destination), kind: kind, identifier: identifier)
     }
     
     override public var debugDescription : String {
