@@ -18,6 +18,6 @@ public class NavigationControllerInstanceInfo: ViewControllerInstanceInfo {
         self.sceneMemberId = sceneMemberId
 //        self.root = root
         
-        super.init(classInfo: classInfo, id: id, storyboardIdentifier: storyboardIdentifier)
+        super.init(classInfo: classInfo, id: id, storyboardIdentifier: storyboardIdentifier, view: nil)
     }
 }

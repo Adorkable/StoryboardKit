@@ -8,33 +8,27 @@
 
 import Foundation
 
-public class SegueClassInfo: NSObject, DebugPrintable {
-    public let segueClassName : String
-    public class var defaultClass : String { return "UIStoryboardSegue" }
+public class SegueClassInfo: ClassInfo {
+    
+    class var defaultClass : String { return "UIStoryboardSegue" }
     
     public private(set) var instanceInfos = Array< StoryboardKit_WeakWrapper< SegueInstanceInfo> >()
     
-    init(className : String?) {
-        if className != nil {
-            self.segueClassName = className!
-        } else {
-            self.segueClassName = SegueClassInfo.defaultClass
+    override init(className : String?) {
+        
+        var useClassName : String
+        if className != nil
+        {
+            useClassName = className!
+        } else
+        {
+            useClassName = SegueClassInfo.defaultClass
         }
         
-        super.init()
+        super.init(className: useClassName)
     }
     
     func add(#instanceInfo : SegueInstanceInfo) {
         self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
-    }
-    
-    override public var debugDescription : String {
-        get {
-            var result = super.debugDescription
-            
-            result += "\nClass: \(self.segueClassName)"
-            
-            return result
-        }
     }
 }

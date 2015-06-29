@@ -21,11 +21,15 @@ public class ViewControllerInstanceInfo: NSObject, Idable {
     
     public private(set) var navigationItems = Array< NavigationItemInstanceInfo >()
     
-    init(classInfo : ViewControllerClassInfo, id : String, storyboardIdentifier : String?) {
+    public let view : ViewInstanceInfo?
+    
+    init(classInfo : ViewControllerClassInfo, id : String, storyboardIdentifier : String?, view : ViewInstanceInfo?) {
         self.classInfo = classInfo
         self.id = id
         
         self.storyboardIdentifier = storyboardIdentifier
+        
+        self.view = view
         
         super.init()
 

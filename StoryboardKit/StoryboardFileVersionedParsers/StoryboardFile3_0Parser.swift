@@ -37,6 +37,8 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         return result
     }
     
+    // MARK: Storyboard
+    
     internal class StoryboardInstanceParseInfo : NSObject {
 //        internal var fileType : String
 //        internal var fileVersion : String
@@ -94,6 +96,36 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         return result
     }
     
+    internal func createStoryboardInstanceInfoFromParsed() -> StoryboardFileParser.ParseResult {
+        var result : StoryboardFileParser.ParseResult
+        
+        if let storyboardInstanceParseInfo = self.storyboardInstanceParseInfo
+        {
+            var initialViewController : ViewControllerInstanceInfo?
+            
+            if let initialViewControllerId = storyboardInstanceParseInfo.initialViewControllerId
+            {
+                initialViewController = self.applicationInfo.viewControllerInstanceWithId(initialViewControllerId)
+            }
+            
+            var storyboardInstanceInfo = StoryboardInstanceInfo(useAutolayout: storyboardInstanceParseInfo.useAutolayout, useTraitCollections: storyboardInstanceParseInfo.useTraitCollections, initialViewController: initialViewController)
+            
+            for sceneInfo in storyboardInstanceParseInfo.scenes
+            {
+                storyboardInstanceInfo.add(scene: sceneInfo)
+            }
+            
+            result = (storyboardInstanceInfo, nil)
+        } else
+        {
+            result = (nil, NSError(domain: "Unable to find StoryboardInstanceParseInfo, likely cause was we were unable to parse root of Storyboard file", code: 0, userInfo: nil) )
+        }
+        
+        return result
+    }
+    
+    // MARK: Scenes
+    
     internal func parseScenes(scenes : XMLIndexer, storyboardInstanceParseInfo : StoryboardInstanceParseInfo) {
         for scene in scenes.children {
             
@@ -128,25 +160,36 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         }
     }
     
+    // MARK: View Controllers
+    
     internal func parseViewController(viewController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
         if let element = viewController.element, let id = element.attributes["id"]
         {
-            let customClass = element.attributes["customClass"]
-            var viewControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(customClass)
+            var useClass : String
+            if let customClass = element.attributes["customClass"]
+            {
+                useClass = customClass
+            } else
+            {
+                useClass = ViewControllerClassInfo.defaultClass
+            }
+            
+            var viewControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(useClass)
             if viewControllerClassInfo == nil
             {
-                viewControllerClassInfo = ViewControllerClassInfo(className: customClass)
+                viewControllerClassInfo = ViewControllerClassInfo(className: useClass)
                 self.applicationInfo.add(viewControllerClass: viewControllerClassInfo!)
             }
             
             let storyboardIdentifier = element.attributes["storyboardIdentifier"]
-            var viewControllerInstanceInfo = ViewControllerInstanceInfo(classInfo: viewControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier)
+            let view = self.createView(viewController["view"]) // Should be using view.key attribute?
+            
+            var viewControllerInstanceInfo = ViewControllerInstanceInfo(classInfo: viewControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, view: view)
             
             sceneInfo.controller = viewControllerInstanceInfo
             self.applicationInfo.add(viewControllerInstance: viewControllerInstanceInfo)
             
             self.parseLayoutGuides(viewController["layoutGuides"], source: viewControllerInstanceInfo)
-            self.parseView(viewController["view"], source: viewControllerInstanceInfo)
             
             var navigationItem = viewController["navigationItem"]
             if navigationItem.element != nil
@@ -157,6 +200,48 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             self.parseConnections(viewController["connections"], source: viewControllerInstanceInfo)
         }
     }
+    
+    // MARK: Navigation Controller
+    
+    internal func parseNavigationController(navigationController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
+        if let element = navigationController.element, let id = element.attributes["id"]
+        {
+            var useClass : String
+            if let customClass = element.attributes["customClass"]
+            {
+                useClass = customClass
+            } else
+            {
+                useClass = NavigationControllerClassInfo.defaultClass
+            }
+            
+            // TODO: restrict to NavControllerClasses
+            var navigationControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(useClass) as? NavigationControllerClassInfo
+            if navigationControllerClassInfo == nil
+            {
+                navigationControllerClassInfo = NavigationControllerClassInfo(className: useClass)
+                self.applicationInfo.add(viewControllerClass: navigationControllerClassInfo!)
+            }
+            
+            let storyboardIdentifier = element.attributes["storyboardIdentifier"]
+            let sceneMemberId = element.attributes["sceneMemberID"]
+            
+            var navigationControllerInstanceInfo = NavigationControllerInstanceInfo(classInfo: navigationControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, sceneMemberId: sceneMemberId)
+            
+            sceneInfo.controller = navigationControllerInstanceInfo
+            self.applicationInfo.add(navigationControllerInstance: navigationControllerInstanceInfo)
+            
+            /*            var navigationBar = viewController["navigationBar"] //TODO: can this be optional?
+            if navigationBar.element != nil
+            {
+            self.parseNavigationBar(navigationBar, source: navigationControllerInstanceInfo)
+            }
+            */
+            self.parseConnections(navigationController["connections"], source: navigationControllerInstanceInfo)
+        }
+    }
+    
+    // MARK: Layout Guides
     
     internal func parseLayoutGuides(layoutGuides : XMLIndexer, source : ViewControllerInstanceInfo) {
         for layoutGuide in layoutGuides.children
@@ -179,9 +264,103 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         }
     }
     
-    internal func parseView(view : XMLIndexer, source : ViewControllerInstanceInfo) {
-        // TODO: View Tree parsing
+    // MARK: Views
+    
+    internal func createView(view : XMLIndexer) -> ViewInstanceInfo? {
+        var result : ViewInstanceInfo?
+        
+        if let element = view.element,
+            let id = element.attributes["id"]
+        {
+            // TODO: support all View classes
+            var useClass : String
+            if let customClass = element.attributes["customClass"]
+            {
+                useClass = customClass
+            } else
+            {
+                useClass = ViewClassInfo.defaultClass
+            }
+            
+            var viewClass = self.applicationInfo.viewClassWithClassName(useClass)
+            if viewClass == nil
+            {
+                viewClass = ViewClassInfo(className: useClass)
+                self.applicationInfo.add(viewClass: viewClass!)
+            }
+            
+            var frame : CGRect?
+            var autoResizingMaskWidthSizable : Bool = false
+            var autoResizingMaskHeightSizable : Bool = false
+            var subviews : [ViewInstanceInfo]?
+            
+            for subnode in view.children
+            {
+                if let subelement = subnode.element
+                {
+                    if subelement.name == "rect" && subelement.attributes["key"] == "frame"
+                    {
+                        
+                        frame = self.createRect(subnode)
+                        
+                    } else if subelement.name == "autoresizingMask" && subelement.attributes["key"] == "autoresizingMask"
+                    {
+                        
+                        self.getAutoresizingMaskValues(subnode, widthSizable: &autoResizingMaskWidthSizable, heightSizable: &autoResizingMaskHeightSizable)
+                        
+                    } else if subelement.name == "subviews"
+                    {
+                        subviews = [ViewInstanceInfo]()
+                        for subviewNode in subnode.children
+                        {
+                            if let subview = self.createView(subviewNode)
+                            {
+                                subviews?.append(subview)
+                            }
+                        }
+                        
+                    } else if subelement.name == "color"
+                    {
+                        if subelement.attributes["key"] == "backgroundColor"
+                        {
+                            // TODO:
+                        }
+                    } else if subelement.name == "constraints"
+                    {
+                        // TODO:
+                    }
+                }
+            }
+//            var backgroundColor : NSColor? // TODO: Efff, why is there a UIColor? Make our own color object?
+//            var constraints : [NSLayoutConstraint]? // TODO: these definitely need to be our own objects
+            
+            var view = ViewInstanceInfo(classInfo: viewClass!, id: id, frame: frame, autoResizingMaskWidthSizable: autoResizingMaskWidthSizable,  autoResizingMaskHeightSizable: autoResizingMaskHeightSizable, subviews: subviews)
+            result = view
+        }
+        
+        return result
     }
+    
+    internal func createRect(rect : XMLIndexer) -> CGRect? {
+        var result : CGRect?
+        
+        if let element = rect.element,
+            let x = element.attributes["x"],
+            let y = element.attributes["y"],
+            let width = element.attributes["width"],
+            let height = element.attributes["height"]
+        {
+            
+        }
+        
+        return result
+    }
+    
+    internal func getAutoresizingMaskValues(autoresizingMask : XMLIndexer, inout widthSizable : Bool, inout heightSizable : Bool) {
+        
+    }
+    
+    // MARK: Navigation Item
     
     internal func parseNavigationItem(navigationItem : XMLIndexer, source : ViewControllerInstanceInfo) {
         
@@ -207,6 +386,8 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             NSLog("Unable to create Navigation Item Instance Info from \(navigationItem), unhandled element \(navigationItem.element)")
         }
     }
+    
+    // MARK: Segues
     
     internal class SegueInstanceParseInfo : NSObject {
         internal let classInfo : SegueClassInfo
@@ -236,11 +417,19 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             let id = element.attributes["id"],
             let destinationId = element.attributes["destination"]
         {
-            let customClass = element.attributes["customClass"]
-            var segueClass = self.applicationInfo.segueClassWithClassName(customClass)
+            var useClass : String
+            if let customClass = element.attributes["customClass"]
+            {
+                useClass = customClass
+            } else
+            {
+                useClass = SegueClassInfo.defaultClass
+            }
+            
+            var segueClass = self.applicationInfo.segueClassWithClassName(useClass)
             if segueClass == nil
             {
-                segueClass = SegueClassInfo(className: customClass)
+                segueClass = SegueClassInfo(className: useClass)
                 self.applicationInfo.add(segueClass: segueClass!)
             }
             
@@ -266,37 +455,6 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         for connection in connections.children
         {
             self.parseConnection(connection, source: source)
-        }
-    }
-    
-    internal func parseNavigationController(navigationController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
-        if let element = navigationController.element, let id = element.attributes["id"]
-        {
-             // TODO: test
-            let customClass = element.attributes["customClass"]
-            // TODO: restrict to NavControllerClasses
-            var navigationControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(customClass) as? NavigationControllerClassInfo
-            if navigationControllerClassInfo == nil
-            {
-                navigationControllerClassInfo = NavigationControllerClassInfo(className: customClass)
-                self.applicationInfo.add(viewControllerClass: navigationControllerClassInfo!)
-            }
-            
-            let storyboardIdentifier = element.attributes["storyboardIdentifier"]
-            let sceneMemberId = element.attributes["sceneMemberID"]
-            
-            var navigationControllerInstanceInfo = NavigationControllerInstanceInfo(classInfo: navigationControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, sceneMemberId: sceneMemberId)
-            
-            sceneInfo.controller = navigationControllerInstanceInfo
-            self.applicationInfo.add(navigationControllerInstance: navigationControllerInstanceInfo)
-            
-/*            var navigationBar = viewController["navigationBar"] //TODO: can this be optional?
-            if navigationBar.element != nil
-            {
-                self.parseNavigationBar(navigationBar, source: navigationControllerInstanceInfo)
-            }
-*/
-            self.parseConnections(navigationController["connections"], source: navigationControllerInstanceInfo)
         }
     }
     
@@ -326,33 +484,5 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
                 }
             }
         }
-    }
-    
-    internal func createStoryboardInstanceInfoFromParsed() -> StoryboardFileParser.ParseResult {
-        var result : StoryboardFileParser.ParseResult
-        
-        if let storyboardInstanceParseInfo = self.storyboardInstanceParseInfo
-        {
-            var initialViewController : ViewControllerInstanceInfo?
-            
-            if let initialViewControllerId = storyboardInstanceParseInfo.initialViewControllerId
-            {
-                initialViewController = self.applicationInfo.viewControllerInstanceWithId(initialViewControllerId)
-            }
-            
-            var storyboardInstanceInfo = StoryboardInstanceInfo(useAutolayout: storyboardInstanceParseInfo.useAutolayout, useTraitCollections: storyboardInstanceParseInfo.useTraitCollections, initialViewController: initialViewController)
-            
-            for sceneInfo in storyboardInstanceParseInfo.scenes
-            {
-                storyboardInstanceInfo.add(scene: sceneInfo)
-            }
-            
-            result = (storyboardInstanceInfo, nil)
-        } else
-        {
-            result = (nil, NSError(domain: "Unable to find StoryboardInstanceParseInfo, likely cause was we were unable to parse root of Storyboard file", code: 0, userInfo: nil) )
-        }
-        
-        return result
     }
 }

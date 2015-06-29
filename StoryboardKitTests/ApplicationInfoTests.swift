@@ -50,4 +50,16 @@ class ApplicationInfoTests: XCTestCase {
         var instanceInfo = applicationInfo?.navigationControllerInstanceWithStoryboardIdentifier(storyboardIdentifier)
         XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for storyboard identifier '\(storyboardIdentifier)'")
     }
+    
+    func testSegueClassWithClassName() {
+        var className = "UIStoryboardSegue"
+        var classInfo = applicationInfo!.segueClassWithClassName(className)
+        XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
+    }
+    
+    func testViewClassWithClassName() {
+        var className = "UIView"
+        var classInfo = applicationInfo!.viewClassWithClassName(className)
+        XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
+    }
 }
