@@ -14,8 +14,8 @@ import SWXMLHash
 *  Interface for implementing a Version Specific Storyboard File Parser
 */
 protocol StoryboardFileVersionedParser {
-    init(applicationInfo : ApplicationInfo, storyboardInfo : StoryboardInstanceInfo)
-    func parse(indexer : XMLIndexer) -> NSError?
+    init(applicationInfo : ApplicationInfo)
+    func parse(indexer : XMLIndexer) -> StoryboardFileParser.ParseResult
 }
 
 /**
@@ -66,13 +66,9 @@ public class StoryboardFileParser: NSObject {
         var version = StoryboardFileParser.getVersion(indexer)
         if version == "3.0"
         {
-            var storyboardInstanceInfo = StoryboardInstanceInfo()
+            var parser = StoryboardFile3_0Parser(applicationInfo: applicationInfo)
             
-            var parser = StoryboardFile3_0Parser(applicationInfo: applicationInfo, storyboardInfo: storyboardInstanceInfo)
-            
-            var error = parser.parse(indexer)
-            
-            result = (storyboardInstanceInfo, error)
+            result = parser.parse(indexer)
         } else
         {
             result = (nil, NSError(domain: "Unsupported Storyboard file format version: \(version)", code: 0, userInfo: nil) )

@@ -14,8 +14,21 @@ import SWXMLHash
 *  Represents a Storyboard file instance
 */
 public class StoryboardInstanceInfo: NSObject {
+    public let useAutolayout : Bool
+    public let useTraitCollections : Bool
+    public let initialViewController : ViewControllerInstanceInfo?
+    
     /// All scenes in the storyboard
     public private(set) var scenes = Array<SceneInfo>()
+    
+    public required init(useAutolayout : Bool, useTraitCollections : Bool, initialViewController : ViewControllerInstanceInfo?) {
+        
+        self.useAutolayout = useAutolayout
+        self.useTraitCollections = useTraitCollections
+        self.initialViewController = initialViewController
+        
+        super.init()
+    }
     
     /**
     *  Represents a Scene in the storyboard
@@ -23,6 +36,7 @@ public class StoryboardInstanceInfo: NSObject {
     public class SceneInfo: NSObject {
         let sceneId : String
         
+        // TODO: not optional, use parsing placeholder
         public var controller : ViewControllerInstanceInfo?
         
         public var placeHolder : AnyObject?

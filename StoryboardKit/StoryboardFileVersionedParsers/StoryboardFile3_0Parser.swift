@@ -12,39 +12,101 @@ import SWXMLHash
 
 class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
     let applicationInfo : ApplicationInfo
-    let storyboardInfo : StoryboardInstanceInfo
     
-    required init(applicationInfo : ApplicationInfo, storyboardInfo : StoryboardInstanceInfo)
+    required init(applicationInfo : ApplicationInfo)
     {
         self.applicationInfo = applicationInfo
-        self.storyboardInfo = storyboardInfo
         
         super.init()
     }
 
-    func parse(indexer : XMLIndexer) -> NSError? {
-        var result : NSError?
+    func parse(indexer : XMLIndexer) -> StoryboardFileParser.ParseResult {
+        var result : StoryboardFileParser.ParseResult
         
-        self.parseScenes(indexer["document"]["scenes"])
+        self.storyboardInstanceParseInfo = self.createStoryboardInstance(indexer)
         
-        self.createSegueInstanceInfosFromParsed()
+        if let storyboardInstanceParseInfo = self.storyboardInstanceParseInfo
+        {
+            self.parseScenes(indexer["document"]["scenes"], storyboardInstanceParseInfo: storyboardInstanceParseInfo)
+            
+            self.createSegueInstanceInfosFromParsed()
+            
+            result = self.createStoryboardInstanceInfoFromParsed()
+        }
         
         return result
     }
     
-    internal func parseScenes(scenes : XMLIndexer) {
-        for scene in scenes.children {
+    internal class StoryboardInstanceParseInfo : NSObject {
+//        internal var fileType : String
+//        internal var fileVersion : String
+//        internal var toolsVersion : String
+//        internal var systemVersion : String
+//        internal var targetRuntime : String
+//        internal var propertyAccessControl : String
+
+        internal var useAutolayout : Bool
+        internal var useTraitCollections : Bool
+        internal var initialViewControllerId : String?
+        
+        init(useAutolayout : Bool, useTraitCollections : Bool, initialViewControllerId : String?) {
+            self.useAutolayout = useAutolayout
+            self.useTraitCollections = useTraitCollections
+            self.initialViewControllerId = initialViewControllerId
             
-            self.parseIndividualScene(scene)
+            super.init()
+        }
+        
+        var scenes : [StoryboardInstanceInfo.SceneInfo] = Array<StoryboardInstanceInfo.SceneInfo>()
+        
+        func add(#scene : StoryboardInstanceInfo.SceneInfo) {
+            // TODO: validate that it isn't a dup
+            self.scenes.append(scene)
         }
     }
     
-    internal func parseIndividualScene(scene : XMLIndexer) {
+    internal var storyboardInstanceParseInfo : StoryboardInstanceParseInfo?
+    
+    internal func createStoryboardInstance(root : XMLIndexer) -> StoryboardInstanceParseInfo? {
+        var result : StoryboardInstanceParseInfo?
+        
+        if let document = root["document"].element
+        {
+            var useAutolayout = document.attributes["useAutolayout"] == "YES"
+            var useTraitCollections = document.attributes["useTraitCollections"] == "YES"
+            
+            var initialViewControllerId = document.attributes["initialViewController"]
+
+            
+            var storyboardInstance = StoryboardInstanceParseInfo(useAutolayout: useAutolayout, useTraitCollections: useTraitCollections, initialViewControllerId: initialViewControllerId)
+            
+            // TODO: StoryboardFileInfo
+//            storyboardInstance.fileType = document.attributes["type"]
+//            storyboardInstance.fileVersion = document.attributes["version"]
+//            storyboardInstance.toolsVersion = document.attributes["toolsVersion"]
+//            storyboardInstance.systemVersion = document.attributes["systemVersion"]
+//            storyboardInstance.targetRuntime = document.attributes["targetRuntime"]
+//            storyboardInstance.propertyAccessControl = document.attributes["propertyAccessControl"]
+            
+            result = storyboardInstance
+        }
+        
+        return result
+    }
+    
+    internal func parseScenes(scenes : XMLIndexer, storyboardInstanceParseInfo : StoryboardInstanceParseInfo) {
+        for scene in scenes.children {
+            
+            self.parseIndividualScene(scene, storyboardInstanceParseInfo: storyboardInstanceParseInfo)
+        }
+    }
+    
+    internal func parseIndividualScene(scene : XMLIndexer, storyboardInstanceParseInfo : StoryboardInstanceParseInfo) {
         
         if let element = scene.element, let sceneId = element.attributes["sceneID"]
         {
             var sceneInfo = StoryboardInstanceInfo.SceneInfo(sceneId: sceneId)
-            self.storyboardInfo.add(scene: sceneInfo)
+            storyboardInstanceParseInfo.add(scene: sceneInfo)
             
             var objects = scene["objects"]
             for object in objects.children {
@@ -264,5 +326,33 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
                 }
             }
         }
+    }
+    
+    internal func createStoryboardInstanceInfoFromParsed() -> StoryboardFileParser.ParseResult {
+        var result : StoryboardFileParser.ParseResult
+        
+        if let storyboardInstanceParseInfo = self.storyboardInstanceParseInfo
+        {
+            var initialViewController : ViewControllerInstanceInfo?
+            
+            if let initialViewControllerId = storyboardInstanceParseInfo.initialViewControllerId
+            {
+                initialViewController = self.applicationInfo.viewControllerInstanceWithId(initialViewControllerId)
+            }
+            
+            var storyboardInstanceInfo = StoryboardInstanceInfo(useAutolayout: storyboardInstanceParseInfo.useAutolayout, useTraitCollections: storyboardInstanceParseInfo.useTraitCollections, initialViewController: initialViewController)
+            
+            for sceneInfo in storyboardInstanceParseInfo.scenes
+            {
+                storyboardInstanceInfo.add(scene: sceneInfo)
+            }
+            
+            result = (storyboardInstanceInfo, nil)
+        } else
+        {
+            result = (nil, NSError(domain: "Unable to find StoryboardInstanceParseInfo, likely cause was we were unable to parse root of Storyboard file", code: 0, userInfo: nil) )
+        }
+        
+        return result
     }
 }
