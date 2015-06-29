@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C0597DF1B1D8DB1001D7C15 /* StoryboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0597DE1B1D8DB1001D7C15 /* StoryboardInfo.swift */; };
 		3C1380511AF7BEBA00E417B2 /* SegueClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */; };
+		3C30CABD1B418ADE000CC56D /* NavigationControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CAB91B418ADE000CC56D /* NavigationControllerClassInfo.swift */; };
+		3C30CABE1B418ADE000CC56D /* NavigationControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CABA1B418ADE000CC56D /* NavigationControllerInstanceInfo.swift */; };
+		3C30CABF1B418ADE000CC56D /* ViewControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CABB1B418ADE000CC56D /* ViewControllerClassInfo.swift */; };
+		3C30CAC01B418ADE000CC56D /* ViewControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CABC1B418ADE000CC56D /* ViewControllerInstanceInfo.swift */; };
 		3C3DF3901B1B0AE500F1BBC0 /* StoryboardKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C3DF38F1B1B0AE500F1BBC0 /* StoryboardKit.storyboard */; };
 		3C3DF3921B1B11B300F1BBC0 /* ApplicationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */; };
 		3C3DF3941B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */; };
 		3C3DF39B1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39A1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift */; };
 		3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */; };
 		3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */; };
-		3C3DF3A11B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3A01B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift */; };
-		3CE3421F1B25036B00D46AE2 /* NavigationControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE3421E1B25036B00D46AE2 /* NavigationControllerClassInfo.swift */; };
 		3CF3D35F1B3B089700811E8A /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 3CF3D35C1B3B088800811E8A /* LICENSE.md */; };
 		3CF3D3601B3B089700811E8A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3CF3D35E1B3B088800811E8A /* README.md */; };
 		3CF85BB41AF6E2F80043AA48 /* StoryboardKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CF85BB31AF6E2F80043AA48 /* StoryboardKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,8 +28,6 @@
 		3CF85BD31AF6E3880043AA48 /* StoryboardFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCC1AF6E3880043AA48 /* StoryboardFileParser.swift */; };
 		3CF85BD41AF6E3880043AA48 /* StoryboardInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCD1AF6E3880043AA48 /* StoryboardInstanceInfo.swift */; };
 		3CF85BD51AF6E3880043AA48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCE1AF6E3880043AA48 /* Utility.swift */; };
-		3CF85BD61AF6E3880043AA48 /* ViewControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCF1AF6E3880043AA48 /* ViewControllerClassInfo.swift */; };
-		3CF85BD71AF6E3880043AA48 /* ViewControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BD01AF6E3880043AA48 /* ViewControllerInstanceInfo.swift */; };
 		88212D25B106D416B5B550FF /* Pods_StoryboardKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20384CAD3AAE7C6AE4EE655B /* Pods_StoryboardKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -45,16 +44,17 @@
 /* Begin PBXFileReference section */
 		11C88EB60444AB99770E6F27 /* Pods-StoryboardKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryboardKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoryboardKit/Pods-StoryboardKit.debug.xcconfig"; sourceTree = "<group>"; };
 		20384CAD3AAE7C6AE4EE655B /* Pods_StoryboardKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoryboardKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C0597DE1B1D8DB1001D7C15 /* StoryboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInfo.swift; sourceTree = "<group>"; };
 		3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueClassInfo.swift; sourceTree = "<group>"; };
+		3C30CAB91B418ADE000CC56D /* NavigationControllerClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerClassInfo.swift; sourceTree = "<group>"; };
+		3C30CABA1B418ADE000CC56D /* NavigationControllerInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerInstanceInfo.swift; sourceTree = "<group>"; };
+		3C30CABB1B418ADE000CC56D /* ViewControllerClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerClassInfo.swift; sourceTree = "<group>"; };
+		3C30CABC1B418ADE000CC56D /* ViewControllerInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3DF38F1B1B0AE500F1BBC0 /* StoryboardKit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardKit.storyboard; sourceTree = "<group>"; };
 		3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInfoTests.swift; sourceTree = "<group>"; };
 		3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFileParserTests.swift; sourceTree = "<group>"; };
 		3C3DF39A1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFile3_0Parser.swift; sourceTree = "<group>"; };
 		3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLayoutGuideInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemInstanceInfo.swift; sourceTree = "<group>"; };
-		3C3DF3A01B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerInstanceInfo.swift; sourceTree = "<group>"; };
-		3CE3421E1B25036B00D46AE2 /* NavigationControllerClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerClassInfo.swift; sourceTree = "<group>"; };
 		3CF3D35B1B3B088800811E8A /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		3CF3D35C1B3B088800811E8A /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		3CF3D35D1B3B088800811E8A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
@@ -70,8 +70,6 @@
 		3CF85BCC1AF6E3880043AA48 /* StoryboardFileParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFileParser.swift; sourceTree = "<group>"; };
 		3CF85BCD1AF6E3880043AA48 /* StoryboardInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstanceInfo.swift; sourceTree = "<group>"; };
 		3CF85BCE1AF6E3880043AA48 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		3CF85BCF1AF6E3880043AA48 /* ViewControllerClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerClassInfo.swift; sourceTree = "<group>"; };
-		3CF85BD01AF6E3880043AA48 /* ViewControllerInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerInstanceInfo.swift; sourceTree = "<group>"; };
 		3CF85BD81AF6E3BF0043AA48 /* StoryboardKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StoryboardKit.podspec; sourceTree = "<group>"; };
 		63D27DFCBC69D64CB78A68DE /* Pods_StoryboardInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoryboardInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A4EF145513492FD2A131673 /* Pods-StoryboardKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryboardKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryboardKit/Pods-StoryboardKit.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +95,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C30CAB81B418ADE000CC56D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3C30CAB91B418ADE000CC56D /* NavigationControllerClassInfo.swift */,
+				3C30CABA1B418ADE000CC56D /* NavigationControllerInstanceInfo.swift */,
+				3C30CABB1B418ADE000CC56D /* ViewControllerClassInfo.swift */,
+				3C30CABC1B418ADE000CC56D /* ViewControllerInstanceInfo.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		3C3DF3971B1B189900F1BBC0 /* StoryboardFileVersionedParsers */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,16 +156,12 @@
 				3CF85BCC1AF6E3880043AA48 /* StoryboardFileParser.swift */,
 				3C3DF3971B1B189900F1BBC0 /* StoryboardFileVersionedParsers */,
 				3CF85BCD1AF6E3880043AA48 /* StoryboardInstanceInfo.swift */,
-				3CF85BCF1AF6E3880043AA48 /* ViewControllerClassInfo.swift */,
-				3CF85BD01AF6E3880043AA48 /* ViewControllerInstanceInfo.swift */,
 				3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */,
 				3CF85BCB1AF6E3880043AA48 /* SegueInstanceInfo.swift */,
 				3CF85BCE1AF6E3880043AA48 /* Utility.swift */,
 				3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */,
 				3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */,
-				3CE3421E1B25036B00D46AE2 /* NavigationControllerClassInfo.swift */,
-				3C3DF3A01B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift */,
-				3C0597DE1B1D8DB1001D7C15 /* StoryboardInfo.swift */,
+				3C30CAB81B418ADE000CC56D /* ViewControllers */,
 			);
 			path = StoryboardKit;
 			sourceTree = "<group>";
@@ -369,18 +374,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CF85BD51AF6E3880043AA48 /* Utility.swift in Sources */,
-				3CF85BD71AF6E3880043AA48 /* ViewControllerInstanceInfo.swift in Sources */,
 				3C1380511AF7BEBA00E417B2 /* SegueClassInfo.swift in Sources */,
-				3CF85BD61AF6E3880043AA48 /* ViewControllerClassInfo.swift in Sources */,
 				3CF85BD41AF6E3880043AA48 /* StoryboardInstanceInfo.swift in Sources */,
 				3CF85BD11AF6E3880043AA48 /* ApplicationInfo.swift in Sources */,
-				3C3DF3A11B1CA0B000F1BBC0 /* NavigationControllerInstanceInfo.swift in Sources */,
+				3C30CABE1B418ADE000CC56D /* NavigationControllerInstanceInfo.swift in Sources */,
+				3C30CABF1B418ADE000CC56D /* ViewControllerClassInfo.swift in Sources */,
+				3C30CABD1B418ADE000CC56D /* NavigationControllerClassInfo.swift in Sources */,
 				3CF85BD31AF6E3880043AA48 /* StoryboardFileParser.swift in Sources */,
 				3C3DF39B1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift in Sources */,
-				3C0597DF1B1D8DB1001D7C15 /* StoryboardInfo.swift in Sources */,
 				3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */,
 				3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */,
-				3CE3421F1B25036B00D46AE2 /* NavigationControllerClassInfo.swift in Sources */,
+				3C30CAC01B418ADE000CC56D /* ViewControllerInstanceInfo.swift in Sources */,
 				3CF85BD21AF6E3880043AA48 /* SegueInstanceInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
