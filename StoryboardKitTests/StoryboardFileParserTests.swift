@@ -11,19 +11,29 @@ import XCTest
 import StoryboardKit
 
 class StoryboardFileParserTests: XCTestCase {
-    var storyboardInfo : StoryboardInstanceInfo?
     var applicationInfo : ApplicationInfo?
     
     override func setUp() {
         super.setUp()
         
-        storyboardInfo = StoryboardInstanceInfo()
         applicationInfo = ApplicationInfo()
     }
 
     func testParseFinishes() {
-        StoryboardFileParser.parse(applicationInfo!, storyboardInfo: storyboardInfo!, pathFileName: storyboardPathBuilder()! )
+        StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
 
         XCTAssert(true, "Pass")
+    }
+    
+    func testParseFinishedWithStoryboardInstanceInfo() {
+        var result = StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        
+        XCTAssertNotNil(result.0, "returned StoryboardInstanceInfo reference is nil")
+    }
+    
+    func testParseFinishesWithoutErrors() {
+        var result = StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        
+        XCTAssertNil(result.1, "Error occurred \(result.1)")
     }
 }

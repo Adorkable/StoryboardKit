@@ -8,6 +8,7 @@
 
 import Foundation
 
+// TODO: rename to Utility or something StoryboardKit contextualized
 protocol Idable {
     var id : String { get }
 }
