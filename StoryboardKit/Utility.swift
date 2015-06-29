@@ -22,6 +22,14 @@ public enum StoryboardKit_Either<TLeft : AnyObject, TRight : AnyObject> {
     case Left(TLeft)
     case Right(TRight)
 }
+/*
+protocol ClassInfo : DebugPrintable {
+    var infoClassName : String { get }
+}
+*/
+func classWithClassName<T : ClassInfo>(className : String, objects : [T]) -> T? {
+    return objects.filter( { $0.infoClassName == className } ).first
+}
 
 protocol Idable {
     var id : String { get }

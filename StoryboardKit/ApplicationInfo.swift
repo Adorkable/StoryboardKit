@@ -33,10 +33,7 @@ public class ApplicationInfo: NSObject {
     :returns: If found a reference to the View Controller Class Info you wished to retrieve, otherwise nil
     */
     public func viewControllerClassWithClassName(className : String) -> ViewControllerClassInfo? {
-        return self.viewControllerClasses.filter(
-            {
-                $0.viewControllerClassName == className
-        } ).first
+        return classWithClassName(className, self.viewControllerClasses)
     }
     
     /// All View Controller Instance Infos in your application
@@ -130,7 +127,7 @@ public class ApplicationInfo: NSObject {
     :returns: If found a reference to the Segue Class Info you wished to retrieve, otherwise nil
     */
     public func segueClassWithClassName(className : String) -> SegueClassInfo? {
-        return self.segueClasses.filter( { $0.className == className } ).first
+        return classWithClassName(className, self.segueClasses)
     }
     
     // TODO: store SegueInstances
@@ -143,6 +140,6 @@ public class ApplicationInfo: NSObject {
     }
     
     public func viewClassWithClassName(className : String) -> ViewClassInfo? {
-        return self.viewClasses.filter( { $0.className == className } ).first
+        return classWithClassName(className, self.viewClasses)
     }
 }

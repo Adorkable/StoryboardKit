@@ -11,9 +11,8 @@ import Foundation
 /**
 *  Represents a View Controller Class that is used in your application and its storyboards
 */
-public class ViewControllerClassInfo: NSObject {
-    /// Name of the Class
-    public let viewControllerClassName : String
+public class ViewControllerClassInfo: ClassInfo {
+
     class var defaultClass : String { return "UIViewController" }
 
     /// All instances of this class in the application
@@ -26,16 +25,18 @@ public class ViewControllerClassInfo: NSObject {
     
     :returns: A new ViewControllerClassInfo instance
     */
-    init(className : String?) {
+    override init(className : String?) {
+        
+        var useClassName : String
         if className != nil
         {
-            self.viewControllerClassName = className!
+            useClassName = className!
         } else
         {
-            self.viewControllerClassName = self.dynamicType.defaultClass
+            useClassName = self.dynamicType.defaultClass
         }
     
-        super.init()
+        super.init(className: useClassName)
     }
     
     /**
@@ -46,17 +47,5 @@ public class ViewControllerClassInfo: NSObject {
     func add(#instanceInfo : ViewControllerInstanceInfo) {
         // TODO: prevent duplicates
         self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
-    }
-}
-
-extension ViewControllerClassInfo : DebugPrintable {
-    public override var debugDescription: String {
-        get {
-            var result = super.debugDescription
-            
-            result += "\nClass: \(self.viewControllerClassName)"
-            
-            return result
-        }
     }
 }

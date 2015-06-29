@@ -11,9 +11,8 @@ import Foundation
 /**
 *  Represents a View Class that is used in your application and its storyboards
 */
-public class ViewClassInfo: NSObject {
-    /// Name of the Class
-    public let viewClassName : String
+public class ViewClassInfo: ClassInfo {
+
     class var defaultClass : String { return "UIView" }
 
     /// All instances of this class in the application
@@ -26,16 +25,18 @@ public class ViewClassInfo: NSObject {
     
     :returns: A new ViewClassInfo instance
     */
-    init(className : String?) {
+    override init(className : String?) {
+        
+        var useClassName : String
         if className != nil
         {
-            self.viewClassName = className!
+            useClassName = className!
         } else
         {
-            self.viewClassName = self.dynamicType.defaultClass
+            useClassName = self.dynamicType.defaultClass
         }
         
-        super.init()
+        super.init(className: useClassName)
     }
     
     /**

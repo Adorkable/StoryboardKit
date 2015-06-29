@@ -16,6 +16,8 @@
 		3C30CAC51B418CB2000CC56D /* ViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CAC41B418CB2000CC56D /* ViewInstanceInfo.swift */; };
 		3C30CACA1B41C924000CC56D /* StoryboardInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CAC91B41C924000CC56D /* StoryboardInstanceInfoTests.swift */; };
 		3C30CACC1B41EF6C000CC56D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C30CACB1B41EF6C000CC56D /* Images.xcassets */; };
+		3C30CAD01B4201FA000CC56D /* ClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CACF1B4201FA000CC56D /* ClassInfo.swift */; };
+		3C30CAD21B42043D000CC56D /* ClassInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CAD11B42043D000CC56D /* ClassInfoTests.swift */; };
 		3C3DF3901B1B0AE500F1BBC0 /* StoryboardKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C3DF38F1B1B0AE500F1BBC0 /* StoryboardKit.storyboard */; };
 		3C3DF3921B1B11B300F1BBC0 /* ApplicationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */; };
 		3C3DF3941B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */; };
@@ -57,6 +59,8 @@
 		3C30CAC41B418CB2000CC56D /* ViewInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewInstanceInfo.swift; sourceTree = "<group>"; };
 		3C30CAC91B41C924000CC56D /* StoryboardInstanceInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstanceInfoTests.swift; sourceTree = "<group>"; };
 		3C30CACB1B41EF6C000CC56D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3C30CACF1B4201FA000CC56D /* ClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfo.swift; sourceTree = "<group>"; };
+		3C30CAD11B42043D000CC56D /* ClassInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfoTests.swift; sourceTree = "<group>"; };
 		3C3DF38F1B1B0AE500F1BBC0 /* StoryboardKit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardKit.storyboard; sourceTree = "<group>"; };
 		3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInfoTests.swift; sourceTree = "<group>"; };
 		3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFileParserTests.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */,
 				3C30CAB81B418ADE000CC56D /* ViewControllers */,
 				3C30CAC11B418B5E000CC56D /* Views */,
+				3C30CACF1B4201FA000CC56D /* ClassInfo.swift */,
 			);
 			path = StoryboardKit;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */,
 				3C30CAC91B41C924000CC56D /* StoryboardInstanceInfoTests.swift */,
 				3C30CACB1B41EF6C000CC56D /* Images.xcassets */,
+				3C30CAD11B42043D000CC56D /* ClassInfoTests.swift */,
 			);
 			path = StoryboardKitTests;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				3CF85BD31AF6E3880043AA48 /* StoryboardFileParser.swift in Sources */,
 				3C3DF39B1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift in Sources */,
 				3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */,
+				3C30CAD01B4201FA000CC56D /* ClassInfo.swift in Sources */,
 				3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */,
 				3C30CAC01B418ADE000CC56D /* ViewControllerInstanceInfo.swift in Sources */,
 				3CF85BD21AF6E3880043AA48 /* SegueInstanceInfo.swift in Sources */,
@@ -420,6 +427,7 @@
 				3C3DF3921B1B11B300F1BBC0 /* ApplicationInfoTests.swift in Sources */,
 				3C3DF3941B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift in Sources */,
 				3CF85BC11AF6E2F90043AA48 /* StoryboardInfoTests.swift in Sources */,
+				3C30CAD21B42043D000CC56D /* ClassInfoTests.swift in Sources */,
 				3C30CACA1B41C924000CC56D /* StoryboardInstanceInfoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
