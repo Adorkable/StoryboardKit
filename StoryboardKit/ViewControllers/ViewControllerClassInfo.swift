@@ -48,3 +48,15 @@ public class ViewControllerClassInfo: NSObject {
         self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
     }
 }
+
+extension ViewControllerClassInfo : DebugPrintable {
+    public override var debugDescription: String {
+        get {
+            var result = super.debugDescription
+            
+            result += "\nClass: \(self.viewControllerClassName)"
+            
+            return result
+        }
+    }
+}
