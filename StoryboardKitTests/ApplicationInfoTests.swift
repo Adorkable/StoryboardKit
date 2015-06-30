@@ -53,19 +53,25 @@ class ApplicationInfoTests: XCTestCase {
     
     func testSegueClassWithClassName() {
         var className = "UIStoryboardSegue"
-        var classInfo = applicationInfo!.segueClassWithClassName(className)
+        var classInfo = applicationInfo?.segueClassWithClassName(className)
         XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
     }
     
     func testViewClassWithClassName() {
         var className = "UIView"
-        var classInfo = applicationInfo!.viewClassWithClassName(className)
+        var classInfo = applicationInfo?.viewClassWithClassName(className)
         XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
     }
     
     func testViewClassWithCustomClassName() {
         var className = "CustomButton"
-        var classInfo = applicationInfo!.viewClassWithClassName(className)
+        var classInfo = applicationInfo?.viewClassWithClassName(className)
         XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
+    }
+    
+    func testViewInstanceWithId() {
+        var id = "IKn-pG-61R"
+        var instanceInfo = applicationInfo?.viewInstanceWithId(id)
+        XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for id '\(id)'")
     }
 }

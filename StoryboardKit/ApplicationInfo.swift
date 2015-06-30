@@ -132,14 +132,60 @@ public class ApplicationInfo: NSObject {
     
     // TODO: store SegueInstances
     
+    /// All View Class Infos in your application
     public private(set) var viewClasses = [ViewClassInfo]()
     
+    /**
+    Add a View Class Info to your application
+    
+    :param: viewClass View Class Info to add
+    */
     func add(#viewClass : ViewClassInfo) {
         // TODO: validates that this isn't a dup
         self.viewClasses.append(viewClass)
     }
     
+    /**
+    Retrieve a View Class Info by class name
+    
+    :param: className Name of the class you wish to retrieve
+    
+    :returns: If found a reference to the View Class Info you wished to retrieve, otherwise nil
+    */
     public func viewClassWithClassName(className : String) -> ViewClassInfo? {
         return classWithClassName(className, self.viewClasses)
+    }
+    
+    /**
+    Retrieve a View Instance Info by id
+    
+    :param: id id of the instance you wish to retrieve
+    
+    :returns: If found a reference to the View Instance Info you wished to retrieve, otherwise nil
+    */
+    public func viewInstanceWithId(id : String) -> ViewInstanceInfo? {
+        var result : ViewInstanceInfo?
+        
+        for viewClass in self.viewClasses
+        {
+            for viewInstanceWeakWrapper in viewClass.instanceInfos
+            {
+                if let viewInstance = viewInstanceWeakWrapper.value
+                {
+                    if viewInstance.id == id
+                    {
+                        result = viewInstance
+                        break
+                    }
+                }
+            }
+            
+            if result != nil
+            {
+                break
+            }
+        }
+        
+        return result
     }
 }
