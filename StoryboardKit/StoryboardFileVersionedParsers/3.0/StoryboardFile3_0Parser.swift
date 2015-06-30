@@ -12,6 +12,26 @@ import SWXMLHash
 
 class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
     
+    static func supports(root: XMLIndexer) -> Bool {
+        var result : Bool
+        
+        if let version = root["document"].element?.attributes["version"]
+        {
+            if version == "3.0"
+            {
+                result = true
+            } else
+            {
+                result = false
+            }
+        } else
+        {
+            result = false
+        }
+        
+        return result
+    }
+    
     internal let applicationInfo : ApplicationInfo
     
     internal var storyboardInstanceParseInfo : StoryboardInstanceParseInfo?

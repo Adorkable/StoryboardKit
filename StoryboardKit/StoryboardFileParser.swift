@@ -14,6 +14,7 @@ import SWXMLHash
 *  Interface for implementing a Version Specific Storyboard File Parser
 */
 protocol StoryboardFileVersionedParser {
+    static func supports(root : XMLIndexer) -> Bool
     init(applicationInfo : ApplicationInfo)
     func parse(indexer : XMLIndexer) -> StoryboardFileParser.ParseResult
 }
@@ -56,15 +57,13 @@ public class StoryboardFileParser: NSObject {
         return result
     }
     
-    internal var versionedParsers = [
-        "3.0" : StoryboardFile3_0Parser.className()
-    ]
+    internal static let versionedParserClasses : [StoryboardFileVersionedParser.Type] = [StoryboardFile3_0Parser.self]
     
     internal class func parseXML(indexer : XMLIndexer, applicationInfo : ApplicationInfo) -> ParseResult {
         var result : ParseResult
         
-        var version = StoryboardFileParser.getVersion(indexer)
-        if version == "3.0"
+        // TODO: fix in Swift 2.0 to use versionsedParserClasses
+        if StoryboardFile3_0Parser.supports(indexer)
         {
             var parser = StoryboardFile3_0Parser(applicationInfo: applicationInfo)
             
@@ -75,10 +74,5 @@ public class StoryboardFileParser: NSObject {
         }
         
         return result
-    }
-    
-    // should this be in the versioned parser? refactor when this becomes more complicated
-    internal class func getVersion(indexer : XMLIndexer) -> String? {
-        return indexer["document"].element?.attributes["version"];
     }
 }
