@@ -92,12 +92,12 @@ extension StoryboardFile3_0Parser {
         var result : CGRect?
         
         if let element = rect.element,
-            let x = element.attributes["x"],
-            let y = element.attributes["y"],
-            let width = element.attributes["width"],
-            let height = element.attributes["height"]
+            let x = (element.attributes["x"] as NSString?)?.floatValue,
+            let y = (element.attributes["y"] as NSString?)?.floatValue,
+            let width = (element.attributes["width"] as NSString?)?.floatValue,
+            let height = (element.attributes["height"] as NSString?)?.floatValue
         {
-            
+            result = CGRect(x: CGFloat(x), y: CGFloat(y), width: CGFloat(width), height: CGFloat(height))
         }
         
         return result
@@ -105,5 +105,10 @@ extension StoryboardFile3_0Parser {
     
     internal func getAutoresizingMaskValues(autoresizingMask : XMLIndexer, inout widthSizable : Bool, inout heightSizable : Bool) {
         
+        if let element = autoresizingMask.element
+        {
+            widthSizable = element.attributes["widthSizable"] == "YES"
+            heightSizable = element.attributes["heightSizable"] == "YES"
+        }
     }
 }
