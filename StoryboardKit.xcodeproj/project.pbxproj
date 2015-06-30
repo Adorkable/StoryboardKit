@@ -18,10 +18,15 @@
 		3C30CACC1B41EF6C000CC56D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C30CACB1B41EF6C000CC56D /* Images.xcassets */; };
 		3C30CAD01B4201FA000CC56D /* ClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CACF1B4201FA000CC56D /* ClassInfo.swift */; };
 		3C30CAD21B42043D000CC56D /* ClassInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CAD11B42043D000CC56D /* ClassInfoTests.swift */; };
+		3C30CAD51B43165A000CC56D /* StoryboardFile3_0Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CAD41B43165A000CC56D /* StoryboardFile3_0Parser.swift */; };
+		3C30CAD71B431840000CC56D /* StoryboardFile3_0Parser_ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CAD61B431840000CC56D /* StoryboardFile3_0Parser_ViewControllers.swift */; };
+		3C30CAD91B431889000CC56D /* StoryboardFile3_0Parser_Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CAD81B431889000CC56D /* StoryboardFile3_0Parser_Segues.swift */; };
+		3C30CADB1B4318B8000CC56D /* StoryboardFile3_0Parser_Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CADA1B4318B8000CC56D /* StoryboardFile3_0Parser_Views.swift */; };
+		3C30CADD1B4318FD000CC56D /* StoryboardFile3_0Parser_Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CADC1B4318FD000CC56D /* StoryboardFile3_0Parser_Storyboard.swift */; };
+		3C30CADF1B43198B000CC56D /* StoryboardFile3_0Parser_Scenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CADE1B43198B000CC56D /* StoryboardFile3_0Parser_Scenes.swift */; };
 		3C3DF3901B1B0AE500F1BBC0 /* StoryboardKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C3DF38F1B1B0AE500F1BBC0 /* StoryboardKit.storyboard */; };
 		3C3DF3921B1B11B300F1BBC0 /* ApplicationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */; };
 		3C3DF3941B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */; };
-		3C3DF39B1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39A1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift */; };
 		3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */; };
 		3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */; };
 		3CF3D35F1B3B089700811E8A /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 3CF3D35C1B3B088800811E8A /* LICENSE.md */; };
@@ -61,10 +66,15 @@
 		3C30CACB1B41EF6C000CC56D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3C30CACF1B4201FA000CC56D /* ClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfo.swift; sourceTree = "<group>"; };
 		3C30CAD11B42043D000CC56D /* ClassInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassInfoTests.swift; sourceTree = "<group>"; };
+		3C30CAD41B43165A000CC56D /* StoryboardFile3_0Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFile3_0Parser.swift; sourceTree = "<group>"; };
+		3C30CAD61B431840000CC56D /* StoryboardFile3_0Parser_ViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFile3_0Parser_ViewControllers.swift; sourceTree = "<group>"; };
+		3C30CAD81B431889000CC56D /* StoryboardFile3_0Parser_Segues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFile3_0Parser_Segues.swift; sourceTree = "<group>"; };
+		3C30CADA1B4318B8000CC56D /* StoryboardFile3_0Parser_Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFile3_0Parser_Views.swift; sourceTree = "<group>"; };
+		3C30CADC1B4318FD000CC56D /* StoryboardFile3_0Parser_Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFile3_0Parser_Storyboard.swift; sourceTree = "<group>"; };
+		3C30CADE1B43198B000CC56D /* StoryboardFile3_0Parser_Scenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFile3_0Parser_Scenes.swift; sourceTree = "<group>"; };
 		3C3DF38F1B1B0AE500F1BBC0 /* StoryboardKit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = StoryboardKit.storyboard; sourceTree = "<group>"; };
 		3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInfoTests.swift; sourceTree = "<group>"; };
 		3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFileParserTests.swift; sourceTree = "<group>"; };
-		3C3DF39A1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFile3_0Parser.swift; sourceTree = "<group>"; };
 		3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLayoutGuideInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemInstanceInfo.swift; sourceTree = "<group>"; };
 		3CF3D35B1B3B088800811E8A /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
@@ -128,10 +138,23 @@
 			path = StoryboardKit/Views;
 			sourceTree = SOURCE_ROOT;
 		};
+		3C30CAD31B43162B000CC56D /* 3.0 */ = {
+			isa = PBXGroup;
+			children = (
+				3C30CAD41B43165A000CC56D /* StoryboardFile3_0Parser.swift */,
+				3C30CADC1B4318FD000CC56D /* StoryboardFile3_0Parser_Storyboard.swift */,
+				3C30CADE1B43198B000CC56D /* StoryboardFile3_0Parser_Scenes.swift */,
+				3C30CAD61B431840000CC56D /* StoryboardFile3_0Parser_ViewControllers.swift */,
+				3C30CAD81B431889000CC56D /* StoryboardFile3_0Parser_Segues.swift */,
+				3C30CADA1B4318B8000CC56D /* StoryboardFile3_0Parser_Views.swift */,
+			);
+			path = 3.0;
+			sourceTree = "<group>";
+		};
 		3C3DF3971B1B189900F1BBC0 /* StoryboardFileVersionedParsers */ = {
 			isa = PBXGroup;
 			children = (
-				3C3DF39A1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift */,
+				3C30CAD31B43162B000CC56D /* 3.0 */,
 			);
 			path = StoryboardFileVersionedParsers;
 			sourceTree = "<group>";
@@ -401,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C30CAD51B43165A000CC56D /* StoryboardFile3_0Parser.swift in Sources */,
 				3CF85BD51AF6E3880043AA48 /* Utility.swift in Sources */,
 				3C1380511AF7BEBA00E417B2 /* SegueClassInfo.swift in Sources */,
 				3CF85BD41AF6E3880043AA48 /* StoryboardInstanceInfo.swift in Sources */,
@@ -410,10 +434,14 @@
 				3C30CABF1B418ADE000CC56D /* ViewControllerClassInfo.swift in Sources */,
 				3C30CAC51B418CB2000CC56D /* ViewInstanceInfo.swift in Sources */,
 				3C30CABD1B418ADE000CC56D /* NavigationControllerClassInfo.swift in Sources */,
+				3C30CADB1B4318B8000CC56D /* StoryboardFile3_0Parser_Views.swift in Sources */,
+				3C30CADD1B4318FD000CC56D /* StoryboardFile3_0Parser_Storyboard.swift in Sources */,
 				3CF85BD31AF6E3880043AA48 /* StoryboardFileParser.swift in Sources */,
-				3C3DF39B1B1B19BF00F1BBC0 /* StoryboardFile3_0Parser.swift in Sources */,
 				3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */,
+				3C30CAD71B431840000CC56D /* StoryboardFile3_0Parser_ViewControllers.swift in Sources */,
 				3C30CAD01B4201FA000CC56D /* ClassInfo.swift in Sources */,
+				3C30CADF1B43198B000CC56D /* StoryboardFile3_0Parser_Scenes.swift in Sources */,
+				3C30CAD91B431889000CC56D /* StoryboardFile3_0Parser_Segues.swift in Sources */,
 				3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */,
 				3C30CAC01B418ADE000CC56D /* ViewControllerInstanceInfo.swift in Sources */,
 				3CF85BD21AF6E3880043AA48 /* SegueInstanceInfo.swift in Sources */,
