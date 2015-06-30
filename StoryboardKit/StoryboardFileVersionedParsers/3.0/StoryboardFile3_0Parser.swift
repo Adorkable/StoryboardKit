@@ -32,6 +32,11 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         return result
     }
     
+    static func parse(indexer: XMLIndexer, applicationInfo: ApplicationInfo) -> StoryboardFileParser.ParseResult {
+        var parser = StoryboardFile3_0Parser(applicationInfo: applicationInfo)
+        return parser.parse(indexer)
+    }
+    
     internal let applicationInfo : ApplicationInfo
     
     internal var storyboardInstanceParseInfo : StoryboardInstanceParseInfo?

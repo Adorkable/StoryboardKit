@@ -15,8 +15,7 @@ import SWXMLHash
 */
 protocol StoryboardFileVersionedParser {
     static func supports(root : XMLIndexer) -> Bool
-    init(applicationInfo : ApplicationInfo)
-    func parse(indexer : XMLIndexer) -> StoryboardFileParser.ParseResult
+    static func parse(indexer : XMLIndexer, applicationInfo : ApplicationInfo) -> StoryboardFileParser.ParseResult
 }
 
 /**
@@ -65,9 +64,7 @@ public class StoryboardFileParser: NSObject {
         // TODO: fix in Swift 2.0 to use versionsedParserClasses
         if StoryboardFile3_0Parser.supports(indexer)
         {
-            var parser = StoryboardFile3_0Parser(applicationInfo: applicationInfo)
-            
-            result = parser.parse(indexer)
+            result = StoryboardFile3_0Parser.parse(indexer, applicationInfo: applicationInfo)
         } else
         {
             result = (nil, NSError(domain: "Unsupported Storyboard file format version: \(version)", code: 0, userInfo: nil) )
