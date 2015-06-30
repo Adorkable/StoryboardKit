@@ -62,4 +62,10 @@ class ApplicationInfoTests: XCTestCase {
         var classInfo = applicationInfo!.viewClassWithClassName(className)
         XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
     }
+    
+    func testViewClassWithCustomClassName() {
+        var className = "CustomButton"
+        var classInfo = applicationInfo!.viewClassWithClassName(className)
+        XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
+    }
 }
