@@ -22,7 +22,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh to be a label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNx-ue-eIu">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.88456003289473684" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="BYg-eK-ujo">
@@ -32,6 +32,7 @@
                                             <constraint firstAttribute="width" constant="250" id="NnZ-85-6HN"/>
                                             <constraint firstAttribute="height" constant="150" id="W0U-Zi-Pbs"/>
                                         </constraints>
+                                        <color key="sectionIndexBackgroundColor" red="0.59148275852203369" green="0.0" blue="0.69476258754730225" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="I'm a Table Cell" textLabel="57s-fm-Rbe" style="IBUITableViewCellStyleDefault" id="I2K-ou-g3D">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
@@ -47,11 +48,12 @@
                                                         </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" cyan="0.096086084842681885" magenta="0.73840974506578949" yellow="0.94891279935836792" black="0.0065919160842895508" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.90040100509999998" blue="0.2881688395" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="RNx-ue-eIu" secondAttribute="trailing" id="Brc-E3-Sna"/>
                                     <constraint firstItem="BYg-eK-ujo" firstAttribute="leading" secondItem="0Ao-Js-ejd" secondAttribute="leading" id="DT4-BN-sdp"/>
@@ -72,7 +74,7 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="0Ao-Js-ejd" secondAttribute="centerX" id="8rk-1g-Sse"/>
                             <constraint firstItem="WlP-gi-opq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0Ao-Js-ejd" secondAttribute="bottom" id="AzP-D6-xfw"/>

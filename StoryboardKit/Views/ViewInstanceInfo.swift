@@ -20,7 +20,9 @@ public class ViewInstanceInfo: NSObject {
     
     public let subviews : [ViewInstanceInfo]?
     
-    init(classInfo : ViewClassInfo, id : String, frame : CGRect?, autoResizingMaskWidthSizable : Bool, autoResizingMaskHeightSizable : Bool, subviews : [ViewInstanceInfo]?) {
+    public let backgroundColor : NSColor?
+    
+    init(classInfo : ViewClassInfo, id : String, frame : CGRect?, autoResizingMaskWidthSizable : Bool, autoResizingMaskHeightSizable : Bool, subviews : [ViewInstanceInfo]?, backgroundColor : NSColor?) {
         self.classInfo = classInfo
         self.id = id
         
@@ -30,6 +32,8 @@ public class ViewInstanceInfo: NSObject {
         self.autoResizingMaskHeightSizable = autoResizingMaskHeightSizable
         
         self.subviews = subviews
+        
+        self.backgroundColor = backgroundColor
         
         super.init()
         

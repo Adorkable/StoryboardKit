@@ -69,4 +69,11 @@ class ViewInstanceInfoTests: XCTestCase {
         XCTAssertNotNil(self.viewInstanceInfo!.subviews, "\(self.viewInstanceInfo!)'s subviews should not be nil")
         XCTAssertEqual(self.viewInstanceInfo!.subviews!.count, equalTo, "\(self.viewInstanceInfo!)'s subview count should be equal to \(equalTo)")
     }
+    
+    func testBackgroundColor() {
+        var equalTo = NSColor(calibratedWhite: 0.66666666666666663, alpha: 1.0)
+        
+        XCTAssertNotNil(self.viewInstanceInfo!.backgroundColor, "\(self.viewInstanceInfo!)'s background color should not be nil")
+        XCTAssertEqual(self.viewInstanceInfo!.backgroundColor!, equalTo, "\(self.viewInstanceInfo!)'s background color count should be equal to \(equalTo)")
+    }
 }
