@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/Adorkable/StoryboardKit.git", :tag => s.version.to_s }
 
-  s.source_files = "StoryboardKit/*.swift", "StoryboardKit/StoryboardFileVersionedParsers/*.swift"
+  s.source_files = "StoryboardKit/**/*.swift"
 
   s.requires_arc = true
 
