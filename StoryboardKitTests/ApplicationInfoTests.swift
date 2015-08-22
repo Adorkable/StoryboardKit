@@ -11,16 +11,14 @@ import XCTest
 import StoryboardKit
 
 class ApplicationInfoTests: XCTestCase {
-    var storyboardInfo : StoryboardInstanceInfo?
     var applicationInfo : ApplicationInfo?
 
     override func setUp() {
         super.setUp()
         
-        storyboardInfo = StoryboardInstanceInfo()
         applicationInfo = ApplicationInfo()
         
-        StoryboardFileParser.parse(applicationInfo!, storyboardInfo: storyboardInfo!, pathFileName: storyboardPathBuilder()! )
+        StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
     }
     
     func testViewControllerClassWithClassName() {
@@ -51,5 +49,29 @@ class ApplicationInfoTests: XCTestCase {
         var storyboardIdentifier = "Navigation"
         var instanceInfo = applicationInfo?.navigationControllerInstanceWithStoryboardIdentifier(storyboardIdentifier)
         XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for storyboard identifier '\(storyboardIdentifier)'")
+    }
+    
+    func testSegueClassWithClassName() {
+        var className = "UIStoryboardSegue"
+        var classInfo = applicationInfo?.segueClassWithClassName(className)
+        XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
+    }
+    
+    func testViewClassWithClassName() {
+        var className = "UIView"
+        var classInfo = applicationInfo?.viewClassWithClassName(className)
+        XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
+    }
+    
+    func testViewClassWithCustomClassName() {
+        var className = "CustomButton"
+        var classInfo = applicationInfo?.viewClassWithClassName(className)
+        XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
+    }
+    
+    func testViewInstanceWithId() {
+        var id = "IKn-pG-61R"
+        var instanceInfo = applicationInfo?.viewInstanceWithId(id)
+        XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for id '\(id)'")
     }
 }
