@@ -93,9 +93,27 @@ extension StoryboardFile3_0Parser {
                         subviews = [ViewInstanceInfo]()
                         for subviewNode in subnode.children
                         {
-                            if let subview = self.createView(subviewNode)
+                            if let subviewElement = subviewNode.element
                             {
-                                subviews?.append(subview)
+                                if subviewElement.name == "tableView"
+                                {
+                                    if let subview = self.createTableView(subviewNode)
+                                    {
+                                        subviews?.append(subview)
+                                    } else
+                                    {
+                                        // TODO:
+                                    }
+                                } else
+                                {
+                                    if let subview = self.createView(subviewNode)
+                                    {
+                                            subviews?.append(subview)
+                                    } else
+                                    {
+                                        // TODO:
+                                    }
+                                }
                             }
                         }
                         

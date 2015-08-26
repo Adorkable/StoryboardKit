@@ -14,7 +14,8 @@ extension StoryboardFile3_0Parser {
     // MARK: View Controllers
     
     internal func parseViewController(viewController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
-        if let element = viewController.element, let id = element.attributes["id"]
+        if let element = viewController.element,
+            let id = element.attributes["id"]
         {
             var useClass : String
             if let customClass = element.attributes["customClass"]

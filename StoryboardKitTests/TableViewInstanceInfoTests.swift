@@ -14,7 +14,7 @@ class TableViewInstanceInfoTests: XCTestCase {
 
     var applicationInfo : ApplicationInfo?
     
-    var tableViewInstanceInfoId = "eAK-OP-a0x"
+    var tableViewInstanceInfoId = "BYg-eK-ujo"
     var tableViewInstanceInfo : TableViewInstanceInfo?
     
     override func setUp() {
@@ -48,7 +48,7 @@ class TableViewInstanceInfoTests: XCTestCase {
         XCTAssertGreaterThan(self.tableViewInstanceInfo!.cellPrototypes!.count, 0, "\(self.tableViewInstanceInfo!)'s cell prototypes count should be greater than 0")
         XCTAssertNotNil(self.tableViewInstanceInfo!.cellPrototypes![0].reuseIdentifier, "\(self.tableViewInstanceInfo!.cellPrototypes![0])'s reuseIdentifier should not be nil")
         
-        var reuseIdentifier = "TableCell"
+        var reuseIdentifier = "I'm a Table Cell"
         XCTAssertEqual(self.tableViewInstanceInfo!.cellPrototypes![0].reuseIdentifier!, reuseIdentifier, "\(self.tableViewInstanceInfo!.cellPrototypes![0])'s reuseIdentifier should be \"\(reuseIdentifier)\"")
     }
 }
