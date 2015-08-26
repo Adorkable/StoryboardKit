@@ -14,8 +14,35 @@ import SWXMLHash
 extension StoryboardFile3_0Parser {
     // MARK: Views
     
-    internal func createView(view : XMLIndexer) -> ViewInstanceInfo? {
-        var result : ViewInstanceInfo?
+    class ViewInstanceParseInfo {
+        let id : String
+        let useClass : String
+        let viewClass : ViewClassInfo
+        let frame : CGRect?
+        let autoResizingMaskWidthSizable : Bool
+        let autoResizingMaskHeightSizable : Bool
+        let subviews : [ViewInstanceInfo]?
+        var backgroundColor : NSColor?
+        
+        init(id : String, frame : CGRect?, useClass : String, viewClass : ViewClassInfo, autoResizingMaskWidthSizable : Bool, autoResizingMaskHeightSizable : Bool, subviews : [ViewInstanceInfo]?, backgroundColor : NSColor?) {
+            self.id = id
+
+            self.frame = frame
+            
+            self.useClass = useClass
+            self.viewClass = viewClass
+            
+            self.autoResizingMaskWidthSizable = autoResizingMaskWidthSizable
+            self.autoResizingMaskHeightSizable = autoResizingMaskHeightSizable
+            
+            self.subviews = subviews
+            
+            self.backgroundColor = backgroundColor
+        }
+    }
+    
+    internal func parseView(view : XMLIndexer, viewClassInfoClass : ViewClassInfo.Type) -> ViewInstanceParseInfo? {
+        var result : ViewInstanceParseInfo?
         
         if let element = view.element,
             let id = element.attributes["id"]
@@ -27,14 +54,17 @@ extension StoryboardFile3_0Parser {
                 useClass = customClass
             } else
             {
-                useClass = ViewClassInfo.defaultClass
+                useClass = viewClassInfoClass.defaultClass
             }
             
-            var viewClass = self.applicationInfo.viewClassWithClassName(useClass)
-            if viewClass == nil
+            var viewClass : ViewClassInfo
+            if let foundViewClass = self.applicationInfo.viewClassWithClassName(useClass)
+            {
+                viewClass = foundViewClass
+            } else
             {
                 viewClass = ViewClassInfo(className: useClass)
-                self.applicationInfo.add(viewClass: viewClass!)
+                self.applicationInfo.add(viewClass: viewClass)
             }
             
             var frame : CGRect?
@@ -43,6 +73,7 @@ extension StoryboardFile3_0Parser {
             var subviews : [ViewInstanceInfo]?
             var backgroundColor : NSColor?
             
+            // TODO: support subclass parser handling of subnode rather than traversing multiple times
             for subnode in view.children
             {
                 if let subelement = subnode.element
@@ -83,8 +114,17 @@ extension StoryboardFile3_0Parser {
             }
             //            var backgroundColor : NSColor? // TODO: Efff, why is there a UIColor? Make our own color object?
             //            var constraints : [NSLayoutConstraint]? // TODO: these definitely need to be our own objects
-            
-            var view = ViewInstanceInfo(classInfo: viewClass!, id: id, frame: frame, autoResizingMaskWidthSizable: autoResizingMaskWidthSizable,  autoResizingMaskHeightSizable: autoResizingMaskHeightSizable, subviews: subviews, backgroundColor: backgroundColor)
+            result = ViewInstanceParseInfo(id: id, frame: frame, useClass: useClass, viewClass: viewClass, autoResizingMaskWidthSizable: autoResizingMaskWidthSizable, autoResizingMaskHeightSizable: autoResizingMaskHeightSizable, subviews: subviews, backgroundColor: backgroundColor)
+        }
+        
+        return result
+    }
+    
+    internal func createView(view : XMLIndexer, viewClassInfoClass : ViewClassInfo.Type = ViewClassInfo.self) -> ViewInstanceInfo? {
+        var result : ViewInstanceInfo?
+        if let parseInfo = self.parseView(view, viewClassInfoClass: viewClassInfoClass)
+        {
+            var view = ViewInstanceInfo(classInfo: parseInfo.viewClass, id: parseInfo.id, frame: parseInfo.frame, autoResizingMaskWidthSizable: parseInfo.autoResizingMaskWidthSizable,  autoResizingMaskHeightSizable: parseInfo.autoResizingMaskHeightSizable, subviews: parseInfo.subviews, backgroundColor: parseInfo.backgroundColor)
             result = view
         }
         
@@ -172,6 +212,96 @@ extension StoryboardFile3_0Parser {
             {
                 NSLog("Unsupported color format: \(element)")
             }
+        }
+        
+        return result
+    }
+    
+    class TableViewInstanceParseInfo {
+        // TODO: feels like a hack to contain the superclass's parse info
+        let viewInstanceParseInfo : ViewInstanceParseInfo
+        let cellPrototypes : [TableViewInstanceInfo.TableViewCellPrototypeInfo]?
+        
+        init(viewInstanceParseInfo : ViewInstanceParseInfo, cellPrototypes : [TableViewInstanceInfo.TableViewCellPrototypeInfo]?) {
+            self.viewInstanceParseInfo = viewInstanceParseInfo
+            self.cellPrototypes = cellPrototypes
+        }
+    }
+    
+    internal func parseTableView(tableView : XMLIndexer) -> TableViewInstanceParseInfo? {
+        var result : TableViewInstanceParseInfo?
+        
+        if let parseInfo = self.parseView(tableView, viewClassInfoClass: TableViewClassInfo.self)
+        {
+            var cellPrototypes : [TableViewInstanceInfo.TableViewCellPrototypeInfo]?
+            
+            for subnode in tableView.children
+            {
+                if let subelement = subnode.element
+                {
+                    if subelement.name == "prototypes"
+                    {
+                        cellPrototypes = self.createTableViewCellPrototypes(subnode)
+                    }
+                }
+            }
+            
+            result = TableViewInstanceParseInfo(viewInstanceParseInfo: parseInfo, cellPrototypes: cellPrototypes)
+        }
+        
+        return result
+    }
+    
+    internal func createTableViewCellPrototypes(prototypes : XMLIndexer) -> [TableViewInstanceInfo.TableViewCellPrototypeInfo]? {
+        var result : [TableViewInstanceInfo.TableViewCellPrototypeInfo]?
+        
+        for subnode in prototypes.children
+        {
+            if let subelement = subnode.element
+            {
+                if subelement.name == "tableViewCell"
+                {
+                    if let cellPrototype = self.createTableViewCellPrototype(subnode)
+                    {
+                        if result == nil
+                        {
+                            result = Array<TableViewInstanceInfo.TableViewCellPrototypeInfo>()
+                        }
+                        
+                        result!.append(cellPrototype)
+                    }
+                } else
+                {
+                    NSLog("Error: Unknown prototype type \(subelement.name)")
+                }
+            }
+        }
+        
+        return result
+    }
+
+    
+    internal func createTableViewCellPrototype(tableViewCell : XMLIndexer) -> TableViewInstanceInfo.TableViewCellPrototypeInfo? {
+        var result : TableViewInstanceInfo.TableViewCellPrototypeInfo?
+        
+        if let element = tableViewCell.element,
+            let id = element.attributes["id"]
+        {
+            var reuseIdentifier = element.attributes["reuseIdentifier"]
+            result = TableViewInstanceInfo.TableViewCellPrototypeInfo(id: id, reuseIdentifier: reuseIdentifier)
+        }
+        
+        return result
+    }
+    
+    internal func createTableView(tableView : XMLIndexer) -> TableViewInstanceInfo? {
+        var result : TableViewInstanceInfo?
+        if let parseInfo = self.parseTableView(tableView)
+        {
+            let viewInstanceParseInfo = parseInfo.viewInstanceParseInfo
+            
+            var tableView = TableViewInstanceInfo(classInfo: viewInstanceParseInfo.viewClass, id: viewInstanceParseInfo.id, frame: viewInstanceParseInfo.frame, autoResizingMaskWidthSizable: viewInstanceParseInfo.autoResizingMaskWidthSizable,  autoResizingMaskHeightSizable: viewInstanceParseInfo.autoResizingMaskHeightSizable, subviews: viewInstanceParseInfo.subviews, backgroundColor: viewInstanceParseInfo.backgroundColor, cellPrototypes: parseInfo.cellPrototypes)
+            result = tableView
         }
         
         return result

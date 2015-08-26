@@ -13,7 +13,7 @@ import Cocoa
 */
 public class ApplicationInfo: NSObject {
     /// All View Controller Class Infos in your application
-    public private(set) var viewControllerClasses = Array<ViewControllerClassInfo>()
+    public private(set) var viewControllerClasses = [ViewControllerClassInfo]()
 
     /**
     Add a View Controller Class Info
@@ -37,7 +37,7 @@ public class ApplicationInfo: NSObject {
     }
     
     /// All View Controller Instance Infos in your application
-    public private(set) var viewControllerInstances = Array<ViewControllerInstanceInfo>()
+    public private(set) var viewControllerInstances = [ViewControllerInstanceInfo]()
 
     /**
     Add a View Controller Instance Info
@@ -72,7 +72,7 @@ public class ApplicationInfo: NSObject {
     }
     
     /// All Navigation Controller Instance Infos in your application
-    public private(set) var navigationControllerInstances = Array<NavigationControllerInstanceInfo>()
+    public private(set) var navigationControllerInstances = [NavigationControllerInstanceInfo]()
 
     /**
     Add a Navigation Controller Instance Info to your application
@@ -107,7 +107,7 @@ public class ApplicationInfo: NSObject {
     }
     
     /// All Segue Class Infos in your application
-    public private(set) var segueClasses = Array<SegueClassInfo>()
+    public private(set) var segueClasses = [SegueClassInfo]()
 
     /**
     Add a Segue Class Info to your application

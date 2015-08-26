@@ -30,6 +30,9 @@
 		3C3DF3941B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */; };
 		3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */; };
 		3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */; };
+		3CC70BE11B8E31ED002C4437 /* TableViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */; };
+		3CC70BE31B8E351D002C4437 /* TableViewClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */; };
+		3CC70BE51B8E44D2002C4437 /* TableViewInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */; };
 		3CF3D35F1B3B089700811E8A /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 3CF3D35C1B3B088800811E8A /* LICENSE.md */; };
 		3CF3D3601B3B089700811E8A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3CF3D35E1B3B088800811E8A /* README.md */; };
 		3CF85BB41AF6E2F80043AA48 /* StoryboardKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CF85BB31AF6E2F80043AA48 /* StoryboardKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -79,6 +82,9 @@
 		3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFileParserTests.swift; sourceTree = "<group>"; };
 		3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLayoutGuideInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemInstanceInfo.swift; sourceTree = "<group>"; };
+		3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInstanceInfo.swift; sourceTree = "<group>"; };
+		3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewClassInfo.swift; sourceTree = "<group>"; };
+		3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInstanceInfoTests.swift; sourceTree = "<group>"; };
 		3CF3D35B1B3B088800811E8A /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		3CF3D35C1B3B088800811E8A /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		3CF3D35D1B3B088800811E8A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
@@ -135,6 +141,8 @@
 			children = (
 				3C30CAC21B418C0C000CC56D /* ViewClassInfo.swift */,
 				3C30CAC41B418CB2000CC56D /* ViewInstanceInfo.swift */,
+				3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */,
+				3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */,
 			);
 			name = Views;
 			path = StoryboardKit/Views;
@@ -235,6 +243,7 @@
 				3C30CACB1B41EF6C000CC56D /* Images.xcassets */,
 				3C30CAD11B42043D000CC56D /* ClassInfoTests.swift */,
 				3C30CAE01B432019000CC56D /* ViewInstanceInfoTests.swift */,
+				3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */,
 			);
 			path = StoryboardKitTests;
 			sourceTree = "<group>";
@@ -434,7 +443,9 @@
 				3C30CAC31B418C0C000CC56D /* ViewClassInfo.swift in Sources */,
 				3CF85BD11AF6E3880043AA48 /* ApplicationInfo.swift in Sources */,
 				3C30CABE1B418ADE000CC56D /* NavigationControllerInstanceInfo.swift in Sources */,
+				3CC70BE31B8E351D002C4437 /* TableViewClassInfo.swift in Sources */,
 				3C30CABF1B418ADE000CC56D /* ViewControllerClassInfo.swift in Sources */,
+				3CC70BE11B8E31ED002C4437 /* TableViewInstanceInfo.swift in Sources */,
 				3C30CAC51B418CB2000CC56D /* ViewInstanceInfo.swift in Sources */,
 				3C30CABD1B418ADE000CC56D /* NavigationControllerClassInfo.swift in Sources */,
 				3C30CADB1B4318B8000CC56D /* StoryboardFile3_0Parser_Views.swift in Sources */,
@@ -455,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CC70BE51B8E44D2002C4437 /* TableViewInstanceInfoTests.swift in Sources */,
 				3C3DF3921B1B11B300F1BBC0 /* ApplicationInfoTests.swift in Sources */,
 				3C3DF3941B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift in Sources */,
 				3CF85BC11AF6E2F90043AA48 /* StoryboardInfoTests.swift in Sources */,
