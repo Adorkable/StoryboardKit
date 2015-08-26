@@ -41,7 +41,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
     
     internal var storyboardInstanceParseInfo : StoryboardInstanceParseInfo?
     
-    internal var parsedSegues = Array<SegueInstanceParseInfo>()
+    internal var parsedSegues = [SegueInstanceParseInfo]()
     
     required init(applicationInfo : ApplicationInfo)
     {

@@ -8,25 +8,16 @@
 
 import Foundation
 
-// TODO: organize appropriately, evaulate need of each
+// TODO: organize appropriately, evaluate need of each
 
 // http://stackoverflow.com/a/24128121/96153
 public class StoryboardKit_WeakWrapper<T: AnyObject> {
-    weak var value : T?
+    public weak var value : T?
     init (_ value: T) {
         self.value = value
     }
 }
 
-public enum StoryboardKit_Either<TLeft : AnyObject, TRight : AnyObject> {
-    case Left(TLeft)
-    case Right(TRight)
-}
-/*
-protocol ClassInfo : DebugPrintable {
-    var infoClassName : String { get }
-}
-*/
 func classWithClassName<T : ClassInfo>(className : String, objects : [T]) -> T? {
     return objects.filter( { $0.infoClassName == className } ).first
 }

@@ -13,7 +13,7 @@ import SWXMLHash
 extension StoryboardFile3_0Parser {
     // MARK: Segues
     
-    internal class SegueInstanceParseInfo : NSObject {
+    internal class SegueInstanceParseInfo : NSObject, DebugPrintable {
         internal let classInfo : SegueClassInfo
         internal let id : String
         internal var source : SegueConnection
@@ -31,6 +31,17 @@ extension StoryboardFile3_0Parser {
             self.identifier = identifier
             
             super.init()
+        }
+        
+        override var debugDescription : String {
+            var result : String = super.debugDescription
+            
+            if let identifier = self.identifier
+            {
+                result += identifier
+            }
+            
+            return result
         }
     }
     

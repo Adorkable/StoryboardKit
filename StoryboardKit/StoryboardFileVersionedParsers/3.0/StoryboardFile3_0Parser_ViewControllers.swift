@@ -14,7 +14,8 @@ extension StoryboardFile3_0Parser {
     // MARK: View Controllers
     
     internal func parseViewController(viewController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
-        if let element = viewController.element, let id = element.attributes["id"]
+        if let element = viewController.element,
+            let id = element.attributes["id"]
         {
             var useClass : String
             if let customClass = element.attributes["customClass"]
@@ -33,7 +34,13 @@ extension StoryboardFile3_0Parser {
             }
             
             let storyboardIdentifier = element.attributes["storyboardIdentifier"]
-            let view = self.createView(viewController["view"]) // Should be using view.key attribute?
+            
+            var view : ViewInstanceInfo?
+            view = self.createView(viewController["view"]) // Should be using view.key attribute?
+            if view == nil
+            {
+                view = self.createTableView(viewController["tableView"])
+            }
             
             var viewControllerInstanceInfo = ViewControllerInstanceInfo(classInfo: viewControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, view: view)
             
