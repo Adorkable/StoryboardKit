@@ -34,9 +34,8 @@ As such you can pass around an `ApplicationInfo` instance to multiple parses but
 To parse a Storyboard file:
 
 ``` swift
-	var storyboardInfo = StoryboardInstanceInfo()
 	var applicationInfo = ApplicationInfo()
-	StoryboardFileParser.parse(applicationInfo, storyboardInfo: storyboardInfo, pathFileName: "ParseMe.storyboard" )
+	var storyboardInfo = StoryboardFileParser.parse(applicationInfo!, pathFileName: "Main.storyboard")
 ```
 
 Contributing
