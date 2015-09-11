@@ -25,7 +25,7 @@ public class StoryboardFileParser: NSObject {
     /**
      * Result value after parsing a Storyboard file
      */
-    public typealias ParseResult = (StoryboardInstanceInfo?, NSError?)
+    public typealias ParseResult = (StoryboardInstanceInfo?, NSError?, [String]?)
     
     /**
     Main parsing function
@@ -33,7 +33,7 @@ public class StoryboardFileParser: NSObject {
     :param: applicationInfo The applicationInfo instance you wish to fill
     :param: pathFileName    The path to the Storyboard file
     
-    :returns: A StoryboardInstanceInfo that represents the parsed Storyboard file and/or an error, either nilled depending on the parsing results
+    :returns: A StoryboardInstanceInfo that represents the parsed Storyboard file and/or an error, and/or any verbose feedback, any of which non-nil or nil depending on the parsing results
     */
     public class func parse(applicationInfo : ApplicationInfo, pathFileName : String) -> ParseResult {
         var result : ParseResult
@@ -46,11 +46,11 @@ public class StoryboardFileParser: NSObject {
                 result = self.parseXML(indexer, applicationInfo: applicationInfo)
             } else
             {
-                result = (nil, NSError(domain: "Unable to open Storyboard file \(pathFileName)", code: 0, userInfo: nil) )
+                result = (nil, NSError(domain: "Unable to open Storyboard file \(pathFileName)", code: 0, userInfo: nil), nil)
             }
         } else
         {
-            result = (nil, NSError(domain: "Unable to find Storyboard file \(pathFileName)", code: 0, userInfo: nil) )
+            result = (nil, NSError(domain: "Unable to find Storyboard file \(pathFileName)", code: 0, userInfo: nil), nil)
         }
         
         return result
@@ -67,7 +67,7 @@ public class StoryboardFileParser: NSObject {
             result = StoryboardFile3_0Parser.parse(indexer, applicationInfo: applicationInfo)
         } else
         {
-            result = (nil, NSError(domain: "Unsupported Storyboard file format version: \(version)", code: 0, userInfo: nil) )
+            result = (nil, NSError(domain: "Unsupported Storyboard file format version: \(version)", code: 0, userInfo: nil), nil)
         }
         
         return result

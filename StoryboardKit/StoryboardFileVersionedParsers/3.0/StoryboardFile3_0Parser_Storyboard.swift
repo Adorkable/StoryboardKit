@@ -89,10 +89,10 @@ extension StoryboardFile3_0Parser {
                 storyboardInstanceInfo.add(scene: sceneInfo)
             }
             
-            result = (storyboardInstanceInfo, nil)
+            result = (storyboardInstanceInfo, nil, self.logs)
         } else
         {
-            result = (nil, NSError(domain: "Unable to find StoryboardInstanceParseInfo, likely cause was we were unable to parse root of Storyboard file", code: 0, userInfo: nil) )
+            result = (nil, NSError(domain: "Unable to find StoryboardInstanceParseInfo, likely cause was we were unable to parse root of Storyboard file", code: 0, userInfo: nil), self.logs)
         }
         
         return result

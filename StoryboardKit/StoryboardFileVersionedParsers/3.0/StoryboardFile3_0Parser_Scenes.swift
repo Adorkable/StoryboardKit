@@ -40,7 +40,7 @@ extension StoryboardFile3_0Parser {
                     } else
                     {
                         // TODO: placeholder
-                        NSLog("Skipping unsupported scene object \(sceneObjectElement.name)")
+                        self.Log("Skipping unsupported scene object \(sceneObjectElement.name)")
                     }
                 }
             }

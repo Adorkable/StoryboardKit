@@ -119,7 +119,7 @@ extension StoryboardFile3_0Parser {
             source.add(layoutGuide: layoutGuide)
         } else
         {
-            NSLog("Unable to create View Controller Layout Guide Instance Info from \(layoutGuide)")
+            self.Log("Unable to create View Controller Layout Guide Instance Info from \(layoutGuide)")
         }
     }
     
@@ -139,14 +139,14 @@ extension StoryboardFile3_0Parser {
                 source.add(navigationItem: navigationItem)
             } else
             {
-                NSLog("Unable to create Navigation Item Instance Info from \(navigationItem)")
+                self.Log("Unable to create Navigation Item Instance Info from \(navigationItem)")
             }
             break
         case .Error(let error):
-            NSLog("Unable to create Navigation Item Instance Info from \(navigationItem): \(error)")
+            self.Log("Unable to create Navigation Item Instance Info from \(navigationItem): \(error)")
             break
         default:
-            NSLog("Unable to create Navigation Item Instance Info from \(navigationItem), unhandled element \(navigationItem.element)")
+            self.Log("Unable to create Navigation Item Instance Info from \(navigationItem), unhandled element \(navigationItem.element)")
         }
     }
     
@@ -163,7 +163,7 @@ extension StoryboardFile3_0Parser {
                 }
             } else
             {
-                NSLog("Skipping unsupported connection type \(element.name)")
+                self.Log("Skipping unsupported connection type \(element.name)")
             }
         }
     }

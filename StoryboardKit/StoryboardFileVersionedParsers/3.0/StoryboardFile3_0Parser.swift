@@ -43,6 +43,15 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
     
     internal var parsedSegues = [SegueInstanceParseInfo]()
     
+    internal var logs : [String]?
+    internal func Log(message : String) {
+        if logs == nil
+        {
+            logs = [String]()
+        }
+        logs?.append(message)
+    }
+    
     required init(applicationInfo : ApplicationInfo)
     {
         self.applicationInfo = applicationInfo
