@@ -82,6 +82,7 @@
 		3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFileParserTests.swift; sourceTree = "<group>"; };
 		3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLayoutGuideInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemInstanceInfo.swift; sourceTree = "<group>"; };
+		3CA2169E1BA2927000EE4BA4 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInstanceInfo.swift; sourceTree = "<group>"; };
 		3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewClassInfo.swift; sourceTree = "<group>"; };
 		3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInstanceInfoTests.swift; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				3CF85BBE1AF6E2F90043AA48 /* Supporting Files */,
+				3CA2169E1BA2927000EE4BA4 /* CustomViewController.swift */,
 				3C3DF38F1B1B0AE500F1BBC0 /* StoryboardKit.storyboard */,
 				3CF85BC01AF6E2F90043AA48 /* StoryboardInfoTests.swift */,
 				3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */,

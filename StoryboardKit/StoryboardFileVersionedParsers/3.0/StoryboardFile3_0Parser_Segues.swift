@@ -77,20 +77,6 @@ extension StoryboardFile3_0Parser {
         return result
     }
     
-    internal func parseConnection(connection : XMLIndexer, source : ViewControllerInstanceInfo) {
-        if let segueParseInfo = self.createConnectionParseInfo(connection, source: source )
-        {
-            self.parsedSegues.append(segueParseInfo)
-        }
-    }
-    
-    internal func parseConnections(connections : XMLIndexer, source : ViewControllerInstanceInfo) {
-        for connection in connections.children
-        {
-            self.parseConnection(connection, source: source)
-        }
-    }
-    
     internal func createSegueInstanceInfosFromParsed() {
         while self.parsedSegues.count > 0
         {

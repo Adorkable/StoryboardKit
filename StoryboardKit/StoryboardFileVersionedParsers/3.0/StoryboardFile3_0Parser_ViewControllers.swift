@@ -149,4 +149,29 @@ extension StoryboardFile3_0Parser {
             NSLog("Unable to create Navigation Item Instance Info from \(navigationItem), unhandled element \(navigationItem.element)")
         }
     }
+    
+    // MARK: Connections
+    
+    internal func parseConnection(connection : XMLIndexer, source : ViewControllerInstanceInfo) {
+        if let element = connection.element
+        {
+            if element.name == "segue"
+            {
+                if let segueParseInfo = self.createConnectionParseInfo(connection, source: source )
+                {
+                    self.parsedSegues.append(segueParseInfo)
+                }
+            } else
+            {
+                NSLog("Skipping unsupported connection type \(element.name)")
+            }
+        }
+    }
+    
+    internal func parseConnections(connections : XMLIndexer, source : ViewControllerInstanceInfo) {
+        for connection in connections.children
+        {
+            self.parseConnection(connection, source: source)
+        }
+    }
 }
