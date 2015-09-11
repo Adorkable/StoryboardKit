@@ -29,15 +29,14 @@ The library uses two "root" level objects to provide the tree of information you
 * `ApplicationInfo` - contains all information global to your application such as class information as well as instance information 
 * `StoryboardInfo` - contains all information specific to a particular Storyboard file
 
-As such you can pass around an `ApplicationInfo` instance to multiple parses but you most likely want to create a new `StoryboardInfo` for each Storyboard file you parse.
-
 To parse a Storyboard file:
 
 ``` swift
-	var storyboardInfo = StoryboardInstanceInfo()
 	var applicationInfo = ApplicationInfo()
-	StoryboardFileParser.parse(applicationInfo, storyboardInfo: storyboardInfo, pathFileName: "ParseMe.storyboard" )
+	var storyboardInfo = StoryboardFileParser.parse(applicationInfo!, pathFileName: "Main.storyboard")
 ```
+
+To read more about the information **StoryboardKit** currently parses please read the docs here: [cocoadocs.org](http://cocoadocs.org/docsets/StoryboardKit/)
 
 Contributing
 ---
