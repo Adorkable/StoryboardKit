@@ -188,7 +188,7 @@ extension StoryboardFile3_0Parser {
                         result = NSColor(calibratedWhite: CGFloat(white), alpha: CGFloat(alpha))
                     } else
                     {
-                        NSLog("Error: Unable to find expected members of colorspace \(colorSpace)")
+                        self.Log("Error: Unable to find expected members of colorspace \(colorSpace)")
                     }
                 } else if colorSpace == "calibratedRGB"
                 {
@@ -200,7 +200,7 @@ extension StoryboardFile3_0Parser {
                         result = NSColor(calibratedRed: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(alpha) )
                     } else
                     {
-                        NSLog("Error: Unable to find expected members of colorspace \(colorSpace)")
+                        self.Log("Error: Unable to find expected members of colorspace \(colorSpace)")
                     }
                 } else if colorSpace == "custom",
                         let customColorSpace = element.attributes["customColorSpace"]
@@ -216,19 +216,19 @@ extension StoryboardFile3_0Parser {
                         result = NSColor(deviceCyan: CGFloat(cyan), magenta: CGFloat(magenta), yellow: CGFloat(yellow), black: CGFloat(black), alpha: CGFloat(alpha) )
                     } else
                     {
-                        NSLog("Error: Unknown custom colorspace \(customColorSpace)")
+                        self.Log("Error: Unknown custom colorspace \(customColorSpace)")
                     }
 
                 } else
                 {
-                    NSLog("Error: Unknown colorspace \(colorSpace)")
+                    self.Log("Error: Unknown colorspace \(colorSpace)")
                 }
             } else if let cocoaTouchSystemColor = element.attributes["cocoaTouchSystemColor"]
             {
                 // cocoaTouchSystemColor="darkTextColor"
             } else
             {
-                NSLog("Unsupported color format: \(element)")
+                self.Log("Unsupported color format: \(element)")
             }
         }
         
@@ -290,7 +290,7 @@ extension StoryboardFile3_0Parser {
                     }
                 } else
                 {
-                    NSLog("Error: Unknown prototype type \(subelement.name)")
+                    self.Log("Error: Unknown prototype type \(subelement.name)")
                 }
             }
         }
