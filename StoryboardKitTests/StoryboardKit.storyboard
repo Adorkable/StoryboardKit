@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Custom View Controller-->
         <scene sceneID="lG9-My-F0N">
             <objects>
-                <viewController storyboardIdentifier="FirstInstance" id="yrP-vr-uHE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FirstInstance" id="yrP-vr-uHE" customClass="CustomViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TpM-yD-CzZ"/>
                         <viewControllerLayoutGuide type="bottom" id="WlP-gi-opq"/>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ao-Js-ejd">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ao-Js-ejd">
                                 <rect key="frame" x="175" y="380" width="250" height="200.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh to be a label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNx-ue-eIu">
@@ -64,7 +64,7 @@
                                     <constraint firstItem="BYg-eK-ujo" firstAttribute="top" secondItem="RNx-ue-eIu" secondAttribute="bottom" constant="30" id="n9Z-xd-DDg"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Zzzzzz" translatesAutoresizingMaskIntoConstraints="NO" id="Ilo-vd-aJA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Zzzzzz" translatesAutoresizingMaskIntoConstraints="NO" id="Ilo-vd-aJA">
                                 <rect key="frame" x="150" y="40" width="300" height="300"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJP-Tb-Mgz" customClass="CustomButton">
@@ -86,6 +86,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="label" destination="RNx-ue-eIu" id="yUa-Rt-3bP"/>
                         <segue destination="eGU-XO-Tph" kind="show" identifier="ToNavigation" id="u81-LE-hlt"/>
                         <segue destination="SGN-sU-Ni7" kind="presentation" identifier="ShowModal" id="xc1-Tr-pEN"/>
                     </connections>
@@ -182,6 +183,6 @@
         <image name="Zzzzzz" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SNa-oj-9DZ"/>
+        <segue reference="xc1-Tr-pEN"/>
     </inferredMetricsTieBreakers>
 </document>
