@@ -10,25 +10,15 @@ import Foundation
 
 public class SegueClassInfo: ClassInfo {
     
-    class var defaultClass : String { return "UIStoryboardSegue" }
+    override class var defaultClass : String { return "UIStoryboardSegue" }
     
     public private(set) var instanceInfos = Array< StoryboardKit_WeakWrapper< SegueInstanceInfo> >()
     
-    override init(className : String?) {
-        
-        var useClassName : String
-        if className != nil
-        {
-            useClassName = className!
-        } else
-        {
-            useClassName = SegueClassInfo.defaultClass
-        }
-        
-        super.init(className: useClassName)
+    required public init(className : String?) {
+        super.init(className: className)
     }
     
-    func add(#instanceInfo : SegueInstanceInfo) {
+    func add(instanceInfo instanceInfo : SegueInstanceInfo) {
         self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
     }
 }

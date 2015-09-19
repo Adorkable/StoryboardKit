@@ -13,7 +13,7 @@ import Foundation
 */
 public class ViewClassInfo: ClassInfo {
 
-    class var defaultClass : String { return "UIView" }
+    override class var defaultClass : String { return "UIView" }
 
     /// All instances of this class in the application
     public private(set) var instanceInfos = [StoryboardKit_WeakWrapper<ViewInstanceInfo>]()
@@ -21,30 +21,20 @@ public class ViewClassInfo: ClassInfo {
     /**
     Default init
     
-    :param: className name of the View class
+    - parameter className: name of the View class
     
-    :returns: A new ViewClassInfo instance
+    - returns: A new ViewClassInfo instance
     */
-    override init(className : String?) {
-        
-        var useClassName : String
-        if className != nil
-        {
-            useClassName = className!
-        } else
-        {
-            useClassName = self.dynamicType.defaultClass
-        }
-        
-        super.init(className: useClassName)
+    required public init(className : String?) {
+        super.init(className: className)
     }
     
     /**
     Add a View instance of this class
     
-    :param: instanceInfo Instance Info of a View of this class
+    - parameter instanceInfo: Instance Info of a View of this class
     */
-    func add(#instanceInfo : ViewInstanceInfo) {
+    func add(instanceInfo instanceInfo : ViewInstanceInfo) {
         // TODO: prevent duplicates
         self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
     }

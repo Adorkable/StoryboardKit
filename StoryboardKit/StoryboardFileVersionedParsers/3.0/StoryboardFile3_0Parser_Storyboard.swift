@@ -37,7 +37,7 @@ extension StoryboardFile3_0Parser {
         
         var scenes : [StoryboardInstanceInfo.SceneInfo] = Array<StoryboardInstanceInfo.SceneInfo>()
         
-        func add(#scene : StoryboardInstanceInfo.SceneInfo) {
+        func add(scene scene : StoryboardInstanceInfo.SceneInfo) {
             // TODO: validate that it isn't a dup
             self.scenes.append(scene)
         }
@@ -48,13 +48,13 @@ extension StoryboardFile3_0Parser {
         
         if let document = root["document"].element
         {
-            var useAutolayout = document.attributes["useAutolayout"] == "YES"
-            var useTraitCollections = document.attributes["useTraitCollections"] == "YES"
+            let useAutolayout = document.attributes["useAutolayout"] == "YES"
+            let useTraitCollections = document.attributes["useTraitCollections"] == "YES"
             
-            var initialViewControllerId = document.attributes["initialViewController"]
+            let initialViewControllerId = document.attributes["initialViewController"]
             
             
-            var storyboardInstance = StoryboardInstanceParseInfo(useAutolayout: useAutolayout, useTraitCollections: useTraitCollections, initialViewControllerId: initialViewControllerId)
+            let storyboardInstance = StoryboardInstanceParseInfo(useAutolayout: useAutolayout, useTraitCollections: useTraitCollections, initialViewControllerId: initialViewControllerId)
             
             // TODO: StoryboardFileInfo
             //            storyboardInstance.fileType = document.attributes["type"]
@@ -70,7 +70,7 @@ extension StoryboardFile3_0Parser {
         return result
     }
     
-    internal func createStoryboardInstanceInfoFromParsed() -> StoryboardFileParser.ParseResult {
+    internal func createStoryboardInstanceInfoFromParsed() throws -> StoryboardFileParser.ParseResult {
         var result : StoryboardFileParser.ParseResult
         
         if let storyboardInstanceParseInfo = self.storyboardInstanceParseInfo
@@ -82,17 +82,17 @@ extension StoryboardFile3_0Parser {
                 initialViewController = self.applicationInfo.viewControllerInstanceWithId(initialViewControllerId)
             }
             
-            var storyboardInstanceInfo = StoryboardInstanceInfo(useAutolayout: storyboardInstanceParseInfo.useAutolayout, useTraitCollections: storyboardInstanceParseInfo.useTraitCollections, initialViewController: initialViewController)
+            let storyboardInstanceInfo = StoryboardInstanceInfo(useAutolayout: storyboardInstanceParseInfo.useAutolayout, useTraitCollections: storyboardInstanceParseInfo.useTraitCollections, initialViewController: initialViewController)
             
             for sceneInfo in storyboardInstanceParseInfo.scenes
             {
                 storyboardInstanceInfo.add(scene: sceneInfo)
             }
             
-            result = (storyboardInstanceInfo, nil, self.logs)
+            result = (storyboardInstanceInfo, self.logs)
         } else
         {
-            result = (nil, NSError(domain: "Unable to find StoryboardInstanceParseInfo, likely cause was we were unable to parse root of Storyboard file", code: 0, userInfo: nil), self.logs)
+            throw NSError(domain: "Unable to find StoryboardInstanceParseInfo, likely cause was we were unable to parse root of Storyboard file", code: 0, userInfo: nil)
         }
         
         return result

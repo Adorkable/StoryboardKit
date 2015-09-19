@@ -10,7 +10,7 @@ import Cocoa
 
 public typealias SegueConnection = StoryboardKit_WeakWrapper<ViewControllerInstanceInfo>
 
-public class SegueInstanceInfo: NSObject, Idable, DebugPrintable {
+public class SegueInstanceInfo: NSObject, Idable, CustomDebugStringConvertible {
     public let classInfo : SegueClassInfo
     public let id : String
     public let source : SegueConnection

@@ -13,7 +13,7 @@ import Foundation
 */
 public class ViewControllerClassInfo: ClassInfo {
 
-    class var defaultClass : String { return "UIViewController" }
+    override class var defaultClass : String { return "UIViewController" }
 
     /// All instances of this class in the application
     public private(set) var instanceInfos = Array< StoryboardKit_WeakWrapper<ViewControllerInstanceInfo> >()
@@ -21,30 +21,20 @@ public class ViewControllerClassInfo: ClassInfo {
     /**
     Default init
     
-    :param: className name of the View Controller class
+    - parameter className: name of the View Controller class
     
-    :returns: A new ViewControllerClassInfo instance
+    - returns: A new ViewControllerClassInfo instance
     */
-    override init(className : String?) {
-        
-        var useClassName : String
-        if className != nil
-        {
-            useClassName = className!
-        } else
-        {
-            useClassName = self.dynamicType.defaultClass
-        }
-    
-        super.init(className: useClassName)
+    required public init(className : String?) {
+        super.init(className: className)
     }
     
     /**
     Add a View Controller instance of this class
     
-    :param: instanceInfo Instance Info of a View Controller of this class
+    - parameter instanceInfo: Instance Info of a View Controller of this class
     */
-    func add(#instanceInfo : ViewControllerInstanceInfo) {
+    func add(instanceInfo instanceInfo : ViewControllerInstanceInfo) {
         // TODO: prevent duplicates
         self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
     }

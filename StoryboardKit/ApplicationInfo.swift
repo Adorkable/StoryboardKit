@@ -18,9 +18,9 @@ public class ApplicationInfo: NSObject {
     /**
     Add a View Controller Class Info
     
-    :param: viewControllerClass View Controller Class Info to add
+    - parameter viewControllerClass: View Controller Class Info to add
     */
-    func add(#viewControllerClass : ViewControllerClassInfo) {
+    func add(viewControllerClass viewControllerClass : ViewControllerClassInfo) {
         // TODO: validates that this isn't a dup
         self.viewControllerClasses.append(viewControllerClass)
     }
@@ -28,12 +28,12 @@ public class ApplicationInfo: NSObject {
     /**
     Retrieve a View Controller Class Info by class name
         
-    :param: className Name of the class you wish to retrieve
+    - parameter className: Name of the class you wish to retrieve
     
-    :returns: If found a reference to the View Controller Class Info you wished to retrieve, otherwise nil
+    - returns: If found a reference to the View Controller Class Info you wished to retrieve, otherwise nil
     */
     public func viewControllerClassWithClassName(className : String) -> ViewControllerClassInfo? {
-        return classWithClassName(className, self.viewControllerClasses)
+        return classWithClassName(className, objects: self.viewControllerClasses)
     }
     
     /// All View Controller Instance Infos in your application
@@ -42,9 +42,9 @@ public class ApplicationInfo: NSObject {
     /**
     Add a View Controller Instance Info
     
-    :param: viewControllerInstance View Controller Instance Info to add
+    - parameter viewControllerInstance: View Controller Instance Info to add
     */
-    func add(#viewControllerInstance : ViewControllerInstanceInfo) {
+    func add(viewControllerInstance viewControllerInstance : ViewControllerInstanceInfo) {
         // TODO: validates that this isn't a dup
         self.viewControllerInstances.append(viewControllerInstance)
     }
@@ -52,20 +52,20 @@ public class ApplicationInfo: NSObject {
     /**
     Retrieve a View Controller Instance Info by Storyboard id
     
-    :param: id Storyboard id of the instance you wish to retrieve (not to be confused with IB assigned identifier)
+    - parameter id: Storyboard id of the instance you wish to retrieve (not to be confused with IB assigned identifier)
     
-    :returns: If found a reference to the View Controller Instance Info you wished to retrieve, otherwise nil
+    - returns: If found a reference to the View Controller Instance Info you wished to retrieve, otherwise nil
     */
     public func viewControllerInstanceWithId(id : String) -> ViewControllerInstanceInfo? {
-        return firstObjectWithId(id, self.viewControllerInstances)
+        return firstObjectWithId(id, objects: self.viewControllerInstances)
     }
     
     /**
     Retrieve a View Controller Instance Info by Storyboard Identifier
     
-    :param: id Storyboard Identifier of the instance you wish to retrieve
+    - parameter id: Storyboard Identifier of the instance you wish to retrieve
     
-    :returns: If found a reference to the View Controller Instance Info you wished to retrieve, otherwise nil
+    - returns: If found a reference to the View Controller Instance Info you wished to retrieve, otherwise nil
     */
     public func viewControllerInstanceWithStoryboardIdentifier(identifier : String) -> ViewControllerInstanceInfo? {
         return self.viewControllerInstances.filter( { $0.storyboardIdentifier == identifier} ).first
@@ -77,9 +77,9 @@ public class ApplicationInfo: NSObject {
     /**
     Add a Navigation Controller Instance Info to your application
     
-    :param: navigationControllerInstance Navigation Controller Instance Info to add
+    - parameter navigationControllerInstance: Navigation Controller Instance Info to add
     */
-    func add(#navigationControllerInstance : NavigationControllerInstanceInfo) {
+    func add(navigationControllerInstance navigationControllerInstance : NavigationControllerInstanceInfo) {
         // TODO: validates that this isn't a dup
         self.navigationControllerInstances.append(navigationControllerInstance)
     }
@@ -87,20 +87,20 @@ public class ApplicationInfo: NSObject {
     /**
     Retrieve a Navigation Controller Instance Info by Storyboard id
     
-    :param: id Storyboard id of the instance you wish to retrieve (not to be confused with IB assigned identifier)
+    - parameter id: Storyboard id of the instance you wish to retrieve (not to be confused with IB assigned identifier)
     
-    :returns: If found a reference to the Navigation Controller Instance Info you wished to retrieve, otherwise nil
+    - returns: If found a reference to the Navigation Controller Instance Info you wished to retrieve, otherwise nil
     */
     public func navigationControllerInstanceWithId(id : String) -> NavigationControllerInstanceInfo? {
-        return firstObjectWithId(id, self.navigationControllerInstances)
+        return firstObjectWithId(id, objects: self.navigationControllerInstances)
     }
     
     /**
     Retrieve a Navigation Controller Instance Info by Storyboard Identifier
     
-    :param: id Storyboard Identifier of the instance you wish to retrieve
+    - parameter id: Storyboard Identifier of the instance you wish to retrieve
     
-    :returns: If found a reference to the Navigation Controller Instance Info you wished to retrieve, otherwise nil
+    - returns: If found a reference to the Navigation Controller Instance Info you wished to retrieve, otherwise nil
     */
     public func navigationControllerInstanceWithStoryboardIdentifier(identifier : String) -> NavigationControllerInstanceInfo? {
         return self.navigationControllerInstances.filter( { $0.storyboardIdentifier == identifier} ).first
@@ -112,9 +112,9 @@ public class ApplicationInfo: NSObject {
     /**
     Add a Segue Class Info to your application
     
-    :param: segueClass Segue Class Info to add
+    - parameter segueClass: Segue Class Info to add
     */
-    func add(#segueClass : SegueClassInfo) {
+    func add(segueClass segueClass : SegueClassInfo) {
         // TODO: validates that this isn't a dup
         self.segueClasses.append(segueClass)
     }
@@ -122,12 +122,12 @@ public class ApplicationInfo: NSObject {
     /**
     Retrieve a Segue Class Info by class name
     
-    :param: className Name of the class you wish to retrieve
+    - parameter className: Name of the class you wish to retrieve
     
-    :returns: If found a reference to the Segue Class Info you wished to retrieve, otherwise nil
+    - returns: If found a reference to the Segue Class Info you wished to retrieve, otherwise nil
     */
     public func segueClassWithClassName(className : String) -> SegueClassInfo? {
-        return classWithClassName(className, self.segueClasses)
+        return classWithClassName(className, objects: self.segueClasses)
     }
     
     // TODO: store SegueInstances
@@ -138,9 +138,9 @@ public class ApplicationInfo: NSObject {
     /**
     Add a View Class Info to your application
     
-    :param: viewClass View Class Info to add
+    - parameter viewClass: View Class Info to add
     */
-    func add(#viewClass : ViewClassInfo) {
+    func add(viewClass viewClass : ViewClassInfo) {
         // TODO: validates that this isn't a dup
         self.viewClasses.append(viewClass)
     }
@@ -148,20 +148,20 @@ public class ApplicationInfo: NSObject {
     /**
     Retrieve a View Class Info by class name
     
-    :param: className Name of the class you wish to retrieve
+    - parameter className: Name of the class you wish to retrieve
     
-    :returns: If found a reference to the View Class Info you wished to retrieve, otherwise nil
+    - returns: If found a reference to the View Class Info you wished to retrieve, otherwise nil
     */
     public func viewClassWithClassName(className : String) -> ViewClassInfo? {
-        return classWithClassName(className, self.viewClasses)
+        return classWithClassName(className, objects: self.viewClasses)
     }
     
     /**
     Retrieve a View Instance Info by id
     
-    :param: id id of the instance you wish to retrieve
+    - parameter id: id of the instance you wish to retrieve
     
-    :returns: If found a reference to the View Instance Info you wished to retrieve, otherwise nil
+    - returns: If found a reference to the View Instance Info you wished to retrieve, otherwise nil
     */
     public func viewInstanceWithId(id : String) -> ViewInstanceInfo? {
         var result : ViewInstanceInfo?

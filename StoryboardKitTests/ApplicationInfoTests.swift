@@ -18,60 +18,66 @@ class ApplicationInfoTests: XCTestCase {
         
         applicationInfo = ApplicationInfo()
         
-        StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        do
+        {
+            try StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        } catch let error as NSError
+        {
+            XCTAssertNil(error, "Expected parse to not throw an error: \(error)")
+        }
     }
     
     func testViewControllerClassWithClassName() {
-        var className = "UIViewController"
-        var classInfo = applicationInfo!.viewControllerClassWithClassName(className)
+        let className = "UIViewController"
+        let classInfo = applicationInfo!.viewControllerClassWithClassName(className)
         XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
     }
     
     func testViewControllerInstanceWithInstanceId() {
-        var id = "yrP-vr-uHE"
-        var instanceInfo = applicationInfo?.viewControllerInstanceWithId(id)
+        let id = "yrP-vr-uHE"
+        let instanceInfo = applicationInfo?.viewControllerInstanceWithId(id)
         XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for id '\(id)'")
     }
     
     func testViewControllerInstanceWithStoryboardIdentifier() {
-        var storyboardIdentifier = "FirstInstance"
-        var instanceInfo = applicationInfo?.viewControllerInstanceWithStoryboardIdentifier(storyboardIdentifier)
+        let storyboardIdentifier = "FirstInstance"
+        let instanceInfo = applicationInfo?.viewControllerInstanceWithStoryboardIdentifier(storyboardIdentifier)
         XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for storyboard identifier '\(storyboardIdentifier)'")
     }
     
     func testNavigationControllerInstanceWithId() {
-        var id = "eGU-XO-Tph"
-        var instanceInfo = applicationInfo?.navigationControllerInstanceWithId(id)
+        let id = "eGU-XO-Tph"
+        let instanceInfo = applicationInfo?.navigationControllerInstanceWithId(id)
         XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for id '\(id)'")
     }
     
     func testNavigationControllerInstanceWithStoryboardIdentifier() {
-        var storyboardIdentifier = "Navigation"
-        var instanceInfo = applicationInfo?.navigationControllerInstanceWithStoryboardIdentifier(storyboardIdentifier)
+        let storyboardIdentifier = "Navigation"
+        let instanceInfo = applicationInfo?.navigationControllerInstanceWithStoryboardIdentifier(storyboardIdentifier)
         XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for storyboard identifier '\(storyboardIdentifier)'")
     }
     
     func testSegueClassWithClassName() {
-        var className = "UIStoryboardSegue"
-        var classInfo = applicationInfo?.segueClassWithClassName(className)
+        let className = "UIStoryboardSegue"
+        let classInfo = applicationInfo?.segueClassWithClassName(className)
         XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
     }
     
     func testViewClassWithClassName() {
-        var className = "UIView"
-        var classInfo = applicationInfo?.viewClassWithClassName(className)
+        let className = "UIView"
+        let classInfo = applicationInfo?.viewClassWithClassName(className)
         XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
     }
     
     func testViewClassWithCustomClassName() {
-        var className = "CustomButton"
-        var classInfo = applicationInfo?.viewClassWithClassName(className)
+        let className = "CustomButton"
+        let classInfo = applicationInfo?.viewClassWithClassName(className)
         XCTAssertNotNil(classInfo, "Expected a classInfo for '\(className)' class")
     }
     
     func testViewInstanceWithId() {
-        var id = "IKn-pG-61R"
-        var instanceInfo = applicationInfo?.viewInstanceWithId(id)
+        let id = "IKn-pG-61R"
+        let instanceInfo = applicationInfo?.viewInstanceWithId(id)
         XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for id '\(id)'")
     }
 }

@@ -15,7 +15,7 @@ import SWXMLHash
 */
 protocol StoryboardFileVersionedParser {
     static func supports(root : XMLIndexer) -> Bool
-    static func parse(indexer : XMLIndexer, applicationInfo : ApplicationInfo) -> StoryboardFileParser.ParseResult
+    static func parse(indexer : XMLIndexer, applicationInfo : ApplicationInfo) throws -> StoryboardFileParser.ParseResult
 }
 
 /**
@@ -25,17 +25,17 @@ public class StoryboardFileParser: NSObject {
     /**
      * Result value after parsing a Storyboard file
      */
-    public typealias ParseResult = (StoryboardInstanceInfo?, NSError?, [String]?)
+    public typealias ParseResult = (StoryboardInstanceInfo?, [String]?)
     
     /**
     Main parsing function
     
-    :param: applicationInfo The applicationInfo instance you wish to fill
-    :param: pathFileName    The path to the Storyboard file
+    - parameter applicationInfo: The applicationInfo instance you wish to fill
+    - parameter pathFileName:    The path to the Storyboard file
     
-    :returns: A StoryboardInstanceInfo that represents the parsed Storyboard file and/or an error, and/or any verbose feedback, any of which non-nil or nil depending on the parsing results
+    - returns: A StoryboardInstanceInfo that represents the parsed Storyboard file and/or an error, and/or any verbose feedback, any of which non-nil or nil depending on the parsing results
     */
-    public class func parse(applicationInfo : ApplicationInfo, pathFileName : String) -> ParseResult {
+    public class func parse(applicationInfo : ApplicationInfo, pathFileName : String) throws -> ParseResult {
         var result : ParseResult
         
         if NSFileManager.defaultManager().fileExistsAtPath(pathFileName) {
@@ -43,14 +43,14 @@ public class StoryboardFileParser: NSObject {
             if let data = NSData(contentsOfFile: pathFileName)
             {
                 let indexer = SWXMLHash.parse(data)
-                result = self.parseXML(indexer, applicationInfo: applicationInfo)
+                result = try self.parseXML(indexer, applicationInfo: applicationInfo)
             } else
             {
-                result = (nil, NSError(domain: "Unable to open Storyboard file \(pathFileName)", code: 0, userInfo: nil), nil)
+                throw NSError(domain: "Unable to open Storyboard file \(pathFileName)", code: 0, userInfo: nil)
             }
         } else
         {
-            result = (nil, NSError(domain: "Unable to find Storyboard file \(pathFileName)", code: 0, userInfo: nil), nil)
+            throw NSError(domain: "Unable to find Storyboard file \(pathFileName)", code: 0, userInfo: nil)
         }
         
         return result
@@ -58,16 +58,16 @@ public class StoryboardFileParser: NSObject {
     
     internal static let versionedParserClasses : [StoryboardFileVersionedParser.Type] = [StoryboardFile3_0Parser.self]
     
-    internal class func parseXML(indexer : XMLIndexer, applicationInfo : ApplicationInfo) -> ParseResult {
+    internal class func parseXML(indexer : XMLIndexer, applicationInfo : ApplicationInfo) throws -> ParseResult {
         var result : ParseResult
         
-        // TODO: fix in Swift 2.0 to use versionsedParserClasses
+        // TODO: fix to use versionsedParserClasses
         if StoryboardFile3_0Parser.supports(indexer)
         {
-            result = StoryboardFile3_0Parser.parse(indexer, applicationInfo: applicationInfo)
+            result = try StoryboardFile3_0Parser.parse(indexer, applicationInfo: applicationInfo)
         } else
         {
-            result = (nil, NSError(domain: "Unsupported Storyboard file format version: \(version)", code: 0, userInfo: nil), nil)
+            throw NSError(domain: "Unsupported Storyboard file format version: \(version)", code: 0, userInfo: nil)
         }
         
         return result

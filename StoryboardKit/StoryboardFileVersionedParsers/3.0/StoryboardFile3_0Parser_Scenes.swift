@@ -24,10 +24,10 @@ extension StoryboardFile3_0Parser {
         
         if let element = scene.element, let sceneId = element.attributes["sceneID"]
         {
-            var sceneInfo = StoryboardInstanceInfo.SceneInfo(sceneId: sceneId)
+            let sceneInfo = StoryboardInstanceInfo.SceneInfo(sceneId: sceneId)
             storyboardInstanceParseInfo.add(scene: sceneInfo)
             
-            var objects = scene["objects"]
+            let objects = scene["objects"]
             for object in objects.children {
                 if let sceneObjectElement = object.element
                 {
