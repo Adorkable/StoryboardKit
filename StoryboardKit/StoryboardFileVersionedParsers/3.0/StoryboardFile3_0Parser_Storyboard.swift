@@ -70,7 +70,7 @@ extension StoryboardFile3_0Parser {
         return result
     }
     
-    internal func createStoryboardInstanceInfoFromParsed() -> StoryboardFileParser.ParseResult {
+    internal func createStoryboardInstanceInfoFromParsed() throws -> StoryboardFileParser.ParseResult {
         var result : StoryboardFileParser.ParseResult
         
         if let storyboardInstanceParseInfo = self.storyboardInstanceParseInfo
@@ -89,10 +89,10 @@ extension StoryboardFile3_0Parser {
                 storyboardInstanceInfo.add(scene: sceneInfo)
             }
             
-            result = (storyboardInstanceInfo, nil, self.logs)
+            result = (storyboardInstanceInfo, self.logs)
         } else
         {
-            result = (nil, NSError(domain: "Unable to find StoryboardInstanceParseInfo, likely cause was we were unable to parse root of Storyboard file", code: 0, userInfo: nil), self.logs)
+            throw NSError(domain: "Unable to find StoryboardInstanceParseInfo, likely cause was we were unable to parse root of Storyboard file", code: 0, userInfo: nil)
         }
         
         return result

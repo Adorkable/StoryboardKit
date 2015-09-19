@@ -24,7 +24,13 @@ class TableViewInstanceInfoTests: XCTestCase {
         
         applicationInfo = ApplicationInfo()
         
-        StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        do
+        {
+            try StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        } catch let error as NSError
+        {
+            XCTAssertNil(error, "Expected parse to not throw an error: \(error)")
+        }
         
         if let tableViewInstanceInfo = applicationInfo?.viewInstanceWithId(self.tableViewInstanceInfoId) as? TableViewInstanceInfo
         {

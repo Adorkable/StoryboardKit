@@ -32,9 +32,9 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         return result
     }
     
-    static func parse(indexer: XMLIndexer, applicationInfo: ApplicationInfo) -> StoryboardFileParser.ParseResult {
+    static func parse(indexer: XMLIndexer, applicationInfo: ApplicationInfo) throws -> StoryboardFileParser.ParseResult {
         let parser = StoryboardFile3_0Parser(applicationInfo: applicationInfo)
-        return parser.parse(indexer)
+        return try parser.parse(indexer)
     }
     
     internal let applicationInfo : ApplicationInfo
@@ -59,7 +59,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
         super.init()
     }
 
-    func parse(indexer : XMLIndexer) -> StoryboardFileParser.ParseResult {
+    func parse(indexer : XMLIndexer) throws -> StoryboardFileParser.ParseResult {
         var result : StoryboardFileParser.ParseResult
         
         self.storyboardInstanceParseInfo = self.createStoryboardInstance(indexer)
@@ -70,7 +70,7 @@ class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
             
             self.createSegueInstanceInfosFromParsed()
             
-            result = self.createStoryboardInstanceInfoFromParsed()
+            result = try self.createStoryboardInstanceInfoFromParsed()
         }
         
         return result

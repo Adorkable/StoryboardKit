@@ -23,7 +23,15 @@ class StoryboardInstanceInfoTests: XCTestCase {
 
     // TODO: test that false is being store
     func testUseAutolayout() {
-        let result = StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        var result : StoryboardFileParser.ParseResult
+        
+        do
+        {
+            result = try StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        } catch let error as NSError
+        {
+            XCTAssertNil(error, "Expected parse to not throw an error: \(error)")
+        }
         
         XCTAssertNotNil(result.0, "returned StoryboardInstanceInfo reference is nil")
         
@@ -34,8 +42,15 @@ class StoryboardInstanceInfoTests: XCTestCase {
     
     // TODO: test that false is being store
     func testUseTraitCollections() {
-        let result = StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        var result : StoryboardFileParser.ParseResult
         
+        do
+        {
+            result = try StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        } catch let error as NSError
+        {
+            XCTAssertNil(error, "Expected parse to not throw an error: \(error)")
+        }
         XCTAssertNotNil(result.0, "returned StoryboardInstanceInfo reference is nil")
         
         let storyboardInstanceInfo = result.0!
@@ -44,7 +59,15 @@ class StoryboardInstanceInfoTests: XCTestCase {
     }
     
     func testInitialViewController() {
-        let result = StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        var result : StoryboardFileParser.ParseResult
+        
+        do
+        {
+            result = try StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        } catch let error as NSError
+        {
+            XCTAssertNil(error, "Expected parse to not throw an error: \(error)")
+        }
         
         XCTAssertNotNil(result.0, "returned StoryboardInstanceInfo reference is nil")
         
