@@ -21,9 +21,9 @@ public class ViewControllerClassInfo: ClassInfo {
     /**
     Default init
     
-    :param: className name of the View Controller class
+    - parameter className: name of the View Controller class
     
-    :returns: A new ViewControllerClassInfo instance
+    - returns: A new ViewControllerClassInfo instance
     */
     override init(className : String?) {
         
@@ -42,9 +42,9 @@ public class ViewControllerClassInfo: ClassInfo {
     /**
     Add a View Controller instance of this class
     
-    :param: instanceInfo Instance Info of a View Controller of this class
+    - parameter instanceInfo: Instance Info of a View Controller of this class
     */
-    func add(#instanceInfo : ViewControllerInstanceInfo) {
+    func add(instanceInfo instanceInfo : ViewControllerInstanceInfo) {
         // TODO: prevent duplicates
         self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
     }

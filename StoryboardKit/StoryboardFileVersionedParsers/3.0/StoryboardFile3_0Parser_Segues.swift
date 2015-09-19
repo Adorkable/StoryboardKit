@@ -13,7 +13,7 @@ import SWXMLHash
 extension StoryboardFile3_0Parser {
     // MARK: Segues
     
-    internal class SegueInstanceParseInfo : NSObject, DebugPrintable {
+    internal class SegueInstanceParseInfo : NSObject, CustomDebugStringConvertible {
         internal let classInfo : SegueClassInfo
         internal let id : String
         internal var source : SegueConnection
@@ -80,7 +80,7 @@ extension StoryboardFile3_0Parser {
     internal func createSegueInstanceInfosFromParsed() {
         while self.parsedSegues.count > 0
         {
-            var segueParsedInfo = self.parsedSegues.removeLast()
+            let segueParsedInfo = self.parsedSegues.removeLast()
             
             var segueInfo : SegueInstanceInfo?
             

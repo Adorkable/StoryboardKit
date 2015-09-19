@@ -30,10 +30,10 @@ public class StoryboardFileParser: NSObject {
     /**
     Main parsing function
     
-    :param: applicationInfo The applicationInfo instance you wish to fill
-    :param: pathFileName    The path to the Storyboard file
+    - parameter applicationInfo: The applicationInfo instance you wish to fill
+    - parameter pathFileName:    The path to the Storyboard file
     
-    :returns: A StoryboardInstanceInfo that represents the parsed Storyboard file and/or an error, and/or any verbose feedback, any of which non-nil or nil depending on the parsing results
+    - returns: A StoryboardInstanceInfo that represents the parsed Storyboard file and/or an error, and/or any verbose feedback, any of which non-nil or nil depending on the parsing results
     */
     public class func parse(applicationInfo : ApplicationInfo, pathFileName : String) -> ParseResult {
         var result : ParseResult

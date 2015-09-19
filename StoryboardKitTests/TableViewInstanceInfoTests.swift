@@ -18,6 +18,8 @@ class TableViewInstanceInfoTests: XCTestCase {
     var tableViewInstanceInfo : TableViewInstanceInfo?
     
     override func setUp() {
+        self.continueAfterFailure = false
+
         super.setUp()
         
         applicationInfo = ApplicationInfo()
@@ -30,13 +32,11 @@ class TableViewInstanceInfoTests: XCTestCase {
         }
     }
     
-    func testAssumptions() {
-        XCTAssertNotNil(self.tableViewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.tableViewInstanceInfoId)")
-    }
-    
     func testClassInfo() {
-        var className = "UITableView"
-        var classInfo = self.applicationInfo?.viewClassWithClassName(className)
+        let className = "UITableView"
+        let classInfo = self.applicationInfo?.viewClassWithClassName(className)
+
+        XCTAssertNotNil(self.tableViewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.tableViewInstanceInfoId)")
         
         XCTAssertNotNil(classInfo, "\(self.tableViewInstanceInfo!)'s classInfo should not be nil")
         
@@ -44,11 +44,13 @@ class TableViewInstanceInfoTests: XCTestCase {
     }
 
     func testCellPrototypes() {
+        XCTAssertNotNil(self.tableViewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.tableViewInstanceInfoId)")
+        
         XCTAssertNotNil(self.tableViewInstanceInfo!.cellPrototypes, "\(self.tableViewInstanceInfo!) should contain cell prototypes")
         XCTAssertGreaterThan(self.tableViewInstanceInfo!.cellPrototypes!.count, 0, "\(self.tableViewInstanceInfo!)'s cell prototypes count should be greater than 0")
         XCTAssertNotNil(self.tableViewInstanceInfo!.cellPrototypes![0].reuseIdentifier, "\(self.tableViewInstanceInfo!.cellPrototypes![0])'s reuseIdentifier should not be nil")
         
-        var reuseIdentifier = "I'm a Table Cell"
+        let reuseIdentifier = "I'm a Table Cell"
         XCTAssertEqual(self.tableViewInstanceInfo!.cellPrototypes![0].reuseIdentifier!, reuseIdentifier, "\(self.tableViewInstanceInfo!.cellPrototypes![0])'s reuseIdentifier should be \"\(reuseIdentifier)\"")
     }
 }

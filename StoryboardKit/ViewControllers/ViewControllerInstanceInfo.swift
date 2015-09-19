@@ -36,15 +36,15 @@ public class ViewControllerInstanceInfo: NSObject, Idable {
         self.classInfo.add(instanceInfo: self)
     }
     
-    func add(#segue : SegueInstanceInfo) {
+    func add(segue segue : SegueInstanceInfo) {
         self.segues.append(segue)
     }
     
-    func add(#layoutGuide : ViewControllerLayoutGuideInstanceInfo) {
+    func add(layoutGuide layoutGuide : ViewControllerLayoutGuideInstanceInfo) {
         self.layoutGuides.append(layoutGuide)
     }
     
-    func add(#navigationItem : NavigationItemInstanceInfo) {
+    func add(navigationItem navigationItem : NavigationItemInstanceInfo) {
         self.navigationItems.append(navigationItem)
     }
 }

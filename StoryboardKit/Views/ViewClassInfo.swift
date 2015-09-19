@@ -21,9 +21,9 @@ public class ViewClassInfo: ClassInfo {
     /**
     Default init
     
-    :param: className name of the View class
+    - parameter className: name of the View class
     
-    :returns: A new ViewClassInfo instance
+    - returns: A new ViewClassInfo instance
     */
     override init(className : String?) {
         
@@ -42,9 +42,9 @@ public class ViewClassInfo: ClassInfo {
     /**
     Add a View instance of this class
     
-    :param: instanceInfo Instance Info of a View of this class
+    - parameter instanceInfo: Instance Info of a View of this class
     */
-    func add(#instanceInfo : ViewInstanceInfo) {
+    func add(instanceInfo instanceInfo : ViewInstanceInfo) {
         // TODO: prevent duplicates
         self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
     }

@@ -14,8 +14,8 @@ import StoryboardKit
 func storyboardPathBuilder() -> String? {
     var result : String?
     
-    if let pwd = NSProcessInfo.processInfo().environment["PWD"] as? String {
-        result = pwd + "/StoryboardKitTests/StoryboardKit.storyboard"
+    if let path = (NSProcessInfo.processInfo().environment["XCTestConfigurationFilePath"] as NSString?)?.stringByDeletingLastPathComponent {
+        result = path + "/StoryboardKit.storyboard"
     }
     
     return result
@@ -23,12 +23,12 @@ func storyboardPathBuilder() -> String? {
 
 class StoryboardInfoTests: XCTestCase {
     func testStoryboardPathBuilder() {
-        var storyboardPath = storyboardPathBuilder()
+        let storyboardPath = storyboardPathBuilder()
         XCTAssertNotNil(storyboardPath, "Storyboard Path is nil")
         
         if storyboardPath != nil
         {
-            var fileExists = NSFileManager.defaultManager().fileExistsAtPath(storyboardPath!)
+            let fileExists = NSFileManager.defaultManager().fileExistsAtPath(storyboardPath!)
             XCTAssertTrue(fileExists, "Storyboard file does not exist at path \(storyboardPath!)")
         }
     }    

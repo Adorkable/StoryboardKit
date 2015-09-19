@@ -42,14 +42,14 @@ extension StoryboardFile3_0Parser {
                 view = self.createTableView(viewController["tableView"])
             }
             
-            var viewControllerInstanceInfo = ViewControllerInstanceInfo(classInfo: viewControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, view: view)
+            let viewControllerInstanceInfo = ViewControllerInstanceInfo(classInfo: viewControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, view: view)
             
             sceneInfo.controller = viewControllerInstanceInfo
             self.applicationInfo.add(viewControllerInstance: viewControllerInstanceInfo)
             
             self.parseLayoutGuides(viewController["layoutGuides"], source: viewControllerInstanceInfo)
             
-            var navigationItem = viewController["navigationItem"]
+            let navigationItem = viewController["navigationItem"]
             if navigationItem.element != nil
             {
                 self.parseNavigationItem(navigationItem, source: viewControllerInstanceInfo)
@@ -84,7 +84,7 @@ extension StoryboardFile3_0Parser {
             let storyboardIdentifier = element.attributes["storyboardIdentifier"]
             let sceneMemberId = element.attributes["sceneMemberID"]
             
-            var navigationControllerInstanceInfo = NavigationControllerInstanceInfo(classInfo: navigationControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, sceneMemberId: sceneMemberId)
+            let navigationControllerInstanceInfo = NavigationControllerInstanceInfo(classInfo: navigationControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, sceneMemberId: sceneMemberId)
             
             sceneInfo.controller = navigationControllerInstanceInfo
             self.applicationInfo.add(navigationControllerInstance: navigationControllerInstanceInfo)
@@ -115,7 +115,7 @@ extension StoryboardFile3_0Parser {
             let id = element.attributes["id"],
             let type = element.attributes["type"]
         {
-            var layoutGuide = ViewControllerLayoutGuideInstanceInfo(id: id, type: type )
+            let layoutGuide = ViewControllerLayoutGuideInstanceInfo(id: id, type: type )
             source.add(layoutGuide: layoutGuide)
         } else
         {
@@ -130,19 +130,18 @@ extension StoryboardFile3_0Parser {
         switch navigationItem
         {
         case .Element(let element):
-            if let element = navigationItem.element,
-                let id = element.attributes["id"],
+            if let id = element.attributes["id"],
                 let navigationItemKey = element.attributes["key"],
                 let title = element.attributes["title"]
             {
-                var navigationItem = NavigationItemInstanceInfo(id: id, navigationItemKey: navigationItemKey, title: title)
-                source.add(navigationItem: navigationItem)
+                let navigationItemInstance = NavigationItemInstanceInfo(id: id, navigationItemKey: navigationItemKey, title: title)
+                source.add(navigationItem: navigationItemInstance)
             } else
             {
                 self.Log("Unable to create Navigation Item Instance Info from \(navigationItem)")
             }
             break
-        case .Error(let error):
+        case .XMLError(let error):
             self.Log("Unable to create Navigation Item Instance Info from \(navigationItem): \(error)")
             break
         default:

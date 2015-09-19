@@ -18,7 +18,7 @@ public class ClassInfo: NSObject {
     }
 }
 
-extension ClassInfo : DebugPrintable {
+extension ClassInfo : CustomDebugStringConvertible {
     
     public override var debugDescription: String {
         get {

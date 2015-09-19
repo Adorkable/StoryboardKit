@@ -17,6 +17,8 @@ class ViewInstanceInfoTests: XCTestCase {
     var viewInstanceInfo : ViewInstanceInfo?
     
     override func setUp() {
+        self.continueAfterFailure = false
+        
         super.setUp()
         
         applicationInfo = ApplicationInfo()
@@ -26,13 +28,11 @@ class ViewInstanceInfoTests: XCTestCase {
         self.viewInstanceInfo = applicationInfo?.viewInstanceWithId(self.viewInstanceInfoId)
     }
     
-    func testAssumptions() {
-        XCTAssertNotNil(self.viewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.viewInstanceInfoId)")
-    }
-    
     func testClassInfo() {
-        var className = "UIView"
-        var classInfo = self.applicationInfo?.viewClassWithClassName(className)
+        let className = "UIView"
+        let classInfo = self.applicationInfo?.viewClassWithClassName(className)
+
+        XCTAssertNotNil(self.viewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.viewInstanceInfoId)")
 
         XCTAssertNotNil(classInfo, "\(self.viewInstanceInfo!)'s classInfo should not be nil")
         
@@ -40,39 +40,50 @@ class ViewInstanceInfoTests: XCTestCase {
     }
     
     func testId() {
+        XCTAssertNotNil(self.viewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.viewInstanceInfoId)")
+        
         XCTAssertEqual(self.viewInstanceInfo!.id, self.viewInstanceInfoId, "\(self.viewInstanceInfo!)'s id should be equal to \(self.viewInstanceInfo)")
     }
     
     func testFrame() {
-        var equalTo = CGRect(x: 0, y: 0, width: 600, height: 600)
+        let equalTo = CGRect(x: 0, y: 0, width: 600, height: 600)
         
+        XCTAssertNotNil(self.viewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.viewInstanceInfoId)")
 //        XCTAssertNotNil(self.viewInstanceInfo!.frame, "\(self.viewInstanceInfo)'s frame should not be nil")
 
         XCTAssertEqual(self.viewInstanceInfo!.frame!, equalTo, "\(self.viewInstanceInfo!)'s frame should be equal to \(equalTo)")
     }
     
     func testAutoResizingMaskWidthSizable() {
-        var equalTo = true
+        let equalTo = true
         
+        XCTAssertNotNil(self.viewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.viewInstanceInfoId)")
+
         XCTAssertEqual(self.viewInstanceInfo!.autoResizingMaskWidthSizable, equalTo, "\(self.viewInstanceInfo!)'s autoResizingMaskWidthSizable should be equal to \(equalTo)")
     }
     
     func testAutoResizingMaskHeightSizable() {
-        var equalTo = true
+        let equalTo = true
         
+        XCTAssertNotNil(self.viewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.viewInstanceInfoId)")
+
         XCTAssertEqual(self.viewInstanceInfo!.autoResizingMaskHeightSizable, equalTo, "\(self.viewInstanceInfo!)'s autoResizingMaskHeightSizable should be equal to \(equalTo)")
     }
     
     func testSubviews() {
-        var equalTo = 3
+        let equalTo = 3
         
+        XCTAssertNotNil(self.viewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.viewInstanceInfoId)")
+
         XCTAssertNotNil(self.viewInstanceInfo!.subviews, "\(self.viewInstanceInfo!)'s subviews should not be nil")
         XCTAssertEqual(self.viewInstanceInfo!.subviews!.count, equalTo, "\(self.viewInstanceInfo!)'s subview count should be equal to \(equalTo)")
     }
     
     func testBackgroundColor() {
-        var equalTo = NSColor(calibratedWhite: 0.66666666666666663, alpha: 1.0)
+        let equalTo = NSColor(calibratedWhite: 0.66666666666666663, alpha: 1.0)
         
+        XCTAssertNotNil(self.viewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.viewInstanceInfoId)")
+
         XCTAssertNotNil(self.viewInstanceInfo!.backgroundColor, "\(self.viewInstanceInfo!)'s background color should not be nil")
         XCTAssertEqual(self.viewInstanceInfo!.backgroundColor!, equalTo, "\(self.viewInstanceInfo!)'s background color count should be equal to \(equalTo)")
     }

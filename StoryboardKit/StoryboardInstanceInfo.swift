@@ -51,9 +51,9 @@ public class StoryboardInstanceInfo: NSObject {
     /**
     Add a Scene to the storyboard
     
-    :param: scene Scene to add
+    - parameter scene: Scene to add
     */
-    func add(#scene : SceneInfo) {
+    func add(scene scene : SceneInfo) {
         // TODO: validate that it isn't a dup
         self.scenes.append(scene)
     }

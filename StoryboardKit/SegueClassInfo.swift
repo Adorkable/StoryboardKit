@@ -28,7 +28,7 @@ public class SegueClassInfo: ClassInfo {
         super.init(className: useClassName)
     }
     
-    func add(#instanceInfo : SegueInstanceInfo) {
+    func add(instanceInfo instanceInfo : SegueInstanceInfo) {
         self.instanceInfos.append( StoryboardKit_WeakWrapper(instanceInfo) )
     }
 }

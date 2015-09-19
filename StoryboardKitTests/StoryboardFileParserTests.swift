@@ -26,13 +26,13 @@ class StoryboardFileParserTests: XCTestCase {
     }
     
     func testParseFinishedWithStoryboardInstanceInfo() {
-        var result = StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        let result = StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
         
         XCTAssertNotNil(result.0, "returned StoryboardInstanceInfo reference is nil")
     }
     
     func testParseFinishesWithoutErrors() {
-        var result = StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
+        let result = StoryboardFileParser.parse(applicationInfo!, pathFileName: storyboardPathBuilder()! )
         
         XCTAssertNil(result.1, "Error occurred \(result.1)")
     }

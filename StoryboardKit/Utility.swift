@@ -41,5 +41,5 @@ func firstObject<T>(objects : [T]) -> T? {
 }
 
 func firstObjectWithId<T : Idable>(id : String, objects : [T]) -> T? {
-    return firstObject( objectsWithId(id, objects) )
+    return firstObject( objectsWithId(id, objects: objects) )
 }

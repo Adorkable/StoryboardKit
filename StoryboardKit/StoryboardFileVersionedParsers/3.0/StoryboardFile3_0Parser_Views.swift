@@ -119,7 +119,7 @@ extension StoryboardFile3_0Parser {
                         
                     } else if subelement.name == "color"
                     {
-                        var color = self.createColor(subnode)
+                        let color = self.createColor(subnode)
                         if subelement.attributes["key"] == "backgroundColor"
                         {
                             backgroundColor = color
@@ -142,7 +142,7 @@ extension StoryboardFile3_0Parser {
         var result : ViewInstanceInfo?
         if let parseInfo = self.parseView(view, viewClassInfoClass: viewClassInfoClass)
         {
-            var view = ViewInstanceInfo(classInfo: parseInfo.viewClass, id: parseInfo.id, frame: parseInfo.frame, autoResizingMaskWidthSizable: parseInfo.autoResizingMaskWidthSizable,  autoResizingMaskHeightSizable: parseInfo.autoResizingMaskHeightSizable, subviews: parseInfo.subviews, backgroundColor: parseInfo.backgroundColor)
+            let view = ViewInstanceInfo(classInfo: parseInfo.viewClass, id: parseInfo.id, frame: parseInfo.frame, autoResizingMaskWidthSizable: parseInfo.autoResizingMaskWidthSizable,  autoResizingMaskHeightSizable: parseInfo.autoResizingMaskHeightSizable, subviews: parseInfo.subviews, backgroundColor: parseInfo.backgroundColor)
             result = view
         }
         
@@ -223,7 +223,7 @@ extension StoryboardFile3_0Parser {
                 {
                     self.Log("Error: Unknown colorspace \(colorSpace)")
                 }
-            } else if let cocoaTouchSystemColor = element.attributes["cocoaTouchSystemColor"]
+            } else if let _ = element.attributes["cocoaTouchSystemColor"]
             {
                 // cocoaTouchSystemColor="darkTextColor"
             } else
@@ -305,7 +305,7 @@ extension StoryboardFile3_0Parser {
         if let element = tableViewCell.element,
             let id = element.attributes["id"]
         {
-            var reuseIdentifier = element.attributes["reuseIdentifier"]
+            let reuseIdentifier = element.attributes["reuseIdentifier"]
             result = TableViewInstanceInfo.TableViewCellPrototypeInfo(id: id, reuseIdentifier: reuseIdentifier)
         }
         
@@ -318,7 +318,7 @@ extension StoryboardFile3_0Parser {
         {
             let viewInstanceParseInfo = parseInfo.viewInstanceParseInfo
             
-            var tableView = TableViewInstanceInfo(classInfo: viewInstanceParseInfo.viewClass, id: viewInstanceParseInfo.id, frame: viewInstanceParseInfo.frame, autoResizingMaskWidthSizable: viewInstanceParseInfo.autoResizingMaskWidthSizable,  autoResizingMaskHeightSizable: viewInstanceParseInfo.autoResizingMaskHeightSizable, subviews: viewInstanceParseInfo.subviews, backgroundColor: viewInstanceParseInfo.backgroundColor, cellPrototypes: parseInfo.cellPrototypes)
+            let tableView = TableViewInstanceInfo(classInfo: viewInstanceParseInfo.viewClass, id: viewInstanceParseInfo.id, frame: viewInstanceParseInfo.frame, autoResizingMaskWidthSizable: viewInstanceParseInfo.autoResizingMaskWidthSizable,  autoResizingMaskHeightSizable: viewInstanceParseInfo.autoResizingMaskHeightSizable, subviews: viewInstanceParseInfo.subviews, backgroundColor: viewInstanceParseInfo.backgroundColor, cellPrototypes: parseInfo.cellPrototypes)
             result = tableView
         }
         
