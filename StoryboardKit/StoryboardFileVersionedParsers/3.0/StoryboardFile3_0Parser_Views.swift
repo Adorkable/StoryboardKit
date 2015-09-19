@@ -63,7 +63,7 @@ extension StoryboardFile3_0Parser {
                 viewClass = foundViewClass
             } else
             {
-                viewClass = ViewClassInfo(className: useClass)
+                viewClass = viewClassInfoClass.init(className: useClass)
                 self.applicationInfo.add(viewClass: viewClass)
             }
             

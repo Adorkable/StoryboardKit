@@ -13,7 +13,7 @@ import Foundation
 */
 public class ViewControllerClassInfo: ClassInfo {
 
-    class var defaultClass : String { return "UIViewController" }
+    override class var defaultClass : String { return "UIViewController" }
 
     /// All instances of this class in the application
     public private(set) var instanceInfos = Array< StoryboardKit_WeakWrapper<ViewControllerInstanceInfo> >()
@@ -25,18 +25,8 @@ public class ViewControllerClassInfo: ClassInfo {
     
     - returns: A new ViewControllerClassInfo instance
     */
-    override init(className : String?) {
-        
-        var useClassName : String
-        if className != nil
-        {
-            useClassName = className!
-        } else
-        {
-            useClassName = self.dynamicType.defaultClass
-        }
-    
-        super.init(className: useClassName)
+    required public init(className : String?) {
+        super.init(className: className)
     }
     
     /**
