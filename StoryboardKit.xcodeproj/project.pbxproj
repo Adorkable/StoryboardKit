@@ -95,6 +95,7 @@
 		3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardFileParserTests.swift; sourceTree = "<group>"; };
 		3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLayoutGuideInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemInstanceInfo.swift; sourceTree = "<group>"; };
+		3C8BD2FB1BAD274800E0AF8A /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		3CA2169E1BA2927000EE4BA4 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInstanceInfo.swift; sourceTree = "<group>"; };
 		3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewClassInfo.swift; sourceTree = "<group>"; };
@@ -186,6 +187,7 @@
 		3CF3D35A1B3B087300811E8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3C8BD2FB1BAD274800E0AF8A /* .travis.yml */,
 				3CF3D35B1B3B088800811E8A /* Gemfile */,
 				3CF3D35D1B3B088800811E8A /* Podfile */,
 				3CF3D35C1B3B088800811E8A /* LICENSE.md */,
