@@ -33,12 +33,10 @@ public class ClassInfo: NSObject {
 extension ClassInfo : CustomDebugStringConvertible {
     
     public override var debugDescription: String {
-        get {
-            var result = super.debugDescription
-            
-            result += "\nClass: \(self.infoClassName)"
-            
-            return result
-        }
+        var result = super.debugDescription
+        
+        result += "\nClass: \(self.infoClassName)"
+        
+        return result
     }
 }

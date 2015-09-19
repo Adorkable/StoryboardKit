@@ -25,4 +25,12 @@ class ClassInfoTests: XCTestCase {
 
         XCTAssertEqual(classInfo.infoClassName, className, "ClassInfo class name should be \"\(className)\", was \"\(classInfo.infoClassName)\"")
     }
+    
+    func testDebugDescription() {
+        let classInfo = ClassInfo(className: nil)
+
+        let debugDescription = classInfo.debugDescription
+        
+        XCTAssertNotNil(debugDescription.rangeOfString("Class: "), "ClassInfo's debug description should include the class: \(debugDescription)")
+    }
 }
