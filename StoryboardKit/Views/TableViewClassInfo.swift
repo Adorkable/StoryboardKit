@@ -8,10 +8,10 @@
 
 import Cocoa
 
-class TableViewClassInfo: ViewClassInfo {
+public class TableViewClassInfo: ViewClassInfo {
     override class var defaultClass : String { return "UITableView" }
     
-    override init(className : String?) {
+    required public init(className : String?) {
         super.init(className: className)
     }
 }

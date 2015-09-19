@@ -8,15 +8,21 @@
 
 import XCTest
 
-import StoryboardKit
+@testable import StoryboardKit
 
 class ClassInfoTests: XCTestCase {
 
-//    func testInit() {
-//        var className = "Blah-dee Blah Blah"
-//        
-//        // TODO: Swift 2.0 @testable
-////        var classInfo = ClassInfo(className: className)
-//        
-//    }
+    func testInit() {
+        let classInfo = ClassInfo(className: nil)
+        
+        XCTAssertEqual(classInfo.infoClassName, ClassInfo.defaultClass, "ClassInfo class name should be \"\(ClassInfo.defaultClass)\", was \"\(classInfo.infoClassName)\"")
+    }
+
+    func testInitCustomClassName() {
+        let className = "Blah-dee Blah Blah"
+        
+        let classInfo = ClassInfo(className: className)
+
+        XCTAssertEqual(classInfo.infoClassName, className, "ClassInfo class name should be \"\(className)\", was \"\(classInfo.infoClassName)\"")
+    }
 }

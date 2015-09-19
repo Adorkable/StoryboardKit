@@ -9,10 +9,22 @@
 import Foundation
 
 public class ClassInfo: NSObject {
+    class var defaultClass : String { return "" }
+
     public let infoClassName : String
     
-    init(className : String) {
-        self.infoClassName = className
+    required public init(className : String?) {
+        
+        var useClassName : String
+        if className != nil
+        {
+            useClassName = className!
+        } else
+        {
+            useClassName = self.dynamicType.defaultClass
+        }
+        
+        self.infoClassName = useClassName
         
         super.init()
     }
