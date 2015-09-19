@@ -5,3 +5,4 @@ xcode_scheme:
 - StoryboardKit
 before_install:
 - gem install cocoapods
+- brew uninstall xctool && brew install --HEAD xctool
