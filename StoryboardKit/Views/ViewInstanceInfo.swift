@@ -40,3 +40,10 @@ public class ViewInstanceInfo: NSObject {
         self.classInfo.add(instanceInfo: self)
     }
 }
+
+
+extension ViewInstanceInfo : CustomDebugStringConvertible {
+    override public var debugDescription : String {
+        return super.debugDescription + "Id: \(self.id)\(self.classInfo.debugDescription)"
+    }
+}

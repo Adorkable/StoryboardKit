@@ -35,7 +35,7 @@ extension ClassInfo : CustomDebugStringConvertible {
     public override var debugDescription: String {
         var result = super.debugDescription
         
-        result += "\nClass: \(self.infoClassName)"
+        result += "Class: \(self.infoClassName)"
         
         return result
     }
