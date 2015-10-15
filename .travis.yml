@@ -1,0 +1,8 @@
+language: objective-c
+osx_image: xcode7
+xcode_workspace: StoryboardKit.xcworkspace
+xcode_scheme: 
+- StoryboardKit
+before_install:
+- gem install cocoapods
+- brew uninstall xctool && brew install --HEAD xctool

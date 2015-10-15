@@ -37,6 +37,9 @@ extension StoryboardFile3_0Parser {
                     } else if sceneObjectElement.name == "navigationController"
                     {
                         self.parseNavigationController(object, sceneInfo: sceneInfo)
+                    } else if sceneObjectElement.name == "tabBarController"
+                    {
+                        self.parseTabBarController(object, sceneInfo: sceneInfo)
                     } else
                     {
                         // TODO: placeholder

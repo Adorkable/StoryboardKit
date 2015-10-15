@@ -43,3 +43,24 @@ func firstObject<T>(objects : [T]) -> T? {
 func firstObjectWithId<T : Idable>(id : String, objects : [T]) -> T? {
     return firstObject( objectsWithId(id, objects: objects) )
 }
+
+extension StoryboardKit_WeakWrapper : CustomDebugStringConvertible {
+    public var debugDescription: String {
+        var result : String
+        if let value = self.value
+        {
+            result = "Weak Wrapper<\(value.dynamicType)>"
+            if let debugStringConvertable = value as? CustomDebugStringConvertible
+            {
+                result = result + " \(debugStringConvertable.debugDescription)"
+            } else
+            {
+                result = result + " \(value)"
+            }
+        } else
+        {
+            result = "Weak Wrapper<\(self.value.dynamicType) nil"
+        }
+        return result
+    }
+}

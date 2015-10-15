@@ -48,3 +48,9 @@ public class ViewControllerInstanceInfo: NSObject, Idable {
         self.navigationItems.append(navigationItem)
     }
 }
+
+extension ViewControllerInstanceInfo : CustomDebugStringConvertible {
+    override public var debugDescription : String {
+        return super.debugDescription + "Id: \(self.id)\(self.classInfo.debugDescription)"
+    }
+}
