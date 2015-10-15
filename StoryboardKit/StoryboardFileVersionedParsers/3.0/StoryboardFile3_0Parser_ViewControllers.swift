@@ -13,18 +13,40 @@ import SWXMLHash
 extension StoryboardFile3_0Parser {
     // MARK: View Controllers
     
+    internal class func useClass(element : XMLElement, classInfo : ViewControllerClassInfo.Type) -> String
+    {
+        var result : String
+        if let customClass = element.attributes["customClass"]
+        {
+            result = customClass
+        } else
+        {
+            result = classInfo.defaultClass
+        }
+        return result
+    }
+    
+    internal func findOrCreateViewControllerClassInfo(useClass : String, classInfo : ViewControllerClassInfo.Type) -> ViewControllerClassInfo
+    {
+        let result : ViewControllerClassInfo
+        
+        if let controllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(useClass) // TODO: as? classInfo
+        {
+            result = controllerClassInfo
+        } else
+        {
+            result = classInfo.init(className: useClass)
+            self.applicationInfo.add(viewControllerClass: result)
+        }
+        
+        return result
+    }
+    
     internal func parseViewController(viewController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
         if let element = viewController.element,
             let id = element.attributes["id"]
         {
-            var useClass : String
-            if let customClass = element.attributes["customClass"]
-            {
-                useClass = customClass
-            } else
-            {
-                useClass = ViewControllerClassInfo.defaultClass
-            }
+            let useClass = StoryboardFile3_0Parser.useClass(element, classInfo: ViewControllerClassInfo.self)
             
             var viewControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(useClass)
             if viewControllerClassInfo == nil
@@ -64,14 +86,7 @@ extension StoryboardFile3_0Parser {
     internal func parseNavigationController(navigationController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
         if let element = navigationController.element, let id = element.attributes["id"]
         {
-            var useClass : String
-            if let customClass = element.attributes["customClass"]
-            {
-                useClass = customClass
-            } else
-            {
-                useClass = NavigationControllerClassInfo.defaultClass
-            }
+            let useClass = StoryboardFile3_0Parser.useClass(element, classInfo: NavigationControllerClassInfo.self)
             
             // TODO: restrict to NavControllerClasses
             var navigationControllerClassInfo = self.applicationInfo.viewControllerClassWithClassName(useClass) as? NavigationControllerClassInfo
@@ -99,6 +114,36 @@ extension StoryboardFile3_0Parser {
         }
     }
     
+    // MARK: Tab Bar Controller
+    
+    internal func parseTabBarController(viewController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
+        if let element = viewController.element,
+            let id = element.attributes["id"]
+        {
+            let useClass = StoryboardFile3_0Parser.useClass(element, classInfo: TabBarControllerClassInfo.self)
+            
+            let classInfo = self.findOrCreateViewControllerClassInfo(useClass, classInfo: TabBarControllerClassInfo.self)
+            
+            let storyboardIdentifier = element.attributes["storyboardIdentifier"]
+            
+            let view = self.createView(viewController["view"]) // Should be using view.key attribute?
+            
+            let instanceInfo = TabBarControllerInstanceInfo(classInfo: classInfo, id: id, storyboardIdentifier: storyboardIdentifier, view: view)
+            
+            sceneInfo.controller = instanceInfo
+            self.applicationInfo.add(tabBarControllerInstance: instanceInfo)
+            
+            self.parseLayoutGuides(viewController["layoutGuides"], source: instanceInfo)
+            
+            let navigationItem = viewController["navigationItem"]
+            if navigationItem.element != nil
+            {
+                self.parseNavigationItem(navigationItem, source: instanceInfo)
+            }
+            
+            self.parseConnections(viewController["connections"], source: instanceInfo)
+        }
+    }
     
     // MARK: Layout Guides
     

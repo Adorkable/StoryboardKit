@@ -73,7 +73,7 @@ public class ApplicationInfo: NSObject {
     
     /// All Navigation Controller Instance Infos in your application
     public private(set) var navigationControllerInstances = [NavigationControllerInstanceInfo]()
-
+    
     /**
     Add a Navigation Controller Instance Info to your application
     
@@ -104,6 +104,41 @@ public class ApplicationInfo: NSObject {
     */
     public func navigationControllerInstanceWithStoryboardIdentifier(identifier : String) -> NavigationControllerInstanceInfo? {
         return self.navigationControllerInstances.filter( { $0.storyboardIdentifier == identifier} ).first
+    }
+    
+    /// All Tab Bar Controller Instance Infos in your application
+    public private(set) var tabBarControllerInstances = [TabBarControllerInstanceInfo]()
+    
+    /**
+    Add a Tab Bar Controller Instance Info to your application
+    
+    - parameter tabBarControllerInstance: Tab Bar Controller Instance Info to add
+    */
+    func add(tabBarControllerInstance tabBarControllerInstance : TabBarControllerInstanceInfo) {
+        // TODO: validates that this isn't a dup
+        self.tabBarControllerInstances.append(tabBarControllerInstance)
+    }
+    
+    /**
+    Retrieve a Tab Bar Controller Instance Info by Storyboard id
+    
+    - parameter id: Storyboard id of the instance you wish to retrieve (not to be confused with IB assigned identifier)
+    
+    - returns: If found a reference to the Tab Bar Controller Instance Info you wished to retrieve, otherwise nil
+    */
+    public func tabBarControllerInstanceWithId(id : String) -> TabBarControllerInstanceInfo? {
+        return firstObjectWithId(id, objects: self.tabBarControllerInstances)
+    }
+    
+    /**
+    Retrieve a Tab Bar Controller Instance Info by Storyboard Identifier
+    
+    - parameter id: Storyboard Identifier of the instance you wish to retrieve
+    
+    - returns: If found a reference to the Tab Bar Controller Instance Info you wished to retrieve, otherwise nil
+    */
+    public func tabBarControllerInstanceWithStoryboardIdentifier(identifier : String) -> TabBarControllerInstanceInfo? {
+        return self.tabBarControllerInstances.filter( { $0.storyboardIdentifier == identifier} ).first
     }
     
     /// All Segue Class Infos in your application
