@@ -21,6 +21,8 @@ Installation
 
 Alternatively you can add the **[github repo](https://github.com/Adorkable/StoryboardKit)** as a submodule and use **StoryboardKit** as a framework.
 
+Carthage support soon!
+
 Setup and Usage
 ---
 ---
@@ -36,7 +38,11 @@ To parse a Storyboard file:
 	var storyboardInfo = StoryboardFileParser.parse(applicationInfo!, pathFileName: "Main.storyboard")
 ```
 
-To read more about the information **StoryboardKit** currently parses please read the docs here: [cocoadocs.org](http://cocoadocs.org/docsets/StoryboardKit/)
+From here you can access things like the list of all **ViewControllerClassInfo**s or **ViewControllerInstanceInfo**s in the app through your **ApplicationInfo** instance
+
+Or perhaps you'll traverse through your Storyboard graph via the **StoryboardInstanceInfo**'s **initialViewController** or **scenes** list.
+
+To learn more about the information **StoryboardKit** currently parses please read the docs here: [cocoadocs.org](http://cocoadocs.org/docsets/StoryboardKit/)
 
 Contributing
 ---
