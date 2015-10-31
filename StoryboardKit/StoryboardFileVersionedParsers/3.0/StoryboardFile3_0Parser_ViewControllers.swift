@@ -57,11 +57,18 @@ extension StoryboardFile3_0Parser {
             
             let storyboardIdentifier = element.attributes["storyboardIdentifier"]
             
-            var view : ViewInstanceInfo?
-            view = self.createView(viewController["view"]) // Should be using view.key attribute?
-            if view == nil
+            var view : ViewInstanceInfo? // Should be using view.key attribute?
+            
+            // This is garbage, find a cleaner way
+            if let possibleView = self.createView(viewController["view"])
             {
-                view = self.createTableView(viewController["tableView"])
+                view = possibleView
+            } else if let possibleTableView = self.createTableView(viewController["tableView"])
+            {
+                view = possibleTableView
+            } else if let possibleCollectionView = self.createCollectionView(viewController["collectionView"])
+            {
+                view = possibleCollectionView
             }
             
             let viewControllerInstanceInfo = ViewControllerInstanceInfo(classInfo: viewControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, view: view)

@@ -30,8 +30,8 @@
 		3C3DF3941B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF3931B1B16BE00F1BBC0 /* StoryboardFileParserTests.swift */; };
 		3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39C1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift */; };
 		3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */; };
-		3C3E0F071BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E0F061BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift */; settings = {ASSET_TAGS = (); }; };
-		3C3E0F091BD061BA001EF9B5 /* TabBarControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E0F081BD061BA001EF9B5 /* TabBarControllerClassInfo.swift */; settings = {ASSET_TAGS = (); }; };
+		3C3E0F071BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E0F061BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift */; };
+		3C3E0F091BD061BA001EF9B5 /* TabBarControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E0F081BD061BA001EF9B5 /* TabBarControllerClassInfo.swift */; };
 		3CC70BE11B8E31ED002C4437 /* TableViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */; };
 		3CC70BE31B8E351D002C4437 /* TableViewClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */; };
 		3CC70BE51B8E44D2002C4437 /* TableViewInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */; };
@@ -45,6 +45,8 @@
 		3CF85BD31AF6E3880043AA48 /* StoryboardFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCC1AF6E3880043AA48 /* StoryboardFileParser.swift */; };
 		3CF85BD41AF6E3880043AA48 /* StoryboardInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCD1AF6E3880043AA48 /* StoryboardInstanceInfo.swift */; };
 		3CF85BD51AF6E3880043AA48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCE1AF6E3880043AA48 /* Utility.swift */; };
+		3CFB34D21BE457FA00FF3A84 /* CollectionViewClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB34D11BE457FA00FF3A84 /* CollectionViewClassInfo.swift */; };
+		3CFB34D41BE4580900FF3A84 /* CollectionViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB34D31BE4580900FF3A84 /* CollectionViewInstanceInfo.swift */; };
 		88212D25B106D416B5B550FF /* Pods_StoryboardKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20384CAD3AAE7C6AE4EE655B /* Pods_StoryboardKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,8 @@
 		3CF85BCD1AF6E3880043AA48 /* StoryboardInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInstanceInfo.swift; sourceTree = "<group>"; };
 		3CF85BCE1AF6E3880043AA48 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		3CF85BD81AF6E3BF0043AA48 /* StoryboardKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StoryboardKit.podspec; sourceTree = "<group>"; };
+		3CFB34D11BE457FA00FF3A84 /* CollectionViewClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewClassInfo.swift; sourceTree = "<group>"; };
+		3CFB34D31BE4580900FF3A84 /* CollectionViewInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewInstanceInfo.swift; sourceTree = "<group>"; };
 		63D27DFCBC69D64CB78A68DE /* Pods_StoryboardInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoryboardInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A4EF145513492FD2A131673 /* Pods-StoryboardKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryboardKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryboardKit/Pods-StoryboardKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +168,8 @@
 				3C30CAC41B418CB2000CC56D /* ViewInstanceInfo.swift */,
 				3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */,
 				3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */,
+				3CFB34D11BE457FA00FF3A84 /* CollectionViewClassInfo.swift */,
+				3CFB34D31BE4580900FF3A84 /* CollectionViewInstanceInfo.swift */,
 			);
 			name = Views;
 			path = StoryboardKit/Views;
@@ -468,6 +474,7 @@
 				3C30CAC31B418C0C000CC56D /* ViewClassInfo.swift in Sources */,
 				3CF85BD11AF6E3880043AA48 /* ApplicationInfo.swift in Sources */,
 				3C30CABE1B418ADE000CC56D /* NavigationControllerInstanceInfo.swift in Sources */,
+				3CFB34D21BE457FA00FF3A84 /* CollectionViewClassInfo.swift in Sources */,
 				3C3E0F091BD061BA001EF9B5 /* TabBarControllerClassInfo.swift in Sources */,
 				3CC70BE31B8E351D002C4437 /* TableViewClassInfo.swift in Sources */,
 				3C30CABF1B418ADE000CC56D /* ViewControllerClassInfo.swift in Sources */,
@@ -480,6 +487,7 @@
 				3CF85BD31AF6E3880043AA48 /* StoryboardFileParser.swift in Sources */,
 				3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */,
 				3C30CAD71B431840000CC56D /* StoryboardFile3_0Parser_ViewControllers.swift in Sources */,
+				3CFB34D41BE4580900FF3A84 /* CollectionViewInstanceInfo.swift in Sources */,
 				3C30CAD01B4201FA000CC56D /* ClassInfo.swift in Sources */,
 				3C30CADF1B43198B000CC56D /* StoryboardFile3_0Parser_Scenes.swift in Sources */,
 				3C30CAD91B431889000CC56D /* StoryboardFile3_0Parser_Segues.swift in Sources */,

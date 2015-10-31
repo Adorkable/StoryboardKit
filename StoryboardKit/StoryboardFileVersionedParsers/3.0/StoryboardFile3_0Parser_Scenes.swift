@@ -31,8 +31,9 @@ extension StoryboardFile3_0Parser {
             for object in objects.children {
                 if let sceneObjectElement = object.element
                 {
-                    if sceneObjectElement.name == "viewController" || sceneObjectElement.name == "tableViewController"
+                    if sceneObjectElement.name == "viewController" || sceneObjectElement.name == "tableViewController" || sceneObjectElement.name == "collectionViewController"
                     {
+                        // TODO: seperate out VC, TVC, CVC?
                         self.parseViewController(object, sceneInfo: sceneInfo)
                     } else if sceneObjectElement.name == "navigationController"
                     {

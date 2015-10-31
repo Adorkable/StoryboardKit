@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Represents a View Instance
 public class ViewInstanceInfo: NSObject {
     public let classInfo : ViewClassInfo
     

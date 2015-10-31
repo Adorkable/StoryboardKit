@@ -41,6 +41,56 @@ extension StoryboardFile3_0Parser {
         }
     }
     
+    internal func parseSubviews(subnode : XMLIndexer) -> [ViewInstanceInfo]? {
+        var result : [ViewInstanceInfo]?
+
+        var subviews = [ViewInstanceInfo]()
+        for subviewNode in subnode.children
+        {
+            if let subviewElement = subviewNode.element
+            {
+                if subviewElement.name == "tableView"
+                {
+                    if let subview = self.createTableView(subviewNode)
+                    {
+                        subviews.append(subview)
+                    } else
+                    {
+                        // TODO:
+                    }
+                } else if subviewElement.name == "collectionView"
+                {
+                    if let subview = self.createCollectionView(subviewNode)
+                    {
+                        subviews.append(subview)
+                    } else
+                    {
+                        // TODO:
+                    }
+                } else
+                {
+                    if subviewElement.name != "view"
+                    {
+                        self.Log("Unhandled subview type \(subviewElement.name), defaulting to basic view")
+                    }
+                    if let subview = self.createView(subviewNode)
+                    {
+                        subviews.append(subview)
+                    } else
+                    {
+                        // TODO:
+                    }
+                }
+            }
+        }
+        if subviews.count > 0
+        {
+            result = subviews
+        }
+        
+        return result
+    }
+    
     internal func parseView(view : XMLIndexer, viewClassInfoClass : ViewClassInfo.Type) -> ViewInstanceParseInfo? {
         var result : ViewInstanceParseInfo?
         
@@ -90,33 +140,8 @@ extension StoryboardFile3_0Parser {
                         
                     } else if subelement.name == "subviews"
                     {
-                        subviews = [ViewInstanceInfo]()
-                        for subviewNode in subnode.children
-                        {
-                            if let subviewElement = subviewNode.element
-                            {
-                                if subviewElement.name == "tableView"
-                                {
-                                    if let subview = self.createTableView(subviewNode)
-                                    {
-                                        subviews?.append(subview)
-                                    } else
-                                    {
-                                        // TODO:
-                                    }
-                                } else
-                                {
-                                    if let subview = self.createView(subviewNode)
-                                    {
-                                            subviews?.append(subview)
-                                    } else
-                                    {
-                                        // TODO:
-                                    }
-                                }
-                            }
-                        }
                         
+                        subviews = self.parseSubviews(subnode)
                     } else if subelement.name == "color"
                     {
                         let color = self.createColor(subnode)
@@ -298,7 +323,6 @@ extension StoryboardFile3_0Parser {
         return result
     }
 
-    
     internal func createTableViewCellPrototype(tableViewCell : XMLIndexer) -> TableViewInstanceInfo.TableViewCellPrototypeInfo? {
         var result : TableViewInstanceInfo.TableViewCellPrototypeInfo?
         
@@ -320,6 +344,95 @@ extension StoryboardFile3_0Parser {
             
             let tableView = TableViewInstanceInfo(classInfo: viewInstanceParseInfo.viewClass, id: viewInstanceParseInfo.id, frame: viewInstanceParseInfo.frame, autoResizingMaskWidthSizable: viewInstanceParseInfo.autoResizingMaskWidthSizable,  autoResizingMaskHeightSizable: viewInstanceParseInfo.autoResizingMaskHeightSizable, subviews: viewInstanceParseInfo.subviews, backgroundColor: viewInstanceParseInfo.backgroundColor, cellPrototypes: parseInfo.cellPrototypes)
             result = tableView
+        }
+        
+        return result
+    }
+    
+    class CollectionViewInstanceParseInfo {
+        // TODO: feels like a hack to contain the superclass's parse info
+        let viewInstanceParseInfo : ViewInstanceParseInfo
+        let cellPrototypes : [CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo]?
+        
+        init(viewInstanceParseInfo : ViewInstanceParseInfo, cellPrototypes : [CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo]?) {
+            self.viewInstanceParseInfo = viewInstanceParseInfo
+            self.cellPrototypes = cellPrototypes
+        }
+    }
+    
+    internal func parseCollectionView(collectionView : XMLIndexer) -> CollectionViewInstanceParseInfo? {
+        var result : CollectionViewInstanceParseInfo?
+        
+        if let parseInfo = self.parseView(collectionView, viewClassInfoClass: CollectionViewClassInfo.self)
+        {
+            var cellPrototypes : [CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo]?
+            
+            for subnode in collectionView.children
+            {
+                if let subelement = subnode.element
+                {
+                    if subelement.name == "cells"
+                    {
+                        cellPrototypes = self.createCollectionViewCellPrototypes(subnode)
+                    }
+                }
+            }
+            
+            result = CollectionViewInstanceParseInfo(viewInstanceParseInfo: parseInfo, cellPrototypes: cellPrototypes)
+        }
+        
+        return result
+    }
+
+    internal func createCollectionViewCellPrototypes(prototypes : XMLIndexer) -> [CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo]? {
+        var result : [CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo]?
+        
+        for subnode in prototypes.children
+        {
+            if let subelement = subnode.element
+            {
+                if subelement.name == "collectionViewCell"
+                {
+                    if let cellPrototype = self.createCollectionViewCellPrototype(subnode)
+                    {
+                        if result == nil
+                        {
+                            result = Array<CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo>()
+                        }
+                        
+                        result!.append(cellPrototype)
+                    }
+                } else
+                {
+                    self.Log("Error: Unknown prototype type \(subelement.name)")
+                }
+            }
+        }
+        
+        return result
+    }
+    
+    internal func createCollectionViewCellPrototype(collectionViewCell : XMLIndexer) -> CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo? {
+        var result : CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo?
+        
+        if let element = collectionViewCell.element,
+            let id = element.attributes["id"]
+        {
+            let reuseIdentifier = element.attributes["reuseIdentifier"]
+            result = CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo(id: id, reuseIdentifier: reuseIdentifier)
+        }
+        
+        return result
+    }
+
+    internal func createCollectionView(collectionView : XMLIndexer) -> CollectionViewInstanceInfo? {
+        var result : CollectionViewInstanceInfo?
+        if let parseInfo = self.parseCollectionView(collectionView)
+        {
+            let viewInstanceParseInfo = parseInfo.viewInstanceParseInfo
+            
+            let collectionView = CollectionViewInstanceInfo(classInfo: viewInstanceParseInfo.viewClass, id: viewInstanceParseInfo.id, frame: viewInstanceParseInfo.frame, autoResizingMaskWidthSizable: viewInstanceParseInfo.autoResizingMaskWidthSizable,  autoResizingMaskHeightSizable: viewInstanceParseInfo.autoResizingMaskHeightSizable, subviews: viewInstanceParseInfo.subviews, backgroundColor: viewInstanceParseInfo.backgroundColor, cellPrototypes: parseInfo.cellPrototypes)
+            result = collectionView
         }
         
         return result
