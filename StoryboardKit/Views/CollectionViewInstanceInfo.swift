@@ -6,7 +6,7 @@
 //  Copyright © 2015 Adorkable. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 /// Represents a Collection View Instance
 public class CollectionViewInstanceInfo: ViewInstanceInfo {
