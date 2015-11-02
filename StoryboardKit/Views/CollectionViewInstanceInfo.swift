@@ -23,7 +23,7 @@ public class CollectionViewInstanceInfo: ViewInstanceInfo {
         }
     }
     
-    public var cellPrototypes : [CollectionViewCellPrototypeInfo]?
+    public let cellPrototypes : [CollectionViewCellPrototypeInfo]?
     
     init(classInfo: ViewClassInfo, id: String, frame: CGRect?, autoResizingMaskWidthSizable: Bool, autoResizingMaskHeightSizable: Bool, subviews: [ViewInstanceInfo]?, backgroundColor: NSColor?, cellPrototypes : [CollectionViewCellPrototypeInfo]?) {
         

@@ -23,7 +23,7 @@ public class TableViewInstanceInfo: ViewInstanceInfo {
         }
     }
     
-    public var cellPrototypes : [TableViewCellPrototypeInfo]?
+    public let cellPrototypes : [TableViewCellPrototypeInfo]?
     
     init(classInfo: ViewClassInfo, id: String, frame: CGRect?, autoResizingMaskWidthSizable: Bool, autoResizingMaskHeightSizable: Bool, subviews: [ViewInstanceInfo]?, backgroundColor: NSColor?, cellPrototypes : [TableViewCellPrototypeInfo]?) {
         
