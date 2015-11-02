@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Adorkable. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 /**
 *  Contains information global to your application

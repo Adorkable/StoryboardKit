@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Adorkable. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 /// Represents a Table View Class that is used in your application and its storyboards
 public class TableViewClassInfo: ViewClassInfo {

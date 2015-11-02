@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Adorkable. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 public typealias SegueConnection = StoryboardKit_WeakWrapper<ViewControllerInstanceInfo>
 

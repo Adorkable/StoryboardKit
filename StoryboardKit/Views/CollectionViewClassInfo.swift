@@ -6,7 +6,7 @@
 //  Copyright © 2015 Adorkable. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 public class CollectionViewClassInfo: ViewClassInfo {
     override class var defaultClass : String { return "UICollectionView" }

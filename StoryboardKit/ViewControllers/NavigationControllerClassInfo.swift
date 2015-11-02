@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Adorkable. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 public class NavigationControllerClassInfo: ViewControllerClassInfo {
     override public class var defaultClass : String { return "UINavigationController" }
