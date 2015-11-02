@@ -12,6 +12,13 @@ import Foundation
 public class TableViewClassInfo: ViewClassInfo {
     override class var defaultClass : String { return "UITableView" }
     
+    /**
+     Default init
+     
+     - parameter className: name of the Class. If nil defaults to UITableView.
+     
+     - returns: A new TableViewClassInfo
+     */
     required public init(className : String?) {
         super.init(className: className)
     }
