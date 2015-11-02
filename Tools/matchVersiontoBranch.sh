@@ -14,7 +14,7 @@ then
 	fi
 fi
 
-root='../'
+root='./'
 
 plistFiles=("StoryboardKit/Info.plist")
 podspecFile="StoryboardKit.podspec"
