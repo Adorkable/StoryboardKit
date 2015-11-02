@@ -8,21 +8,39 @@
 
 import Foundation
 
+/// Represents a View Controller Instance that is used in your application and its storyboards
 public class ViewControllerInstanceInfo: NSObject, Idable {
+    /// Class
     public let classInfo : ViewControllerClassInfo
     
+    /// Storyboard Id
     public let id : String
     
+    /// Storyboard Identifier
     public let storyboardIdentifier : String?
     
+    /// Segues
     public private(set) var segues = Array< SegueInstanceInfo >()
     
+    /// Layout Guides
     public private(set) var layoutGuides = Array< ViewControllerLayoutGuideInstanceInfo >()
     
+    /// Navigation Items
     public private(set) var navigationItems = Array< NavigationItemInstanceInfo >()
     
+    /// View
     public let view : ViewInstanceInfo?
     
+    /**
+     Default Init
+     
+     - parameter classInfo:            Class
+     - parameter id:                   Storyboard Id
+     - parameter storyboardIdentifier: Storyboard Identifier
+     - parameter view:                 View
+     
+     - returns: A new instance.
+     */
     init(classInfo : ViewControllerClassInfo, id : String, storyboardIdentifier : String?, view : ViewInstanceInfo?) {
         self.classInfo = classInfo
         self.id = id
@@ -50,6 +68,7 @@ public class ViewControllerInstanceInfo: NSObject, Idable {
 }
 
 extension ViewControllerInstanceInfo : CustomDebugStringConvertible {
+    /// Debug Description
     override public var debugDescription : String {
         return super.debugDescription + "Id: \(self.id)\(self.classInfo.debugDescription)"
     }

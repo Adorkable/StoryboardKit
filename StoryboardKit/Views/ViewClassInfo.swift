@@ -21,7 +21,7 @@ public class ViewClassInfo: ClassInfo {
     /**
     Default init
     
-    - parameter className: name of the View class
+    - parameter className: name of the View class. If nil defaults to UIView.
     
     - returns: A new ViewClassInfo instance
     */

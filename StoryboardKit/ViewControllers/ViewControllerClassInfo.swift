@@ -21,7 +21,7 @@ public class ViewControllerClassInfo: ClassInfo {
     /**
     Default init
     
-    - parameter className: name of the View Controller class
+    - parameter className: name of the View Controller class. If nil defaults to UIViewController
     
     - returns: A new ViewControllerClassInfo instance
     */
