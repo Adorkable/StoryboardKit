@@ -9,7 +9,7 @@
 import Cocoa
 
 public class NavigationControllerClassInfo: ViewControllerClassInfo {
-    override public class var defaultClass : String { return "UINavigationViewController" }
+    override public class var defaultClass : String { return "UINavigationController" }
     
     required public init(className: String?) {
         super.init(className: className)
