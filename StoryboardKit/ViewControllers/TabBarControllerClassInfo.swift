@@ -11,14 +11,14 @@ import Foundation
 /// Represents a Tab Bar Controller Class that is used in your application and its storyboards
 public class TabBarControllerClassInfo: ViewControllerClassInfo {
 
-    override public class var defaultClass : String { return "UITabBarController" }
+    override class var defaultClass : String { return "UITabBarController" }
 
     /**
      Default init
      
      - parameter className: Name of the Tab Bar Controller class. If nil defaults to UITabBarController
      
-     - returns: A new TabBarControllerClassInfo
+     - returns: A new instance.
      */
     required public init(className: String?) {
         super.init(className: className)

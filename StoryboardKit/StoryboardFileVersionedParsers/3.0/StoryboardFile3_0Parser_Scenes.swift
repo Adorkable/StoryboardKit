@@ -10,7 +10,7 @@ import Foundation
 
 import SWXMLHash
 
-extension StoryboardFile3_0Parser {
+internal extension StoryboardFile3_0Parser {
     // MARK: Scenes
     
     internal func parseScenes(scenes : XMLIndexer, storyboardInstanceParseInfo : StoryboardInstanceParseInfo) {

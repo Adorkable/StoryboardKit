@@ -11,7 +11,7 @@ import Foundation
 import SWXMLHash
 
 // TODO: move to keypath based parsing
-extension StoryboardFile3_0Parser {
+internal extension StoryboardFile3_0Parser {
     // MARK: Views
     
     class ViewInstanceParseInfo {

@@ -10,7 +10,8 @@ import Foundation
 
 import SWXMLHash
 
-class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
+/// Parser for Storyboard File Format 3.0
+internal class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser {
     
     static func supports(root: XMLIndexer) -> Bool {
         var result : Bool

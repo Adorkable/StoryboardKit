@@ -10,7 +10,7 @@ import Foundation
 
 import SWXMLHash
 
-extension StoryboardFile3_0Parser {
+internal extension StoryboardFile3_0Parser {
     // MARK: View Controllers
     
     internal class func useClass(element : XMLElement, classInfo : ViewControllerClassInfo.Type) -> String
