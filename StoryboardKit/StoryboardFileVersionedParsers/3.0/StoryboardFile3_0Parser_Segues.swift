@@ -10,7 +10,7 @@ import Foundation
 
 import SWXMLHash
 
-extension StoryboardFile3_0Parser {
+internal extension StoryboardFile3_0Parser {
     // MARK: Segues
     
     internal class SegueInstanceParseInfo : NSObject, CustomDebugStringConvertible {

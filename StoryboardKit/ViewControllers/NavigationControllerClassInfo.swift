@@ -10,7 +10,7 @@ import Foundation
 
 /// Represents a Navigation Controller class that is used in your application and its storyboards
 public class NavigationControllerClassInfo: ViewControllerClassInfo {
-    override public class var defaultClass : String { return "UINavigationController" }
+    override class var defaultClass : String { return "UINavigationController" }
     
     /**
      Default init
