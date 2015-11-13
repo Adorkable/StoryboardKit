@@ -12,13 +12,10 @@ import XCTest
 import StoryboardKit
 
 func storyboardPathBuilder() -> String? {
-    var result : String?
-    
-    if let path = (NSProcessInfo.processInfo().environment["XCTestConfigurationFilePath"] as NSString?)?.stringByDeletingLastPathComponent {
-        result = path + "/StoryboardKit.storyboard"
+    if let absoluteString = NSBundle(forClass: StoryboardInfoTests.self).URLForResource("StoryboardKit", withExtension: ".storyboard")?.absoluteString {
+        return (absoluteString as NSString).stringByReplacingOccurrencesOfString("file://", withString: "")
     }
-    
-    return result
+    return nil
 }
 
 class StoryboardInfoTests: XCTestCase {
