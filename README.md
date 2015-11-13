@@ -40,9 +40,28 @@ To parse a Storyboard file:
 
 From here you can access things like the list of all **ViewControllerClassInfo**s or **ViewControllerInstanceInfo**s in the app through your **ApplicationInfo** instance
 
+``` swift
+	for viewControllerClass in application.viewControllerClasses {
+		...
+	}
+```
+
 Or perhaps you'll traverse through your Storyboard graph via the **StoryboardInstanceInfo**'s **initialViewController** or **scenes** list.
 
+``` swift
+	guard let initialViewController = storyboardInfo.initialViewController else { ... }
+	guard let initialView = initialViewController.view else { ... }
+	
+	guard let subviews = initialView.subviews else { ... }
+	
+	for subview in subviews {
+		...
+	}
+```
+
 To learn more about the information **StoryboardKit** currently parses please read the docs here: [cocoadocs.org](http://cocoadocs.org/docsets/StoryboardKit/)
+
+To see an example of **StoryboardKit** in use check out the _seguecode_ repo here: [seguecode](https://github.com/Adorkable/seguecode)
 
 Contributing
 ---
