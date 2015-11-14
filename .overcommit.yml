@@ -83,8 +83,8 @@ PreCommit:
     enabled: true
   BrokenSymlinks:
     enabled: true
-  BundleCheck:
-    enabled: true
+#  BundleCheck:
+#    enabled: true
   CaseConflicts:
     enabled: true
   GoLint:
