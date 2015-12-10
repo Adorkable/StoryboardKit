@@ -47,7 +47,7 @@
 		3CF85BD51AF6E3880043AA48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCE1AF6E3880043AA48 /* Utility.swift */; };
 		3CFB34D21BE457FA00FF3A84 /* CollectionViewClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB34D11BE457FA00FF3A84 /* CollectionViewClassInfo.swift */; };
 		3CFB34D41BE4580900FF3A84 /* CollectionViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB34D31BE4580900FF3A84 /* CollectionViewInstanceInfo.swift */; };
-		88212D25B106D416B5B550FF /* Pods_StoryboardKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20384CAD3AAE7C6AE4EE655B /* Pods_StoryboardKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		88212D25B106D416B5B550FF /* Pods_StoryboardKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20384CAD3AAE7C6AE4EE655B /* Pods_StoryboardKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +108,7 @@
 		3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInstanceInfoTests.swift; sourceTree = "<group>"; };
 		3CF3D35B1B3B088800811E8A /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		3CF3D35C1B3B088800811E8A /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		3CF3D35D1B3B088800811E8A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		3CF3D35D1B3B088800811E8A /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3CF3D35E1B3B088800811E8A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3CF85BAE1AF6E2F80043AA48 /* StoryboardKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StoryboardKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF85BB21AF6E2F80043AA48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -326,7 +326,6 @@
 				3CF85BAA1AF6E2F80043AA48 /* Frameworks */,
 				3CF85BAB1AF6E2F80043AA48 /* Headers */,
 				3CF85BAC1AF6E2F80043AA48 /* Resources */,
-				40D690A9A85B3444AA18F71B /* Embed Pods Frameworks */,
 				959887F2A2101FB519370BFF /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -415,21 +414,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		40D690A9A85B3444AA18F71B /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StoryboardKit/Pods-StoryboardKit-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		959887F2A2101FB519370BFF /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
