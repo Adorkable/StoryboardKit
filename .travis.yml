@@ -6,3 +6,5 @@ xcode_scheme:
 before_install:
 - gem install cocoapods
 - brew uninstall xctool && brew install --HEAD xctool
+after_success:
+- bash <(curl -s https://codecov.io/bash)
