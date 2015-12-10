@@ -1,13 +1,17 @@
 language: objective-c
 osx_image: xcode7
-xcode_workspace: StoryboardKit.xcworkspace
-xcode_scheme:
-- StoryboardKit
+
 before_install:
 - gem install cocoapods
 - brew uninstall xctool && brew install --HEAD xctool
+
+script:
+- xctool -workspace StoryboardKit.xcworkspace -scheme StoryboardKit \
+build test -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+
 after_success:
 - bash <(curl -s https://codecov.io/bash)
+
 notifications:
   email: false
   hipchat:
