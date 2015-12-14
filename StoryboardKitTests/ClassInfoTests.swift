@@ -8,7 +8,7 @@
 
 import XCTest
 
-@testable import StoryboardKit
+import StoryboardKit
 
 class ClassInfoTests: XCTestCase {
 

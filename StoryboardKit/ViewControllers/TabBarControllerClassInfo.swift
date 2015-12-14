@@ -11,7 +11,7 @@ import Foundation
 /// Represents a Tab Bar Controller Class that is used in your application and its storyboards
 public class TabBarControllerClassInfo: ViewControllerClassInfo {
 
-    override class var defaultClass : String { return "UITabBarController" }
+    override public class var defaultClass : String { return "UITabBarController" }
 
     /**
      Default init

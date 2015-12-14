@@ -10,7 +10,7 @@ import Foundation
 
 /// Represents a Class
 public class ClassInfo: NSObject {
-    class var defaultClass : String { return "" }
+    public class var defaultClass : String { return "" }
 
     /// Name of the Class
     public let infoClassName : String

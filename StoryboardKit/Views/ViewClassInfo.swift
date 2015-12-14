@@ -13,7 +13,7 @@ import Foundation
 */
 public class ViewClassInfo: ClassInfo {
 
-    override class var defaultClass : String { return "UIView" }
+    override public class var defaultClass : String { return "UIView" }
 
     /// All instances of this class in the application
     public private(set) var instanceInfos = [StoryboardKit_WeakWrapper<ViewInstanceInfo>]()

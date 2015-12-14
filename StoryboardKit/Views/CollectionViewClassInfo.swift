@@ -10,7 +10,7 @@ import Foundation
 
 /// Represents a Collection View Class that is used in your application and its storyboards
 public class CollectionViewClassInfo: ViewClassInfo {
-    override class var defaultClass : String { return "UICollectionView" }
+    override public class var defaultClass : String { return "UICollectionView" }
     
     /**
      Default init

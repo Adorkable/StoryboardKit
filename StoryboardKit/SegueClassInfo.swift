@@ -11,7 +11,7 @@ import Foundation
 /// Represents a Segue Class that is used in your application and its storyboards
 public class SegueClassInfo: ClassInfo {
     
-    override class var defaultClass : String { return "UIStoryboardSegue" }
+    override public class var defaultClass : String { return "UIStoryboardSegue" }
 
     /// All instance of this class in the application
     public private(set) var instanceInfos = Array< StoryboardKit_WeakWrapper< SegueInstanceInfo> >()

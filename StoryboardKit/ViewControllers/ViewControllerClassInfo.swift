@@ -13,7 +13,7 @@ import Foundation
 */
 public class ViewControllerClassInfo: ClassInfo {
 
-    override class var defaultClass : String { return "UIViewController" }
+    override public class var defaultClass : String { return "UIViewController" }
 
     /// All instances of this class in the application
     public private(set) var instanceInfos = Array< StoryboardKit_WeakWrapper<ViewControllerInstanceInfo> >()
