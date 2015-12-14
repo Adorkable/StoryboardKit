@@ -6,13 +6,3 @@ script:
 - xcodebuild -workspace StoryboardKit.xcworkspace -scheme StoryboardKit -sdk macosx build test GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
 after_success:
 - bash <(curl -s https://codecov.io/bash)
-notifications:
-  email: false
-  hipchat:
-    on_success: change
-    on_failure: always
-    rooms:
-      secure: bidgIpDreTgd6fhSBtCRkVjSGhAh5EP0Ls+160RUYsaMVdV6Hj+hjhCsU4QO4MxKZf427XIsHvBlkZ64JNeL5Kb+EKClhSf2k8EHz21ANketR1JtxGEAoK+R8fmLyrvxJGsHx0edl4r//je/ol/62fCtxah7fbeJ5v72E81EDzXFfXIC4H5IE463hDgM4tHHwFzL/5Ueu4MXc73AhfXADz838kKY3rc0qh0WCFtxJaq7Qc4nThBu2rU/AFLgWal9bnkgBYxTQRdRXk5lSFx/7hv0otkwh9TWJXndkQ1iQx6afDyW+Jr8qoB3OUema/YTbU7VdX2galHE7XxMj2Y1CcGarxOAI+CgJJ8GWfzwvcwruK2UsfWPFNJeB6lt1ZgT+Dl5Y6Xw7yyW7Jm3RQCtSm+JRDdBlqqBYQEqj00WNDPI1yBtmCJGZYWWepQ0xD7cwRFi1zllXlFifsacnkjUZUF5dBQ9u8bp9JFjmZZzTGOLGcm8cvWCYzR1y/+poiDUoZa/iOQMH2LMkY/RusjbvGyf1h9BEO8rj60RYDQTecozdImsvLrddJMvJ1k0qBNVg6a3oxg7VwDvbNCRcevPvBnR30ep+IxU95Amjuw8Veyh0mkqG7XVMfhqlq+QaY6lz0UW/QwkvB6AduGPnexEiH99RAclH4riPSYWPpNkh7A=
-    template:
-      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message} -- Changes: %{compare_url} -- Build details: %{build_url} --'
-    notify: true
