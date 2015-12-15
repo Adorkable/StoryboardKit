@@ -31,3 +31,7 @@ Carthage/Build
 # Jazzy
 #
 docs/
+
+# Fastlane
+fastlane/report.xml
+fastlane/test-output

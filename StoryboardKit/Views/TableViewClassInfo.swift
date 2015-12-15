@@ -10,7 +10,7 @@ import Foundation
 
 /// Represents a Table View Class that is used in your application and its storyboards
 public class TableViewClassInfo: ViewClassInfo {
-    override class var defaultClass : String { return "UITableView" }
+    override public class var defaultClass : String { return "UITableView" }
     
     /**
      Default init

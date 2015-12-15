@@ -1,10 +1,10 @@
 StoryboardKit
 ===
-
-[![Pod Version](http://img.shields.io/cocoapods/v/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/StoryboardKit/)
+[![Build Status](http://img.shields.io/travis/Adorkable/StoryboardKit.svg?branch=master&style=flat)](https://travis-ci.org/Adorkable/StoryboardKit)
+[![codecov.io](https://img.shields.io/codecov/c/github/Adorkable/StoryboardKit.svg)](http://codecov.io/github/Adorkable/StoryboardKit?branch=master)
 [![Pod Platform](http://img.shields.io/cocoapods/p/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/StoryboardKit/)
 [![Pod License](http://img.shields.io/cocoapods/l/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/StoryboardKit/)
-[![Build Status](http://img.shields.io/travis/Adorkable/StoryboardKit.svg?branch=master&style=flat)](https://travis-ci.org/Adorkable/StoryboardKit)
+[![Pod Version](http://img.shields.io/cocoapods/v/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/StoryboardKit/)
 
 **StoryboardKit** a simple OSX library that tells you all you would want to know about storyboard files.
 
