@@ -13,8 +13,8 @@ before_install:
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
   - set -o pipefail
-  - fastlane ci_commit configuration:Debug --env $FASTLANE_ENV
-  - fastlane ci_commit configuration:Release --env $FASTLANE_ENV
+  - fastlane $FASTLANE_LANE configuration:Debug --env $FASTLANE_ENV
+  - fastlane $FASTLANE_LANE configuration:Release --env $FASTLANE_ENV
 deploy:
   provider: script
   script: fastlane complete_framework_release --env deploy
