@@ -7,6 +7,7 @@ env:
   - FASTLANE_LANE=test_framework
   matrix:
   - FASTLANE_ENV=gitsubmodules
+#  - FASTLANE_ENV=cocoapod
 before_install:
   - gem install fastlane --no-rdoc --no-ri --no-document --quiet
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
