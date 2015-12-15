@@ -47,6 +47,14 @@
 		3CF85BD51AF6E3880043AA48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCE1AF6E3880043AA48 /* Utility.swift */; };
 		3CFB34D21BE457FA00FF3A84 /* CollectionViewClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB34D11BE457FA00FF3A84 /* CollectionViewClassInfo.swift */; };
 		3CFB34D41BE4580900FF3A84 /* CollectionViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB34D31BE4580900FF3A84 /* CollectionViewInstanceInfo.swift */; };
+		3CFED95C1C209AA40083120E /* .env in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9521C209AA40083120E /* .env */; };
+		3CFED95D1C209AA40083120E /* .env.default in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9531C209AA40083120E /* .env.default */; };
+		3CFED95E1C209AA40083120E /* .env.deploy in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9541C209AA40083120E /* .env.deploy */; };
+		3CFED95F1C209AA40083120E /* .env.osx in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9551C209AA40083120E /* .env.osx */; };
+		3CFED9601C209AA40083120E /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9571C209AA40083120E /* Fastfile */; };
+		3CFED9611C209AA40083120E /* report.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9581C209AA40083120E /* report.xml */; };
+		3CFED9621C209AA40083120E /* report.html in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED95A1C209AA40083120E /* report.html */; };
+		3CFED9631C209AA40083120E /* report.junit in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED95B1C209AA40083120E /* report.junit */; };
 		88212D25B106D416B5B550FF /* Pods_StoryboardKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20384CAD3AAE7C6AE4EE655B /* Pods_StoryboardKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +132,14 @@
 		3CF85BD81AF6E3BF0043AA48 /* StoryboardKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StoryboardKit.podspec; sourceTree = "<group>"; };
 		3CFB34D11BE457FA00FF3A84 /* CollectionViewClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewClassInfo.swift; sourceTree = "<group>"; };
 		3CFB34D31BE4580900FF3A84 /* CollectionViewInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewInstanceInfo.swift; sourceTree = "<group>"; };
+		3CFED9521C209AA40083120E /* .env */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
+		3CFED9531C209AA40083120E /* .env.default */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .env.default; sourceTree = "<group>"; };
+		3CFED9541C209AA40083120E /* .env.deploy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .env.deploy; sourceTree = "<group>"; };
+		3CFED9551C209AA40083120E /* .env.osx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .env.osx; sourceTree = "<group>"; };
+		3CFED9571C209AA40083120E /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
+		3CFED9581C209AA40083120E /* report.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
+		3CFED95A1C209AA40083120E /* report.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = report.html; sourceTree = "<group>"; };
+		3CFED95B1C209AA40083120E /* report.junit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = report.junit; sourceTree = "<group>"; };
 		63D27DFCBC69D64CB78A68DE /* Pods_StoryboardInfo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoryboardInfo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A4EF145513492FD2A131673 /* Pods-StoryboardKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryboardKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoryboardKit/Pods-StoryboardKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +215,7 @@
 		3CF3D35A1B3B087300811E8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3CFED9511C209AA40083120E /* fastlane */,
 				3C8BD2FB1BAD274800E0AF8A /* .travis.yml */,
 				3CF3D35B1B3B088800811E8A /* Gemfile */,
 				3CF3D35D1B3B088800811E8A /* Podfile */,
@@ -283,6 +300,37 @@
 				3CF85BBF1AF6E2F90043AA48 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3CFED9511C209AA40083120E /* fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				3CFED9521C209AA40083120E /* .env */,
+				3CFED9531C209AA40083120E /* .env.default */,
+				3CFED9541C209AA40083120E /* .env.deploy */,
+				3CFED9551C209AA40083120E /* .env.osx */,
+				3CFED9561C209AA40083120E /* actions */,
+				3CFED9571C209AA40083120E /* Fastfile */,
+				3CFED9581C209AA40083120E /* report.xml */,
+				3CFED9591C209AA40083120E /* test-output */,
+			);
+			path = fastlane;
+			sourceTree = "<group>";
+		};
+		3CFED9561C209AA40083120E /* actions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = actions;
+			sourceTree = "<group>";
+		};
+		3CFED9591C209AA40083120E /* test-output */ = {
+			isa = PBXGroup;
+			children = (
+				3CFED95A1C209AA40083120E /* report.html */,
+				3CFED95B1C209AA40083120E /* report.junit */,
+			);
+			path = "test-output";
 			sourceTree = "<group>";
 		};
 		6E55B1768022A88AC79E6CEC /* Frameworks */ = {
@@ -398,7 +446,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CFED95E1C209AA40083120E /* .env.deploy in Resources */,
+				3CFED9601C209AA40083120E /* Fastfile in Resources */,
+				3CFED9631C209AA40083120E /* report.junit in Resources */,
+				3CFED95F1C209AA40083120E /* .env.osx in Resources */,
+				3CFED95C1C209AA40083120E /* .env in Resources */,
 				3CF3D35F1B3B089700811E8A /* LICENSE.md in Resources */,
+				3CFED9611C209AA40083120E /* report.xml in Resources */,
+				3CFED95D1C209AA40083120E /* .env.default in Resources */,
+				3CFED9621C209AA40083120E /* report.html in Resources */,
 				3CF3D3601B3B089700811E8A /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
