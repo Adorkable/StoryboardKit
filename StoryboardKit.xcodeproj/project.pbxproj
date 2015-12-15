@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1245391C209D7800525217 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1245301C209D6000525217 /* SWXMLHash.framework */; };
 		3C1380511AF7BEBA00E417B2 /* SegueClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */; };
 		3C30A8031BAD093A00C02440 /* StoryboardKit.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3C3DF38F1B1B0AE500F1BBC0 /* StoryboardKit.storyboard */; };
 		3C30CABD1B418ADE000CC56D /* NavigationControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CAB91B418ADE000CC56D /* NavigationControllerClassInfo.swift */; };
@@ -50,6 +51,55 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3C12452B1C209D6000525217 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C1245211C209D5F00525217 /* SWXMLHash.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD6083EF196CA106000B4F8D;
+			remoteInfo = "SWXMLHash iOS";
+		};
+		3C12452D1C209D6000525217 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C1245211C209D5F00525217 /* SWXMLHash.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD6083FA196CA106000B4F8D;
+			remoteInfo = "SWXMLHash iOS Tests";
+		};
+		3C12452F1C209D6000525217 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C1245211C209D5F00525217 /* SWXMLHash.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD9D052C1A757D8B003CCB21;
+			remoteInfo = "SWXMLHash OSX";
+		};
+		3C1245311C209D6000525217 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C1245211C209D5F00525217 /* SWXMLHash.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD9D05361A757D8B003CCB21;
+			remoteInfo = "SWXMLHash OSX Tests";
+		};
+		3C1245331C209D6000525217 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C1245211C209D5F00525217 /* SWXMLHash.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CDDEC74C1BF6311A00AB138B;
+			remoteInfo = "SWXMLHash tvOS";
+		};
+		3C1245351C209D6000525217 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C1245211C209D5F00525217 /* SWXMLHash.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CDDEC7551BF6311B00AB138B;
+			remoteInfo = "SWXMLHash tvOS Tests";
+		};
+		3C1245371C209D6000525217 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C1245211C209D5F00525217 /* SWXMLHash.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CDDEC7681BF6316C00AB138B;
+			remoteInfo = "SWXMLHash watchOS";
+		};
 		3CF85BBB1AF6E2F90043AA48 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3CF85BA51AF6E2F80043AA48 /* Project object */;
@@ -73,6 +123,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3C1245211C209D5F00525217 /* SWXMLHash.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SWXMLHash.xcodeproj; path = Libraries/SWXMLHash/SWXMLHash.xcodeproj; sourceTree = "<group>"; };
 		3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegueClassInfo.swift; sourceTree = "<group>"; };
 		3C30CAB91B418ADE000CC56D /* NavigationControllerClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerClassInfo.swift; sourceTree = "<group>"; };
 		3C30CABA1B418ADE000CC56D /* NavigationControllerInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerInstanceInfo.swift; sourceTree = "<group>"; };
@@ -126,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C1245391C209D7800525217 /* SWXMLHash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +192,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C1245221C209D5F00525217 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3C12452C1C209D6000525217 /* SWXMLHash.framework */,
+				3C12452E1C209D6000525217 /* SWXMLHash iOS Tests.xctest */,
+				3C1245301C209D6000525217 /* SWXMLHash.framework */,
+				3C1245321C209D6000525217 /* SWXMLHash OSX Tests.xctest */,
+				3C1245341C209D6000525217 /* SWXMLHash.framework */,
+				3C1245361C209D6000525217 /* SWXMLHash tvOS Tests.xctest */,
+				3C1245381C209D6000525217 /* SWXMLHash.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		3C30CAB81B418ADE000CC56D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +343,7 @@
 		6E55B1768022A88AC79E6CEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3C1245211C209D5F00525217 /* SWXMLHash.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -361,6 +428,12 @@
 			mainGroup = 3CF85BA41AF6E2F80043AA48;
 			productRefGroup = 3CF85BAF1AF6E2F80043AA48 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3C1245221C209D5F00525217 /* Products */;
+					ProjectRef = 3C1245211C209D5F00525217 /* SWXMLHash.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3CF85BAD1AF6E2F80043AA48 /* StoryboardKit */,
@@ -368,6 +441,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3C12452C1C209D6000525217 /* SWXMLHash.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SWXMLHash.framework;
+			remoteRef = 3C12452B1C209D6000525217 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C12452E1C209D6000525217 /* SWXMLHash iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SWXMLHash iOS Tests.xctest";
+			remoteRef = 3C12452D1C209D6000525217 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C1245301C209D6000525217 /* SWXMLHash.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SWXMLHash.framework;
+			remoteRef = 3C12452F1C209D6000525217 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C1245321C209D6000525217 /* SWXMLHash OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SWXMLHash OSX Tests.xctest";
+			remoteRef = 3C1245311C209D6000525217 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C1245341C209D6000525217 /* SWXMLHash.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SWXMLHash.framework;
+			remoteRef = 3C1245331C209D6000525217 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C1245361C209D6000525217 /* SWXMLHash tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SWXMLHash tvOS Tests.xctest";
+			remoteRef = 3C1245351C209D6000525217 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3C1245381C209D6000525217 /* SWXMLHash.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SWXMLHash.framework;
+			remoteRef = 3C1245371C209D6000525217 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3CF85BAC1AF6E2F80043AA48 /* Resources */ = {

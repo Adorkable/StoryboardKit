@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E9C0A5D7FC17CA9A15245CD4B5C2BFCBC98368D6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EB2210CFD48672E403BED699D5D7F01B844069CF" : 0,
+    "E9C0A5D7FC17CA9A15245CD4B5C2BFCBC98368D6" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1D91BBBC-D400-40A8-B88C-AC3B2BCD0F6E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EB2210CFD48672E403BED699D5D7F01B844069CF" : "StoryboardKit\/Libraries\/SWXMLHash\/",
+    "E9C0A5D7FC17CA9A15245CD4B5C2BFCBC98368D6" : "StoryboardKit\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "StoryboardKit",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "StoryboardKit.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Adorkable\/StoryboardKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E9C0A5D7FC17CA9A15245CD4B5C2BFCBC98368D6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/drmohundro\/SWXMLHash.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EB2210CFD48672E403BED699D5D7F01B844069CF"
+    }
+  ]
+}

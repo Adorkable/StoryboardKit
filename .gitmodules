@@ -1,0 +1,3 @@
+[submodule "Libraries/SWXMLHash"]
+	path = Libraries/SWXMLHash
+	url = https://github.com/drmohundro/SWXMLHash.git
