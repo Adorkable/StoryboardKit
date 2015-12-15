@@ -1,0 +1,17 @@
+PODS:
+  - StoryboardKit (0.5.6):
+    - SWXMLHash
+  - SWXMLHash (2.0.2)
+
+DEPENDENCIES:
+  - StoryboardKit (from `../`)
+
+EXTERNAL SOURCES:
+  StoryboardKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  StoryboardKit: 14608442aa5d5b14d81325499469ef90c8000a39
+  SWXMLHash: 9e6bd7db2e8275eaf3d2082265623d6e749e169d
+
+COCOAPODS: 0.39.0
