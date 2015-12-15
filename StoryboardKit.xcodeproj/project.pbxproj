@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C1245391C209D7800525217 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1245301C209D6000525217 /* SWXMLHash.framework */; };
+		3C1246311C20ADF200525217 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1245301C209D6000525217 /* SWXMLHash.framework */; };
 		3C1380511AF7BEBA00E417B2 /* SegueClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */; };
 		3C30A8031BAD093A00C02440 /* StoryboardKit.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3C3DF38F1B1B0AE500F1BBC0 /* StoryboardKit.storyboard */; };
 		3C30CABD1B418ADE000CC56D /* NavigationControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C30CAB91B418ADE000CC56D /* NavigationControllerClassInfo.swift */; };
@@ -150,7 +150,6 @@
 		3C3E0F061BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3E0F081BD061BA001EF9B5 /* TabBarControllerClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerClassInfo.swift; sourceTree = "<group>"; };
 		3C8BD2FB1BAD274800E0AF8A /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
-		3CA2169E1BA2927000EE4BA4 /* CustomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInstanceInfo.swift; sourceTree = "<group>"; };
 		3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewClassInfo.swift; sourceTree = "<group>"; };
 		3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInstanceInfoTests.swift; sourceTree = "<group>"; };
@@ -177,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C1245391C209D7800525217 /* SWXMLHash.framework in Frameworks */,
+				3C1246311C20ADF200525217 /* SWXMLHash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				3CF85BBE1AF6E2F90043AA48 /* Supporting Files */,
-				3CA2169E1BA2927000EE4BA4 /* CustomViewController.swift */,
 				3C3DF38F1B1B0AE500F1BBC0 /* StoryboardKit.storyboard */,
 				3CF85BC01AF6E2F90043AA48 /* StoryboardInfoTests.swift */,
 				3C3DF3911B1B11B300F1BBC0 /* ApplicationInfoTests.swift */,
@@ -611,7 +609,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -651,7 +649,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";

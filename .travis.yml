@@ -6,11 +6,12 @@ env:
   - LANG=en_US.UTF-8
   - FASTLANE_LANE=test_framework
   matrix:
-  - FASTLANE_ENV=osx
+  - FASTLANE_ENV=gitsubmodules
 before_install:
   - gem install fastlane --no-rdoc --no-ri --no-document --quiet
   - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  - git submodule init
 script:
   - set -o pipefail
   - fastlane $FASTLANE_LANE configuration:Debug --env $FASTLANE_ENV
