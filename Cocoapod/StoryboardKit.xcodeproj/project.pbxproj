@@ -16,20 +16,20 @@
 		3C12458A1C209F5400525217 /* StoryboardInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1245631C209E7E00525217 /* StoryboardInstanceInfoTests.swift */; };
 		3C12458C1C209F5400525217 /* TableViewInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1245651C209E7E00525217 /* TableViewInstanceInfoTests.swift */; };
 		3C12458D1C209F5400525217 /* ViewInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1245661C209E7E00525217 /* ViewInstanceInfoTests.swift */; };
-		3C12458F1C20A07700525217 /* StoryboardKit.storyboard in Copy iOS Storyboaard */ = {isa = PBXBuildFile; fileRef = 3C1245641C209E7E00525217 /* StoryboardKit.storyboard */; };
+		3C12458F1C20A07700525217 /* StoryboardKit.storyboard in Copy iOS Storyboard */ = {isa = PBXBuildFile; fileRef = 3C1245641C209E7E00525217 /* StoryboardKit.storyboard */; };
 		FE65332EB3D43077ECB00166 /* Pods_CocoapodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6611F885810F229D956D5EEF /* Pods_CocoapodTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3C12458E1C20A06200525217 /* Copy iOS Storyboaard */ = {
+		3C12458E1C20A06200525217 /* Copy iOS Storyboard */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				3C12458F1C20A07700525217 /* StoryboardKit.storyboard in Copy iOS Storyboaard */,
+				3C12458F1C20A07700525217 /* StoryboardKit.storyboard in Copy iOS Storyboard */,
 			);
-			name = "Copy iOS Storyboaard";
+			name = "Copy iOS Storyboard";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -137,7 +137,7 @@
 				3C1245761C209F1F00525217 /* Sources */,
 				3C1245771C209F1F00525217 /* Frameworks */,
 				3C1245781C209F1F00525217 /* Resources */,
-				3C12458E1C20A06200525217 /* Copy iOS Storyboaard */,
+				3C12458E1C20A06200525217 /* Copy iOS Storyboard */,
 				8E9EBB3A4AEFCC369FE004E1 /* Embed Pods Frameworks */,
 				AA951C39E61A34CB0E4B4B7E /* Copy Pods Resources */,
 			);
