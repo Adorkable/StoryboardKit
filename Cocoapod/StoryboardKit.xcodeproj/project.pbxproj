@@ -17,6 +17,7 @@
 		3C12458C1C209F5400525217 /* TableViewInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1245651C209E7E00525217 /* TableViewInstanceInfoTests.swift */; };
 		3C12458D1C209F5400525217 /* ViewInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1245661C209E7E00525217 /* ViewInstanceInfoTests.swift */; };
 		3C12458F1C20A07700525217 /* StoryboardKit.storyboard in Copy iOS Storyboaard */ = {isa = PBXBuildFile; fileRef = 3C1245641C209E7E00525217 /* StoryboardKit.storyboard */; };
+		B56C5DCD1C8B120200E53536 /* SeguesParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C5DCB1C8B120200E53536 /* SeguesParserTests.swift */; };
 		FE65332EB3D43077ECB00166 /* Pods_CocoapodTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6611F885810F229D956D5EEF /* Pods_CocoapodTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		6611F885810F229D956D5EEF /* Pods_CocoapodTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoapodTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97347009CF93BE866AAE07BD /* Pods-CocoapodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoapodTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CocoapodTests/Pods-CocoapodTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7E2183C13D39534CCB4D6CC /* Pods-CocoapodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoapodTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoapodTests/Pods-CocoapodTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B56C5DCB1C8B120200E53536 /* SeguesParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeguesParserTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		3C12455B1C209E7E00525217 /* StoryboardKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				B56C5DCB1C8B120200E53536 /* SeguesParserTests.swift */,
 				3C12455C1C209E7E00525217 /* ApplicationInfoTests.swift */,
 				3C12455D1C209E7E00525217 /* ClassInfoTests.swift */,
 				3C12455F1C209E7E00525217 /* Images.xcassets */,
@@ -253,6 +256,7 @@
 				3C1245891C209F5400525217 /* StoryboardInfoTests.swift in Sources */,
 				3C12458D1C209F5400525217 /* ViewInstanceInfoTests.swift in Sources */,
 				3C12458C1C209F5400525217 /* TableViewInstanceInfoTests.swift in Sources */,
+				B56C5DCD1C8B120200E53536 /* SeguesParserTests.swift in Sources */,
 				3C12458A1C209F5400525217 /* StoryboardInstanceInfoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

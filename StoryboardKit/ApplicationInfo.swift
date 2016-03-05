@@ -167,6 +167,16 @@ public class ApplicationInfo: NSObject {
     
     // TODO: store SegueInstances
     
+    public private(set) var exits = [ExitInfo]()
+    
+    func add(exit exit : ExitInfo) {
+        self.exits.append(exit)
+    }
+    
+    public func exitWithId(id: String) -> ExitInfo? {
+        return firstObjectWithId(id, objects: self.exits)
+    }
+    
     /// All View Class Infos in your application
     public private(set) var viewClasses = [ViewClassInfo]()
     

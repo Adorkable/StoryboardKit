@@ -24,7 +24,7 @@ public class SegueInstanceInfo: NSObject, Idable {
     public let source : SegueConnection
     
     /// Destination
-    public let destination : SegueConnection
+    public let destination : SegueConnection?
     
     /// Kind of Segue
     public let kind : String?
@@ -44,7 +44,7 @@ public class SegueInstanceInfo: NSObject, Idable {
      
      - returns: A new instance.
      */
-    public init(classInfo : SegueClassInfo, id : String, source : SegueConnection, destination : SegueConnection, kind : String?, identifier : String?) {
+    public init(classInfo : SegueClassInfo, id : String, source : SegueConnection, destination : SegueConnection?, kind : String?, identifier : String?) {
         self.classInfo = classInfo
         self.id = id
         self.source = source
@@ -69,8 +69,9 @@ public class SegueInstanceInfo: NSObject, Idable {
      
      - returns: A new instance.
      */
-    public convenience init(classInfo : SegueClassInfo, id : String, source : SegueConnection, destination : ViewControllerInstanceInfo, kind : String?, identifier : String?) {
-        self.init(classInfo: classInfo, id: id, source: source, destination: StoryboardKit_WeakWrapper(destination), kind: kind, identifier: identifier)
+    public convenience init(classInfo : SegueClassInfo, id : String, source : SegueConnection, destination : ViewControllerInstanceInfo?, kind : String?, identifier : String?) {
+        let destinationConnection: SegueConnection? = (destination != nil) ? StoryboardKit_WeakWrapper(destination!) : nil
+        self.init(classInfo: classInfo, id: id, source: source, destination: destinationConnection, kind: kind, identifier: identifier)
     }
 }
 
@@ -84,7 +85,7 @@ extension SegueInstanceInfo : CustomDebugStringConvertible {
             result += "\n\(self.classInfo)"
             result += "\nId: \(self.id)"
             result += "\nSource: \(self.source.value)"
-            result += "\nDestination: \(self.destination.value)"
+            result += "\nDestination: \(self.destination?.value)"
             result += "\nKind: \(self.kind)"
             result += "\nIdentifier: \(self.identifier)"
             

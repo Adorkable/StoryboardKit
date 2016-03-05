@@ -1,7 +1,7 @@
 PODS:
   - StoryboardKit (0.5.6):
     - SWXMLHash
-  - SWXMLHash (2.0.2)
+  - SWXMLHash (2.1.0)
 
 DEPENDENCIES:
   - StoryboardKit (from `../`)
@@ -12,6 +12,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   StoryboardKit: 14608442aa5d5b14d81325499469ef90c8000a39
-  SWXMLHash: 9e6bd7db2e8275eaf3d2082265623d6e749e169d
+  SWXMLHash: 7257a358b3ab2f7a209e0b4e4cf552e8b6df5f0f
 
 COCOAPODS: 0.39.0
