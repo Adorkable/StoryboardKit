@@ -1,0 +1,11 @@
+disabled_rules:
+ - trailing_whitespace
+ - colon
+ - type_body_length
+included:
+ - StoryboardKit
+excluded:
+ - Carthage
+ - Pods
+variable_name_min_length:
+ - 2

@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3C61036B1C23CDF800E5570A /* Lint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3C6103751C23CDF800E5570A /* Build configuration list for PBXAggregateTarget "Lint" */;
+			buildPhases = (
+				3C6103771C23CE0800E5570A /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Lint;
+			productName = Lint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		3C1246311C20ADF200525217 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C1245301C209D6000525217 /* SWXMLHash.framework */; };
 		3C1380511AF7BEBA00E417B2 /* SegueClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */; };
@@ -408,6 +422,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Adorkable;
 				TargetAttributes = {
+					3C61036B1C23CDF800E5570A = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					3CF85BAD1AF6E2F80043AA48 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
@@ -436,6 +453,7 @@
 			targets = (
 				3CF85BAD1AF6E2F80043AA48 /* StoryboardKit */,
 				3CF85BB81AF6E2F90043AA48 /* StoryboardKitTests */,
+				3C61036B1C23CDF800E5570A /* Lint */,
 			);
 		};
 /* End PBXProject section */
@@ -512,6 +530,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3C6103771C23CE0800E5570A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3CF85BA91AF6E2F80043AA48 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -572,6 +606,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3C61036C1C23CDF800E5570A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3C61036D1C23CDF800E5570A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		3CF85BC21AF6E2F90043AA48 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -730,6 +778,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3C6103751C23CDF800E5570A /* Build configuration list for PBXAggregateTarget "Lint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C61036C1C23CDF800E5570A /* Debug */,
+				3C61036D1C23CDF800E5570A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3CF85BA81AF6E2F80043AA48 /* Build configuration list for PBXProject "StoryboardKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
