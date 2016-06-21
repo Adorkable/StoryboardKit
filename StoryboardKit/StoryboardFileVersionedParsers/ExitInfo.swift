@@ -16,7 +16,7 @@ public class ExitInfo: NSObject, Idable {
     /// Storyboard Id
     public let id : String
     
-    // Connecttion
+    // Connection
     public let connection : SceneConnection;
     
     public init(id : String, connection : SceneConnection) {
