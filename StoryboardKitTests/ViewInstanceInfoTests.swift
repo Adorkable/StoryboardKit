@@ -77,7 +77,7 @@ class ViewInstanceInfoTests: XCTestCase {
     }
     
     func testSubviews() {
-        let equalTo = 4
+        let equalTo = 5
         
         XCTAssertNotNil(self.viewInstanceInfo, "Unable to retrieve ViewInstanceInfo with id \(self.viewInstanceInfoId)")
 

@@ -60,6 +60,9 @@ public class StoryboardInstanceInfo: NSObject {
         /// Placeholder object
         public var placeHolder : AnyObject?
         
+        /// Exit Object
+        public var exit: ExitInfo?
+        
         /**
          Default init
          

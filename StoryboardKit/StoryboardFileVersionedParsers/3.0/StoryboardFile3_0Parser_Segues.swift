@@ -93,7 +93,11 @@ internal extension StoryboardFile3_0Parser {
             } else if let destination = self.applicationInfo.tabBarControllerInstanceWithId(segueParsedInfo.destinationId)
             {
                 segueInfo = SegueInstanceInfo(classInfo: segueParsedInfo.classInfo, id: segueParsedInfo.id, source: segueParsedInfo.source, destination: destination, kind: segueParsedInfo.kind, identifier: segueParsedInfo.identifier)
-            } else
+            } else if let _ = self.applicationInfo.exitWithId(segueParsedInfo.destinationId)
+            {
+                segueInfo = SegueInstanceInfo(classInfo: segueParsedInfo.classInfo, id: segueParsedInfo.id, source: segueParsedInfo.source, destination: Optional<SegueConnection>.None, kind: segueParsedInfo.kind, identifier: segueParsedInfo.identifier)
+            }
+            else
             {
                 self.Log("Error linking pending segues, unable to find destination with id \(segueParsedInfo.destinationId)")
             }

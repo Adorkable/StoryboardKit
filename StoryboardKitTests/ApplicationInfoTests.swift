@@ -80,4 +80,10 @@ class ApplicationInfoTests: XCTestCase {
         let instanceInfo = applicationInfo?.viewInstanceWithId(id)
         XCTAssertNotNil(instanceInfo, "Expected an instanceInfo for id '\(id)'")
     }
+    
+    func testExitInfoWithId() {
+        let id = "LJ5-vW-PYc"
+        let exitInfo = applicationInfo?.exitWithId(id)
+        XCTAssertNotNil(exitInfo, "Expected an instanceInfo for id '\(id)'")
+    }
 }

@@ -48,6 +48,8 @@
 		3CF85BD51AF6E3880043AA48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCE1AF6E3880043AA48 /* Utility.swift */; };
 		3CFB34D21BE457FA00FF3A84 /* CollectionViewClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB34D11BE457FA00FF3A84 /* CollectionViewClassInfo.swift */; };
 		3CFB34D41BE4580900FF3A84 /* CollectionViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB34D31BE4580900FF3A84 /* CollectionViewInstanceInfo.swift */; };
+		B56C5DC71C8B05D600E53536 /* SeguesParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56C5DC61C8B05D600E53536 /* SeguesParserTests.swift */; };
+		B5768F251C88F72B000AEDD1 /* ExitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5768F241C88F72B000AEDD1 /* ExitInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +171,8 @@
 		3CF85BCE1AF6E3880043AA48 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		3CFB34D11BE457FA00FF3A84 /* CollectionViewClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewClassInfo.swift; sourceTree = "<group>"; };
 		3CFB34D31BE4580900FF3A84 /* CollectionViewInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewInstanceInfo.swift; sourceTree = "<group>"; };
+		B56C5DC61C8B05D600E53536 /* SeguesParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeguesParserTests.swift; sourceTree = "<group>"; };
+		B5768F241C88F72B000AEDD1 /* ExitInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExitInfo.swift; path = StoryboardFileVersionedParsers/ExitInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +296,7 @@
 				3CF85BCA1AF6E3880043AA48 /* ApplicationInfo.swift */,
 				3CF85BCC1AF6E3880043AA48 /* StoryboardFileParser.swift */,
 				3C3DF3971B1B189900F1BBC0 /* StoryboardFileVersionedParsers */,
+				B5768F241C88F72B000AEDD1 /* ExitInfo.swift */,
 				3CF85BCD1AF6E3880043AA48 /* StoryboardInstanceInfo.swift */,
 				3C1380501AF7BEBA00E417B2 /* SegueClassInfo.swift */,
 				3CF85BCB1AF6E3880043AA48 /* SegueInstanceInfo.swift */,
@@ -326,6 +331,7 @@
 				3C30CAD11B42043D000CC56D /* ClassInfoTests.swift */,
 				3C30CAE01B432019000CC56D /* ViewInstanceInfoTests.swift */,
 				3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */,
+				B56C5DC61C8B05D600E53536 /* SeguesParserTests.swift */,
 			);
 			path = StoryboardKitTests;
 			sourceTree = "<group>";
@@ -544,6 +550,7 @@
 				3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */,
 				3C30CAC01B418ADE000CC56D /* ViewControllerInstanceInfo.swift in Sources */,
 				3CF85BD21AF6E3880043AA48 /* SegueInstanceInfo.swift in Sources */,
+				B5768F251C88F72B000AEDD1 /* ExitInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +564,7 @@
 				3CF85BC11AF6E2F90043AA48 /* StoryboardInfoTests.swift in Sources */,
 				3C30CAE11B432019000CC56D /* ViewInstanceInfoTests.swift in Sources */,
 				3C30CAD21B42043D000CC56D /* ClassInfoTests.swift in Sources */,
+				B56C5DC71C8B05D600E53536 /* SeguesParserTests.swift in Sources */,
 				3C30CACA1B41C924000CC56D /* StoryboardInstanceInfoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
