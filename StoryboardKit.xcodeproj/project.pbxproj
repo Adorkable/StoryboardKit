@@ -33,8 +33,6 @@
 		3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */; };
 		3C3E0F071BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E0F061BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift */; };
 		3C3E0F091BD061BA001EF9B5 /* TabBarControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E0F081BD061BA001EF9B5 /* TabBarControllerClassInfo.swift */; };
-		3C4973661D197499007381B7 /* report.html in Resources */ = {isa = PBXBuildFile; fileRef = 3C4973641D197499007381B7 /* report.html */; };
-		3C4973671D197499007381B7 /* report.junit in Resources */ = {isa = PBXBuildFile; fileRef = 3C4973651D197499007381B7 /* report.junit */; };
 		3CC70BE11B8E31ED002C4437 /* TableViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */; };
 		3CC70BE31B8E351D002C4437 /* TableViewClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */; };
 		3CC70BE51B8E44D2002C4437 /* TableViewInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */; };
@@ -50,11 +48,6 @@
 		3CF85BD51AF6E3880043AA48 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF85BCE1AF6E3880043AA48 /* Utility.swift */; };
 		3CFB34D21BE457FA00FF3A84 /* CollectionViewClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB34D11BE457FA00FF3A84 /* CollectionViewClassInfo.swift */; };
 		3CFB34D41BE4580900FF3A84 /* CollectionViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB34D31BE4580900FF3A84 /* CollectionViewInstanceInfo.swift */; };
-		3CFED95C1C209AA40083120E /* .env in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9521C209AA40083120E /* .env */; };
-		3CFED95D1C209AA40083120E /* .env.default in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9531C209AA40083120E /* .env.default */; };
-		3CFED95E1C209AA40083120E /* .env.deploy in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9541C209AA40083120E /* .env.deploy */; };
-		3CFED9601C209AA40083120E /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9571C209AA40083120E /* Fastfile */; };
-		3CFED9611C209AA40083120E /* report.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9581C209AA40083120E /* report.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -549,14 +542,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CFED95E1C209AA40083120E /* .env.deploy in Resources */,
-				3CFED9601C209AA40083120E /* Fastfile in Resources */,
-				3C4973661D197499007381B7 /* report.html in Resources */,
-				3CFED95C1C209AA40083120E /* .env in Resources */,
 				3CF3D35F1B3B089700811E8A /* LICENSE.md in Resources */,
-				3C4973671D197499007381B7 /* report.junit in Resources */,
-				3CFED9611C209AA40083120E /* report.xml in Resources */,
-				3CFED95D1C209AA40083120E /* .env.default in Resources */,
 				3CF3D3601B3B089700811E8A /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
