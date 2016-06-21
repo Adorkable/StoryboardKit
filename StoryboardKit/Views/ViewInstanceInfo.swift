@@ -64,7 +64,7 @@ public class ViewInstanceInfo: NSObject {
 }
 
 
-extension ViewInstanceInfo : CustomDebugStringConvertible {
+extension ViewInstanceInfo /*: CustomDebugStringConvertible*/ {
     
     /// Debug Description
     override public var debugDescription : String {

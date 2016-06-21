@@ -39,7 +39,7 @@ public class ClassInfo: NSObject {
     }
 }
 
-extension ClassInfo : CustomDebugStringConvertible {
+extension ClassInfo /*: CustomDebugStringConvertible*/ {
     
     /// Debug Description
     public override var debugDescription: String {

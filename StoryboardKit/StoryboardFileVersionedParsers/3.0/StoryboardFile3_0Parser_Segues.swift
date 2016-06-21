@@ -13,7 +13,7 @@ import SWXMLHash
 internal extension StoryboardFile3_0Parser {
     // MARK: Segues
     
-    internal class SegueInstanceParseInfo : NSObject, CustomDebugStringConvertible {
+    internal class SegueInstanceParseInfo : NSObject/*, CustomDebugStringConvertible*/ {
         internal let classInfo : SegueClassInfo
         internal let id : String
         internal var source : SegueConnection
