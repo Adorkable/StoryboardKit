@@ -35,20 +35,16 @@ internal extension StoryboardFile3_0Parser {
                     {
                         // TODO: seperate out VC, TVC, CVC?
                         self.parseViewController(object, sceneInfo: sceneInfo)
-                    }
-                    else if sceneObjectElement.name == "navigationController"
+                    } else if sceneObjectElement.name == "navigationController"
                     {
                         self.parseNavigationController(object, sceneInfo: sceneInfo)
-                    }
-                    else if sceneObjectElement.name == "tabBarController"
+                    } else if sceneObjectElement.name == "tabBarController"
                     {
                         self.parseTabBarController(object, sceneInfo: sceneInfo)
-                    }
-                    else if sceneObjectElement.name == "exit"
+                    } else if sceneObjectElement.name == "exit"
                     {
                         self.parseExit(object, sceneInfo: sceneInfo)
-                    }
-                    else
+                    } else
                     {
                         // TODO: placeholder
                         self.Log("Skipping unsupported scene object \(sceneObjectElement.name)")
