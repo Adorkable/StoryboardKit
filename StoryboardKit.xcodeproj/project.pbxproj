@@ -179,7 +179,7 @@
 		3CFED9521C209AA40083120E /* .env */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .env; sourceTree = "<group>"; };
 		3CFED9531C209AA40083120E /* .env.default */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .env.default; sourceTree = "<group>"; };
 		3CFED9541C209AA40083120E /* .env.deploy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .env.deploy; sourceTree = "<group>"; };
-		3CFED9571C209AA40083120E /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fastfile; sourceTree = "<group>"; };
+		3CFED9571C209AA40083120E /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Fastfile; sourceTree = "<group>"; };
 		3CFED9581C209AA40083120E /* report.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
 		3CFED95A1C209AA40083120E /* report.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = report.html; sourceTree = "<group>"; };
 		3CFED95B1C209AA40083120E /* report.junit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = report.junit; sourceTree = "<group>"; };
