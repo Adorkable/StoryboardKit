@@ -33,6 +33,8 @@
 		3C3DF39F1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */; };
 		3C3E0F071BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E0F061BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift */; };
 		3C3E0F091BD061BA001EF9B5 /* TabBarControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E0F081BD061BA001EF9B5 /* TabBarControllerClassInfo.swift */; };
+		3C4973661D197499007381B7 /* report.html in Resources */ = {isa = PBXBuildFile; fileRef = 3C4973641D197499007381B7 /* report.html */; };
+		3C4973671D197499007381B7 /* report.junit in Resources */ = {isa = PBXBuildFile; fileRef = 3C4973651D197499007381B7 /* report.junit */; };
 		3CC70BE11B8E31ED002C4437 /* TableViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */; };
 		3CC70BE31B8E351D002C4437 /* TableViewClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */; };
 		3CC70BE51B8E44D2002C4437 /* TableViewInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */; };
@@ -53,8 +55,6 @@
 		3CFED95E1C209AA40083120E /* .env.deploy in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9541C209AA40083120E /* .env.deploy */; };
 		3CFED9601C209AA40083120E /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9571C209AA40083120E /* Fastfile */; };
 		3CFED9611C209AA40083120E /* report.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED9581C209AA40083120E /* report.xml */; };
-		3CFED9621C209AA40083120E /* report.html in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED95A1C209AA40083120E /* report.html */; };
-		3CFED9631C209AA40083120E /* report.junit in Resources */ = {isa = PBXBuildFile; fileRef = 3CFED95B1C209AA40083120E /* report.junit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +156,11 @@
 		3C3DF39E1B1C99B200F1BBC0 /* NavigationItemInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3E0F061BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerInstanceInfo.swift; sourceTree = "<group>"; };
 		3C3E0F081BD061BA001EF9B5 /* TabBarControllerClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarControllerClassInfo.swift; sourceTree = "<group>"; };
+		3C4973641D197499007381B7 /* report.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = report.html; sourceTree = "<group>"; };
+		3C4973651D197499007381B7 /* report.junit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = report.junit; sourceTree = "<group>"; };
+		3C4973681D1975B9007381B7 /* Scanfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Scanfile; sourceTree = "<group>"; };
+		3C4973691D197747007381B7 /* .env.cocoapod */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env.cocoapod; sourceTree = "<group>"; };
+		3C49736A1D197747007381B7 /* .env.gitsubmodules */ = {isa = PBXFileReference; lastKnownFileType = text; path = .env.gitsubmodules; sourceTree = "<group>"; };
 		3C8BD2FB1BAD274800E0AF8A /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInstanceInfo.swift; sourceTree = "<group>"; };
 		3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewClassInfo.swift; sourceTree = "<group>"; };
@@ -181,8 +186,6 @@
 		3CFED9541C209AA40083120E /* .env.deploy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .env.deploy; sourceTree = "<group>"; };
 		3CFED9571C209AA40083120E /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Fastfile; sourceTree = "<group>"; };
 		3CFED9581C209AA40083120E /* report.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = report.xml; sourceTree = "<group>"; };
-		3CFED95A1C209AA40083120E /* report.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = report.html; sourceTree = "<group>"; };
-		3CFED95B1C209AA40083120E /* report.junit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = report.junit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,9 +270,20 @@
 			path = StoryboardFileVersionedParsers;
 			sourceTree = "<group>";
 		};
+		3C4973631D197499007381B7 /* test_output */ = {
+			isa = PBXGroup;
+			children = (
+				3C4973641D197499007381B7 /* report.html */,
+				3C4973651D197499007381B7 /* report.junit */,
+			);
+			name = test_output;
+			path = fastlane/test_output;
+			sourceTree = "<group>";
+		};
 		3CF3D35A1B3B087300811E8A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3C4973631D197499007381B7 /* test_output */,
 				3CFED9511C209AA40083120E /* fastlane */,
 				3C8BD2FB1BAD274800E0AF8A /* .travis.yml */,
 				3CF3D35B1B3B088800811E8A /* Gemfile */,
@@ -357,12 +371,14 @@
 			isa = PBXGroup;
 			children = (
 				3CFED9521C209AA40083120E /* .env */,
+				3C4973691D197747007381B7 /* .env.cocoapod */,
 				3CFED9531C209AA40083120E /* .env.default */,
 				3CFED9541C209AA40083120E /* .env.deploy */,
+				3C49736A1D197747007381B7 /* .env.gitsubmodules */,
 				3CFED9561C209AA40083120E /* actions */,
 				3CFED9571C209AA40083120E /* Fastfile */,
 				3CFED9581C209AA40083120E /* report.xml */,
-				3CFED9591C209AA40083120E /* test-output */,
+				3C4973681D1975B9007381B7 /* Scanfile */,
 			);
 			path = fastlane;
 			sourceTree = "<group>";
@@ -372,15 +388,6 @@
 			children = (
 			);
 			path = actions;
-			sourceTree = "<group>";
-		};
-		3CFED9591C209AA40083120E /* test-output */ = {
-			isa = PBXGroup;
-			children = (
-				3CFED95A1C209AA40083120E /* report.html */,
-				3CFED95B1C209AA40083120E /* report.junit */,
-			);
-			path = "test-output";
 			sourceTree = "<group>";
 		};
 		6E55B1768022A88AC79E6CEC /* Frameworks */ = {
@@ -544,12 +551,12 @@
 			files = (
 				3CFED95E1C209AA40083120E /* .env.deploy in Resources */,
 				3CFED9601C209AA40083120E /* Fastfile in Resources */,
-				3CFED9631C209AA40083120E /* report.junit in Resources */,
+				3C4973661D197499007381B7 /* report.html in Resources */,
 				3CFED95C1C209AA40083120E /* .env in Resources */,
 				3CF3D35F1B3B089700811E8A /* LICENSE.md in Resources */,
+				3C4973671D197499007381B7 /* report.junit in Resources */,
 				3CFED9611C209AA40083120E /* report.xml in Resources */,
 				3CFED95D1C209AA40083120E /* .env.default in Resources */,
-				3CFED9621C209AA40083120E /* report.html in Resources */,
 				3CF3D3601B3B089700811E8A /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -761,6 +768,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.adorkable.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = StoryboardKitTests;
+				PROVISIONING_PROFILE = "2ef0a679-90aa-4306-a2d9-3daa63826682";
 			};
 			name = Debug;
 		};
@@ -776,6 +784,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cc.adorkable.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = StoryboardKitTests;
+				PROVISIONING_PROFILE = "2ef0a679-90aa-4306-a2d9-3daa63826682";
 			};
 			name = Release;
 		};
