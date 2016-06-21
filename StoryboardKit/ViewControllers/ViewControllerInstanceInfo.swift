@@ -67,7 +67,7 @@ public class ViewControllerInstanceInfo: NSObject, Idable {
     }
 }
 
-extension ViewControllerInstanceInfo : CustomDebugStringConvertible {
+extension ViewControllerInstanceInfo /*: CustomDebugStringConvertible*/ {
     /// Debug Description
     override public var debugDescription : String {
         return super.debugDescription + "Id: \(self.id)\(self.classInfo.debugDescription)"

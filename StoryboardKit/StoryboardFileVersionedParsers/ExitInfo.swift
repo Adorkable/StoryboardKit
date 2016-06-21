@@ -31,7 +31,7 @@ public class ExitInfo: NSObject, Idable {
     }
 }
 
-extension ExitInfo : CustomDebugStringConvertible {
+extension ExitInfo /*: CustomDebugStringConvertible*/ {
     
     /// Debug Description
     override public var debugDescription : String {

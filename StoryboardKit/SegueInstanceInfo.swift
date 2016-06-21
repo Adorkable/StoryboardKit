@@ -75,7 +75,7 @@ public class SegueInstanceInfo: NSObject, Idable {
     }
 }
 
-extension SegueInstanceInfo : CustomDebugStringConvertible {
+extension SegueInstanceInfo /*: CustomDebugStringConvertible*/ {
     
     /// Debug Description
     override public var debugDescription : String {
