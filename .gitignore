@@ -37,3 +37,4 @@ docs/
 # Fastlane
 fastlane/report.xml
 fastlane/test-output
+fastlane/test_output
