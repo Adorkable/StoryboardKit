@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'CocoapodTests' do
+  pod 'StoryboardKit', :path => '../'
+end
