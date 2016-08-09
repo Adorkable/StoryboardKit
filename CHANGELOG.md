@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.5.7](https://github.com/Adorkable/StoryboardKit/tree/0.5.7) (2016-08-09)
+[Full Changelog](https://github.com/Adorkable/StoryboardKit/compare/0.5.6...0.5.7)
+
 ## [0.5.6](https://github.com/Adorkable/StoryboardKit/tree/0.5.6) (2015-12-15)
 [Full Changelog](https://github.com/Adorkable/StoryboardKit/compare/0.5.5...0.5.6)
 
