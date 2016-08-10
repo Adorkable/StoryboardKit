@@ -22,7 +22,7 @@ internal extension StoryboardFile3_0Parser {
     
     internal func parseIndividualScene(scene : XMLIndexer, storyboardInstanceParseInfo : StoryboardInstanceParseInfo) {
         
-        if let element = scene.element, let sceneId = element.attributes["sceneID"]
+        if let element = scene.element, let sceneId = element.allAttributes["sceneID"]?.text
         {
             let sceneInfo = StoryboardInstanceInfo.SceneInfo(sceneId: sceneId)
             storyboardInstanceParseInfo.add(scene: sceneInfo)

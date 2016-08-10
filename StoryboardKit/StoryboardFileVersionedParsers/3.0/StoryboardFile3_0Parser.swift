@@ -16,7 +16,7 @@ internal class StoryboardFile3_0Parser: NSObject, StoryboardFileVersionedParser 
     static func supports(root: XMLIndexer) -> Bool {
         var result : Bool
         
-        if let version = root["document"].element?.attributes["version"]
+        if let version = root["document"].element?.allAttributes["version"]?.text
         {
             if version == "3.0"
             {

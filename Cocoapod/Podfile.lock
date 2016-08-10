@@ -1,7 +1,7 @@
 PODS:
-  - StoryboardKit (0.5.6):
+  - StoryboardKit (0.5.7):
     - SWXMLHash
-  - SWXMLHash (2.0.2)
+  - SWXMLHash (2.5.0)
 
 DEPENDENCIES:
   - StoryboardKit (from `../`)
@@ -11,8 +11,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  StoryboardKit: 14608442aa5d5b14d81325499469ef90c8000a39
-  SWXMLHash: 9e6bd7db2e8275eaf3d2082265623d6e749e169d
+  StoryboardKit: 27ed647e61663d0e548290820a574cd52f437c43
+  SWXMLHash: 04158642e0c90c52274db7914032edd41bed9a41
 
 PODFILE CHECKSUM: b29a5efaf365d56920c542e37990cb965160bc23
 

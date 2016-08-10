@@ -48,10 +48,10 @@ internal extension StoryboardFile3_0Parser {
         
         if let document = root["document"].element
         {
-            let useAutolayout = document.attributes["useAutolayout"] == "YES"
-            let useTraitCollections = document.attributes["useTraitCollections"] == "YES"
+            let useAutolayout = document.allAttributes["useAutolayout"]?.text == "YES"
+            let useTraitCollections = document.allAttributes["useTraitCollections"]?.text == "YES"
             
-            let initialViewControllerId = document.attributes["initialViewController"]
+            let initialViewControllerId = document.allAttributes["initialViewController"]?.text
             
             
             let storyboardInstance = StoryboardInstanceParseInfo(useAutolayout: useAutolayout, useTraitCollections: useTraitCollections, initialViewControllerId: initialViewControllerId)

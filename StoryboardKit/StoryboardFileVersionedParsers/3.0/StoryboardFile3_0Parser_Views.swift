@@ -95,11 +95,11 @@ internal extension StoryboardFile3_0Parser {
         var result : ViewInstanceParseInfo?
         
         if let element = view.element,
-            let id = element.attributes["id"]
+            let id = element.allAttributes["id"]?.text
         {
             // TODO: support all View classes
             var useClass : String
-            if let customClass = element.attributes["customClass"]
+            if let customClass = element.allAttributes["customClass"]?.text
             {
                 useClass = customClass
             } else
@@ -128,12 +128,12 @@ internal extension StoryboardFile3_0Parser {
             {
                 if let subelement = subnode.element
                 {
-                    if subelement.name == "rect" && subelement.attributes["key"] == "frame"
+                    if subelement.name == "rect" && subelement.allAttributes["key"]?.text == "frame"
                     {
                         
                         frame = self.createRect(subnode)
                         
-                    } else if subelement.name == "autoresizingMask" && subelement.attributes["key"] == "autoresizingMask"
+                    } else if subelement.name == "autoresizingMask" && subelement.allAttributes["key"]?.text == "autoresizingMask"
                     {
                         
                         self.getAutoresizingMaskValues(subnode, widthSizable: &autoResizingMaskWidthSizable, heightSizable: &autoResizingMaskHeightSizable)
@@ -145,7 +145,7 @@ internal extension StoryboardFile3_0Parser {
                     } else if subelement.name == "color"
                     {
                         let color = self.createColor(subnode)
-                        if subelement.attributes["key"] == "backgroundColor"
+                        if subelement.allAttributes["key"]?.text == "backgroundColor"
                         {
                             backgroundColor = color
                         }
@@ -178,10 +178,10 @@ internal extension StoryboardFile3_0Parser {
         var result : CGRect?
         
         if let element = rect.element,
-            let x = (element.attributes["x"] as NSString?)?.doubleValue,
-            let y = (element.attributes["y"] as NSString?)?.doubleValue,
-            let width = (element.attributes["width"] as NSString?)?.doubleValue,
-            let height = (element.attributes["height"] as NSString?)?.doubleValue
+            let x = (element.allAttributes["x"]?.text as NSString?)?.doubleValue,
+            let y = (element.allAttributes["y"]?.text as NSString?)?.doubleValue,
+            let width = (element.allAttributes["width"]?.text as NSString?)?.doubleValue,
+            let height = (element.allAttributes["height"]?.text as NSString?)?.doubleValue
         {
             result = CGRect(x: CGFloat(x), y: CGFloat(y), width: CGFloat(width), height: CGFloat(height))
         }
@@ -193,8 +193,8 @@ internal extension StoryboardFile3_0Parser {
         
         if let element = autoresizingMask.element
         {
-            widthSizable = element.attributes["widthSizable"] == "YES"
-            heightSizable = element.attributes["heightSizable"] == "YES"
+            widthSizable = element.allAttributes["widthSizable"]?.text == "YES"
+            heightSizable = element.allAttributes["heightSizable"]?.text == "YES"
         }
     }
     
@@ -203,12 +203,12 @@ internal extension StoryboardFile3_0Parser {
         
         if let element = color.element
         {
-            if let colorSpace = element.attributes["colorSpace"]
+            if let colorSpace = element.allAttributes["colorSpace"]?.text
             {
                 if colorSpace == "calibratedWhite"
                 {
-                    if let white = (element.attributes["white"] as NSString?)?.doubleValue,
-                        let alpha = (element.attributes["alpha"] as NSString?)?.doubleValue
+                    if let white = (element.allAttributes["white"]?.text as NSString?)?.doubleValue,
+                        let alpha = (element.allAttributes["alpha"]?.text as NSString?)?.doubleValue
                     {
                         result = NSColor(calibratedWhite: CGFloat(white), alpha: CGFloat(alpha))
                     } else
@@ -217,10 +217,10 @@ internal extension StoryboardFile3_0Parser {
                     }
                 } else if colorSpace == "calibratedRGB"
                 {
-                    if let red = (element.attributes["red"] as NSString?)?.doubleValue,
-                        let green = (element.attributes["green"] as NSString?)?.doubleValue,
-                        let blue = (element.attributes["green"] as NSString?)?.doubleValue,
-                        let alpha = (element.attributes["alpha"] as NSString?)?.doubleValue
+                    if let red = (element.allAttributes["red"]?.text as NSString?)?.doubleValue,
+                        let green = (element.allAttributes["green"]?.text as NSString?)?.doubleValue,
+                        let blue = (element.allAttributes["green"]?.text as NSString?)?.doubleValue,
+                        let alpha = (element.allAttributes["alpha"]?.text as NSString?)?.doubleValue
                     {
                         result = NSColor(calibratedRed: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(alpha) )
                     } else
@@ -228,14 +228,14 @@ internal extension StoryboardFile3_0Parser {
                         self.Log("Error: Unable to find expected members of colorspace \(colorSpace)")
                     }
                 } else if colorSpace == "custom",
-                        let customColorSpace = element.attributes["customColorSpace"]
+                        let customColorSpace = element.allAttributes["customColorSpace"]?.text
                 {
                     if customColorSpace == "genericCMYKColorSpace",
-                        let cyan = (element.attributes["cyan"] as NSString?)?.doubleValue,
-                        let magenta = (element.attributes["magenta"] as NSString?)?.doubleValue,
-                        let yellow = (element.attributes["yellow"] as NSString?)?.doubleValue,
-                        let black = (element.attributes["black"] as NSString?)?.doubleValue,
-                        let alpha = (element.attributes["alpha"] as NSString?)?.doubleValue
+                        let cyan = (element.allAttributes["cyan"]?.text as NSString?)?.doubleValue,
+                        let magenta = (element.allAttributes["magenta"]?.text as NSString?)?.doubleValue,
+                        let yellow = (element.allAttributes["yellow"]?.text as NSString?)?.doubleValue,
+                        let black = (element.allAttributes["black"]?.text as NSString?)?.doubleValue,
+                        let alpha = (element.allAttributes["alpha"]?.text as NSString?)?.doubleValue
                     {
                         // TODO: what's "device" NSColor's difference?
                         result = NSColor(deviceCyan: CGFloat(cyan), magenta: CGFloat(magenta), yellow: CGFloat(yellow), black: CGFloat(black), alpha: CGFloat(alpha) )
@@ -248,7 +248,7 @@ internal extension StoryboardFile3_0Parser {
                 {
                     self.Log("Error: Unknown colorspace \(colorSpace)")
                 }
-            } else if let _ = element.attributes["cocoaTouchSystemColor"]
+            } else if let _ = element.allAttributes["cocoaTouchSystemColor"]?.text
             {
                 // cocoaTouchSystemColor="darkTextColor"
             } else
@@ -327,9 +327,9 @@ internal extension StoryboardFile3_0Parser {
         var result : TableViewInstanceInfo.TableViewCellPrototypeInfo?
         
         if let element = tableViewCell.element,
-            let id = element.attributes["id"]
+            let id = element.allAttributes["id"]?.text
         {
-            let reuseIdentifier = element.attributes["reuseIdentifier"]
+            let reuseIdentifier = element.allAttributes["reuseIdentifier"]?.text
             result = TableViewInstanceInfo.TableViewCellPrototypeInfo(id: id, reuseIdentifier: reuseIdentifier)
         }
         
@@ -416,9 +416,9 @@ internal extension StoryboardFile3_0Parser {
         var result : CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo?
         
         if let element = collectionViewCell.element,
-            let id = element.attributes["id"]
+            let id = element.allAttributes["id"]?.text
         {
-            let reuseIdentifier = element.attributes["reuseIdentifier"]
+            let reuseIdentifier = element.allAttributes["reuseIdentifier"]?.text
             result = CollectionViewInstanceInfo.CollectionViewCellPrototypeInfo(id: id, reuseIdentifier: reuseIdentifier)
         }
         

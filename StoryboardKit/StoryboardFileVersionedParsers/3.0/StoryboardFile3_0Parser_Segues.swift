@@ -49,11 +49,11 @@ internal extension StoryboardFile3_0Parser {
         var result : SegueInstanceParseInfo?
         
         if let element = connection.element,
-            let id = element.attributes["id"],
-            let destinationId = element.attributes["destination"]
+            let id = element.allAttributes["id"]?.text,
+            let destinationId = element.allAttributes["destination"]?.text
         {
             var useClass : String
-            if let customClass = element.attributes["customClass"]
+            if let customClass = element.allAttributes["customClass"]?.text
             {
                 useClass = customClass
             } else
@@ -68,8 +68,8 @@ internal extension StoryboardFile3_0Parser {
                 self.applicationInfo.add(segueClass: segueClass!)
             }
             
-            let kind = element.attributes["kind"]
-            let identifier = element.attributes["identifier"]
+            let kind = element.allAttributes["kind"]?.text
+            let identifier = element.allAttributes["identifier"]?.text
             
             result = SegueInstanceParseInfo(classInfo: segueClass!, id: id, source: StoryboardKit_WeakWrapper(source), destinationId: destinationId, kind: kind, identifier: identifier)
         }

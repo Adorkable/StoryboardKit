@@ -16,7 +16,7 @@ internal extension StoryboardFile3_0Parser {
     internal class func useClass(element : XMLElement, classInfo : ViewControllerClassInfo.Type) -> String
     {
         var result : String
-        if let customClass = element.attributes["customClass"]
+        if let customClass = element.allAttributes["customClass"]?.text
         {
             result = customClass
         } else
@@ -44,7 +44,7 @@ internal extension StoryboardFile3_0Parser {
     
     internal func parseViewController(viewController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
         if let element = viewController.element,
-            let id = element.attributes["id"]
+            let id = element.allAttributes["id"]?.text
         {
             let useClass = StoryboardFile3_0Parser.useClass(element, classInfo: ViewControllerClassInfo.self)
             
@@ -55,7 +55,7 @@ internal extension StoryboardFile3_0Parser {
                 self.applicationInfo.add(viewControllerClass: viewControllerClassInfo!)
             }
             
-            let storyboardIdentifier = element.attributes["storyboardIdentifier"]
+            let storyboardIdentifier = element.allAttributes["storyboardIdentifier"]?.text
             
             var view : ViewInstanceInfo? // Should be using view.key attribute?
             
@@ -91,7 +91,7 @@ internal extension StoryboardFile3_0Parser {
     // MARK: Navigation Controller
     
     internal func parseNavigationController(navigationController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
-        if let element = navigationController.element, let id = element.attributes["id"]
+        if let element = navigationController.element, let id = element.allAttributes["id"]?.text
         {
             let useClass = StoryboardFile3_0Parser.useClass(element, classInfo: NavigationControllerClassInfo.self)
             
@@ -103,8 +103,8 @@ internal extension StoryboardFile3_0Parser {
                 self.applicationInfo.add(viewControllerClass: navigationControllerClassInfo!)
             }
             
-            let storyboardIdentifier = element.attributes["storyboardIdentifier"]
-            let sceneMemberId = element.attributes["sceneMemberID"]
+            let storyboardIdentifier = element.allAttributes["storyboardIdentifier"]?.text
+            let sceneMemberId = element.allAttributes["sceneMemberID"]?.text
             
             let navigationControllerInstanceInfo = NavigationControllerInstanceInfo(classInfo: navigationControllerClassInfo!, id: id, storyboardIdentifier: storyboardIdentifier, sceneMemberId: sceneMemberId)
             
@@ -125,13 +125,13 @@ internal extension StoryboardFile3_0Parser {
     
     internal func parseTabBarController(viewController : XMLIndexer, sceneInfo : StoryboardInstanceInfo.SceneInfo) {
         if let element = viewController.element,
-            let id = element.attributes["id"]
+            let id = element.allAttributes["id"]?.text
         {
             let useClass = StoryboardFile3_0Parser.useClass(element, classInfo: TabBarControllerClassInfo.self)
             
             let classInfo = self.findOrCreateViewControllerClassInfo(useClass, classInfo: TabBarControllerClassInfo.self)
             
-            let storyboardIdentifier = element.attributes["storyboardIdentifier"]
+            let storyboardIdentifier = element.allAttributes["storyboardIdentifier"]?.text
             
             let view = self.createView(viewController["view"]) // Should be using view.key attribute?
             
@@ -164,8 +164,8 @@ internal extension StoryboardFile3_0Parser {
     internal func parseLayoutGuide(layoutGuide : XMLIndexer, source : ViewControllerInstanceInfo) {
         
         if let element = layoutGuide.element,
-            let id = element.attributes["id"],
-            let type = element.attributes["type"]
+            let id = element.allAttributes["id"]?.text,
+            let type = element.allAttributes["type"]?.text
         {
             let layoutGuide = ViewControllerLayoutGuideInstanceInfo(id: id, type: type )
             source.add(layoutGuide: layoutGuide)
@@ -182,9 +182,9 @@ internal extension StoryboardFile3_0Parser {
         switch navigationItem
         {
         case .Element(let element):
-            if let id = element.attributes["id"],
-                let navigationItemKey = element.attributes["key"],
-                let title = element.attributes["title"]
+            if let id = element.allAttributes["id"]?.text,
+                let navigationItemKey = element.allAttributes["key"]?.text,
+                let title = element.allAttributes["title"]?.text
             {
                 let navigationItemInstance = NavigationItemInstanceInfo(id: id, navigationItemKey: navigationItemKey, title: title)
                 source.add(navigationItem: navigationItemInstance)

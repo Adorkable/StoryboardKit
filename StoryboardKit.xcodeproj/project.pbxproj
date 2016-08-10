@@ -34,7 +34,6 @@
 		3C3E0F071BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E0F061BD06177001EF9B5 /* TabBarControllerInstanceInfo.swift */; };
 		3C3E0F091BD061BA001EF9B5 /* TabBarControllerClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E0F081BD061BA001EF9B5 /* TabBarControllerClassInfo.swift */; };
 		3C9353171D5A5F5500E0C0CC /* StoryboardKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3C9353151D5A5F5500E0C0CC /* StoryboardKit.podspec */; };
-		3C9353181D5A5F5500E0C0CC /* CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 3C9353161D5A5F5500E0C0CC /* CHANGELOG.md */; };
 		3CC70BE11B8E31ED002C4437 /* TableViewInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE01B8E31ED002C4437 /* TableViewInstanceInfo.swift */; };
 		3CC70BE31B8E351D002C4437 /* TableViewClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE21B8E351D002C4437 /* TableViewClassInfo.swift */; };
 		3CC70BE51B8E44D2002C4437 /* TableViewInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC70BE41B8E44D2002C4437 /* TableViewInstanceInfoTests.swift */; };
@@ -588,7 +587,6 @@
 				3C30CADD1B4318FD000CC56D /* StoryboardFile3_0Parser_Storyboard.swift in Sources */,
 				3CF85BD31AF6E3880043AA48 /* StoryboardFileParser.swift in Sources */,
 				3C3DF39D1B1C97AC00F1BBC0 /* ViewControllerLayoutGuideInstanceInfo.swift in Sources */,
-				3C9353181D5A5F5500E0C0CC /* CHANGELOG.md in Sources */,
 				3C30CAD71B431840000CC56D /* StoryboardFile3_0Parser_ViewControllers.swift in Sources */,
 				3CFB34D41BE4580900FF3A84 /* CollectionViewInstanceInfo.swift in Sources */,
 				3C30CAD01B4201FA000CC56D /* ClassInfo.swift in Sources */,
