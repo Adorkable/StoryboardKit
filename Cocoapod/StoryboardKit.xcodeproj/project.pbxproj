@@ -10,7 +10,6 @@
 		3C1245831C209F5400525217 /* ApplicationInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C12455C1C209E7E00525217 /* ApplicationInfoTests.swift */; };
 		3C1245841C209F5400525217 /* ClassInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C12455D1C209E7E00525217 /* ClassInfoTests.swift */; };
 		3C1245861C209F5400525217 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C12455F1C209E7E00525217 /* Images.xcassets */; };
-		3C1245871C209F5400525217 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C1245601C209E7E00525217 /* Info.plist */; };
 		3C1245881C209F5400525217 /* StoryboardFileParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1245611C209E7E00525217 /* StoryboardFileParserTests.swift */; };
 		3C1245891C209F5400525217 /* StoryboardInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1245621C209E7E00525217 /* StoryboardInfoTests.swift */; };
 		3C12458A1C209F5400525217 /* StoryboardInstanceInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1245631C209E7E00525217 /* StoryboardInstanceInfoTests.swift */; };
@@ -157,7 +156,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Adorkable;
 				TargetAttributes = {
 					3C1245791C209F1F00525217 = {
@@ -187,7 +186,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C1245871C209F5400525217 /* Info.plist in Resources */,
 				3C1245861C209F5400525217 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
