@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "StoryboardKit"
-  s.version      = "0.5.7"
+  s.version      = "0.5.8"
   s.summary      = "All you would want to know about yer Storyboards"
 
   s.homepage     = "https://github.com/Adorkable/StoryboardKit.git"
