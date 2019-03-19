@@ -1,5 +1,5 @@
 PODS:
-  - StoryboardKit (0.5.8):
+  - StoryboardKit (0.5.9):
     - SWXMLHash
   - SWXMLHash (2.5.0)
 
