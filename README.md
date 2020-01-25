@@ -5,6 +5,7 @@ StoryboardKit
 [![Pod Platform](http://img.shields.io/cocoapods/p/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/StoryboardKit/)
 [![Pod License](http://img.shields.io/cocoapods/l/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/StoryboardKit/)
 [![Pod Version](http://img.shields.io/cocoapods/v/StoryboardKit.svg?style=flat)](http://cocoadocs.org/docsets/StoryboardKit/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FAdorkable%2FStoryboardKit.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FAdorkable%2FStoryboardKit?ref=badge_shield)
 
 **StoryboardKit** a simple OSX library that tells you all you would want to know about storyboard files.
 
@@ -68,3 +69,7 @@ Contributing
 If you have any ideas, suggestions or bugs to report please [create an issue](https://github.com/Adorkable/StoryboardKit/issues/new) labeled *feature* or *bug* (check to see if the issue exists first please!). 
 
 Or submit a pull request, there is a lot more work to be done!
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FAdorkable%2FStoryboardKit.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FAdorkable%2FStoryboardKit?ref=badge_large)
